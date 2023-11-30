@@ -6,6 +6,7 @@
     --border-color: #fbdfe4;
     --bg-color: #fff;
 }
+
 @font-face {
     font-family: "NanumSquareRound";
     font-weight: 400;
@@ -36,8 +37,13 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    font-size: 1vw;
+}
+
 body {
     font-family: "NanumSquareRound";
+    font-size: 16px;
 }
 
 a {
@@ -49,12 +55,22 @@ li {
     list-style: none;
 }
 
+.ir {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
 header {
     position: fixed;
     width: 100%;
     padding: 28px 0;
     background-color: var(--sub-color);
-    border-bottom: var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 10;
 }
 
 .navbar {
@@ -81,16 +97,42 @@ header {
 
 .link_li {
     display: flex;
+    gap: 80px;
     font-weight: 700;
     color: var(--main-color);
 }
 
 .link {
-    padding: 0 40px;
+    flex: 1 1 auto;
 }
 
 .login {
     font-size: 13px;
     font-weight: 700;
     color: #eb7ea2;
+}
+
+@media screen and (max-width: 1200px) {
+    header {
+        padding: 28px 36px;
+    }
+
+    .link_li {
+        gap: 60px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 20px 36px;
+    }
+
+    .link_li {
+        gap: 40px;
+        font-size: 14px;
+    }
+
+    .login {
+        font-size: 11px;
+    }
 }

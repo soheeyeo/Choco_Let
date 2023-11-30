@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { categories } from "@/constants/constants";
 
 export default function Header() {
     return (
@@ -10,21 +11,13 @@ export default function Header() {
                     </Link>
                 </h1>
                 <ul className="link_li">
-                    <li className="link">
-                        <Link href="/list/price/1">가격대별</Link>
-                    </li>
-                    <li className="link">
-                        <Link href="/list/country/1">나라별</Link>
-                    </li>
-                    <li className="link">
-                        <Link href="/list/type/1">종류별</Link>
-                    </li>
-                    <li className="link">
-                        <Link href="/list/flavor/1">맛별</Link>
-                    </li>
-                    <li className="link">
-                        <Link href="/test">추천 테스트</Link>
-                    </li>
+                    {categories.map((a) => {
+                        return (
+                            <li className="link">
+                                <Link href={a.link}>{a.category}</Link>
+                            </li>
+                        );
+                    })}
                 </ul>
                 <div className="login">
                     <Link href="/login">로그인</Link>
