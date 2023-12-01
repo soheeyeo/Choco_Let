@@ -1,10 +1,11 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import { categories } from "@/constants/constants";
+import TestBtn from "./TestBtn";
 
 export default function Home() {
     return (
-        <main className={styles.main}>
+        <main>
             <section className={styles.banner_section}>
                 <div className={styles.banner_wrapper}>
                     <div className={styles.banner_img}>
@@ -20,6 +21,7 @@ export default function Home() {
                                 <span>렛</span>과 함께 새로운 맛의 발견을
                                 경험해보세요!
                             </p>
+                            <TestBtn />
                         </div>
                     </div>
                 </div>
