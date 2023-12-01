@@ -3,6 +3,7 @@
     --sub-color: #fff2f6;
     --accent-color: #750a2e;
     --txt-color: #1d1b20;
+    --sub-txt-color: #79767d;
     --border-color: #fbdfe4;
     --bg-color: #fff;
 }
@@ -64,6 +65,20 @@ li {
     overflow: hidden;
 }
 
+button {
+    border: 0;
+    cursor: pointer;
+    font-family: "NanumSquareRound";
+}
+
+main {
+    padding-top: 88px;
+}
+
+input {
+    outline: none;
+}
+
 header {
     position: fixed;
     width: 100%;
@@ -106,10 +121,72 @@ header {
     flex: 1 1 auto;
 }
 
-.login {
-    font-size: 13px;
+.account_li {
+    font-size: 12px;
     font-weight: 700;
     color: #eb7ea2;
+}
+
+.account_li :first-child {
+    position: relative;
+    padding-right: 10px;
+}
+
+.account_li :first-child::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 1px;
+    width: 1px;
+    height: 12px;
+    background-color: var(--border-color);
+}
+
+.account_li :last-child {
+    padding-left: 10px;
+}
+
+.account_section {
+    padding: 16px;
+    margin: 80px auto;
+    max-width: 352px;
+    text-align: center;
+}
+
+.h1_tit {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--sub-txt-color);
+}
+
+.account_form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 48px 0 40px;
+}
+
+.account_input {
+    padding: 15px 16px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 160px;
+    box-sizing: border-box;
+}
+
+.account_input:focus {
+    outline: 1px solid var(--border-color);
+}
+
+.submit_btn {
+    padding: 13px 0;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    background-color: var(--main-color);
+    border-radius: 160px;
 }
 
 @media screen and (max-width: 1200px) {

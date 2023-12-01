@@ -18,8 +18,12 @@ export default function Header() {
                             </li>
                         );
                     })}
+                    <li className="link">
+                        <Link href="/test">추천 테스트</Link>
+                    </li>
                 </ul>
-                <div className="login">
+                <div className="account_li">
+                    <Link href="/join">회원가입</Link>
                     <Link href="/login">로그인</Link>
                 </div>
             </div>

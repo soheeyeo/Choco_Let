@@ -1,0 +1,56 @@
+.login_form {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.join_link_btn {
+    padding: 13px 0;
+    margin: 40px 0 60px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--main-color);
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid var(--main-color);
+    border-radius: 160px;
+}
+
+.social_login_txt {
+    font-size: 14px;
+    color: #eb7ea2;
+}
+
+.social_login_container {
+    margin-top: 20px;
+}
+
+.social_login_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.social_login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social_btn {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-color: transparent;
+}
+
+.kakao_btn {
+    background: no-repeat center/100% url("/assets/kakao.png");
+}
+
+.naver_btn {
+    background: no-repeat center/100% url("/assets/naver.png");
+}
+
+.google_btn {
+    background: no-repeat center/100% url("/assets/google.png");
+}
