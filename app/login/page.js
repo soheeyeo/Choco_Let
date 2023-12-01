@@ -5,9 +5,7 @@ export default function Login() {
     return (
         <main>
             <section className="account_section">
-                <h1 className="h1_tit" styles={styles}>
-                    로그인
-                </h1>
+                <h1 className="h1_tit">로그인</h1>
                 <LoginForm styles={styles} />
                 <div>
                     <button className={styles.join_link_btn}>회원가입</button>
