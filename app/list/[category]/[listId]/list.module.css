@@ -1,0 +1,38 @@
+.list_section {
+    margin: 62px auto;
+    max-width: 1200px;
+}
+
+.nav_li {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    font-weight: 700;
+    color: var(--main-color);
+    background-color: var(--sub-color);
+    border-radius: 50%;
+}
+
+.active {
+    color: #fff;
+    background-color: var(--main-color);
+}
+
+.dropdown {
+    font-size: 13px;
+    color: var(--main-color);
+    text-align: right;
+}
+
+.dropdown_btn {
+    padding: 5px 24px;
+    background-color: transparent;
+    color: var(--main-color);
+}
