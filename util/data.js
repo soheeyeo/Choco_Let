@@ -7,7 +7,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/kinder.webp",
         url: "https://www.lotteon.com/p/product/LM0000080177609",
     },
     {
@@ -18,7 +18,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/kinder_maxi.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=0000009027397",
     },
     {
@@ -29,7 +29,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/kinder_mini.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000055827176",
     },
     {
@@ -40,7 +40,7 @@ const chocolates = [
         flavor: "헤이즐넛",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/kinder_joy_girl.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000024919989",
     },
     {
@@ -51,19 +51,8 @@ const chocolates = [
         flavor: "헤이즐넛",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/kinder_joy_boy.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000024920056",
-    },
-    {
-        name: "킨더 조이 걸",
-        brand: "킨더",
-        price: "2100",
-        country: "이탈리아",
-        flavor: "플레인",
-        type: "밀크",
-        description: "",
-        image: "",
-        url: "https://www.ssg.com/item/itemView.ssg?itemId=1000024919989",
     },
     {
         name: "밀카 알프스 밀크 초콜릿",
@@ -73,7 +62,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/milka_milk.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000031903349",
     },
     {
@@ -84,7 +73,7 @@ const chocolates = [
         flavor: "딸기",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/milka_strawberry.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000031903346",
     },
     {
@@ -95,8 +84,8 @@ const chocolates = [
         flavor: "오레오",
         type: "밀크",
         description: "",
-        image: "",
-        url: "",
+        image: "/assets/chocolate/milka_oreo.webp",
+        url: "https://www.ssg.com/item/itemView.ssg?itemId=1000031903347",
     },
     {
         name: "밀카 버블리 밀크 초콜릿",
@@ -106,8 +95,8 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
-        url: "https://front.homeplus.co.kr/item?itemNo=053612474&storeType=HYPER",
+        image: "/assets/chocolate/milka_bubbly.webp",
+        url: "https://front.homeplus.co.kr/item?itemNo=053612474",
     },
     {
         name: "페레로 로쉐 3개입",
@@ -117,8 +106,8 @@ const chocolates = [
         flavor: "헤이즐넛",
         type: "프랄린",
         description: "",
-        image: "",
-        url: "",
+        image: "/assets/chocolate/ferrero_rocher_3.webp",
+        url: "https://www.ssg.com/item/itemView.ssg?itemId=1000036668250",
     },
     {
         name: "페레로 로쉐 콜렉션 T-9",
@@ -128,8 +117,8 @@ const chocolates = [
         flavor: "헤이즐넛",
         type: "프랄린",
         description: "",
-        image: "",
-        url: "",
+        image: "/assets/chocolate/ferrero_collection_t9.webp",
+        url: "https://www.ssg.com/item/itemView.ssg?itemId=0000010370470",
     },
     {
         name: "노브랜드 다크초콜릿",
@@ -139,8 +128,8 @@ const chocolates = [
         flavor: "플레인",
         type: "다크",
         description: "",
-        image: "",
-        url: "",
+        image: "/assets/chocolate/nobrand_dark.webp",
+        url: "https://www.ssg.com/item/itemView.ssg?itemId=1000532501706",
     },
     {
         name: "노브랜드 밀크초콜릿",
@@ -150,7 +139,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/nobrand_milk",
         url: "",
     },
     {
@@ -161,8 +150,8 @@ const chocolates = [
         flavor: "아몬드",
         type: "밀크",
         description: "",
-        image: "",
-        url: "",
+        image: "/assets/chocolate/nobrand_caramel.webp",
+        url: "https://www.ssg.com/item/itemView.ssg?itemId=1000054980769",
     },
     {
         name: "토니스 헤이즐넛 초콜릿",
@@ -172,7 +161,7 @@ const chocolates = [
         flavor: "헤이즐넛",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/tonny's_hazelnut.webp",
         url: "https://emart.ssg.com/item/itemView.ssg?itemId=1000564930839",
     },
     {
@@ -183,7 +172,7 @@ const chocolates = [
         flavor: "플레인",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/tonny's_dark.webp",
         url: "https://emart.ssg.com/item/itemView.ssg?itemId=1000564930832",
     },
     {
@@ -194,7 +183,7 @@ const chocolates = [
         flavor: "아몬드",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/tonny's_dark_almond.webp",
         url: "https://emart.ssg.com/item/itemDtl.ssg?itemId=1000564930834",
     },
     {
@@ -205,7 +194,7 @@ const chocolates = [
         flavor: "누가",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/tonny's_honey_almond_nougat.webp",
         url: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000178949",
     },
     {
@@ -216,7 +205,7 @@ const chocolates = [
         flavor: "카라멜",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/tonny's_caramel_seasalt.webp",
         url: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000178954",
     },
     {
@@ -227,19 +216,8 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/tonny's_milk.webp",
         url: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000178946",
-    },
-    {
-        name: "부샤드 카라멜&씨솔트 초콜릿",
-        brand: "부샤드",
-        price: "6300",
-        country: "벨기에",
-        flavor: "카라멜",
-        type: "밀크",
-        description: "",
-        image: "",
-        url: "https://www.ssg.com/item/itemView.ssg?itemId=1000520910039",
     },
     {
         name: "부샤드 나폴리탄 밀크 초콜릿",
@@ -249,7 +227,7 @@ const chocolates = [
         flavor: "플레인",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/bouchard_milk.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000520910032",
     },
     {
@@ -260,8 +238,8 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
-        url: "https://www.ssg.com/item/itemView.ssg?itemId=1000520910039",
+        image: "/assets/chocolate/bouchard_dark.webp",
+        url: "https://front.homeplus.co.kr/item?itemNo=069579223",
     },
     {
         name: "부샤드 나폴리탄 카라멜&씨솔트 초콜릿",
@@ -271,7 +249,7 @@ const chocolates = [
         flavor: "카라멜",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/bouchard_seasalt.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000520910039",
     },
     {
@@ -282,7 +260,7 @@ const chocolates = [
         flavor: "믹스",
         type: "믹스",
         description: "",
-        image: "",
+        image: "/assets/chocolate/lindt_lindor_assorted.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000520910039",
     },
     {
@@ -293,7 +271,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/lindt_lindor_milk.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000520910039",
     },
     {
@@ -304,7 +282,7 @@ const chocolates = [
         flavor: "헤이즐넛",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/lindt_lindor_hazelnut.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000520910039",
     },
     {
@@ -315,7 +293,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/rittersport_milk.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000055970654",
     },
     {
@@ -326,7 +304,7 @@ const chocolates = [
         flavor: "딸기",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/rittersport_strawberry_yogurt.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000037012601",
     },
     {
@@ -337,7 +315,7 @@ const chocolates = [
         flavor: "비스킷",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/rittersport_biscuit.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000520910039",
     },
     {
@@ -348,7 +326,7 @@ const chocolates = [
         flavor: "콘플레이크",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/rittersport_cornflakes.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000040249541",
     },
     {
@@ -359,7 +337,7 @@ const chocolates = [
         flavor: "믹스",
         type: "믹스",
         description: "",
-        image: "",
+        image: "/assets/chocolate/rittersport_mini.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000518329649",
     },
     {
@@ -370,7 +348,7 @@ const chocolates = [
         flavor: "요거트",
         type: "믹스",
         description: "",
-        image: "",
+        image: "/assets/chocolate/rittersport_love.webp",
         url: "https://front.homeplus.co.kr/item?itemNo=127794260",
     },
     {
@@ -381,7 +359,7 @@ const chocolates = [
         flavor: "믹스",
         type: "믹스",
         description: "",
-        image: "",
+        image: "/assets/chocolate/rittersport_foryou.webp",
         url: "https://front.homeplus.co.kr/item?itemNo=127794438",
     },
     {
@@ -392,7 +370,7 @@ const chocolates = [
         flavor: "믹스",
         type: "믹스",
         description: "",
-        image: "",
+        image: "/assets/chocolate/rittersport_thank.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=2097001525814",
     },
     {
@@ -403,7 +381,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/maltesers_milk.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000040900989",
     },
     {
@@ -414,7 +392,7 @@ const chocolates = [
         flavor: "플레인",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/maltesers_dark.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000040901013",
     },
     {
@@ -425,7 +403,7 @@ const chocolates = [
         flavor: "카라멜",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/whittaker's_seasalt.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000031039680",
     },
     {
@@ -436,7 +414,7 @@ const chocolates = [
         flavor: "배",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/whittaker's_pear.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000031039676",
     },
     {
@@ -447,7 +425,7 @@ const chocolates = [
         flavor: "커피",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/whittaker's_roasted_supreme_coffee.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000280759122",
     },
     {
@@ -458,7 +436,7 @@ const chocolates = [
         flavor: "믹스",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/karl_fazer_selection.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000521594820",
     },
     {
@@ -469,7 +447,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/karl_fazer_milk.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000524075862",
     },
     {
@@ -480,7 +458,7 @@ const chocolates = [
         flavor: "플레인",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/karl_fazer_dark.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000521594036",
     },
     {
@@ -491,7 +469,7 @@ const chocolates = [
         flavor: "민트",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/karl_fazer_mint.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000521593546",
     },
     {
@@ -502,7 +480,7 @@ const chocolates = [
         flavor: "딸기",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/karl_fazer_strawberry.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000521594820",
     },
     {
@@ -513,7 +491,7 @@ const chocolates = [
         flavor: "플레인",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/ghirardelli_dark_intense.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000055827174",
     },
     {
@@ -524,7 +502,7 @@ const chocolates = [
         flavor: "카라멜",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/ghirardelli_dark_caramel_seasalt.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000518329653",
     },
     {
@@ -535,7 +513,7 @@ const chocolates = [
         flavor: "카라멜",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/ghirardelli_milk_caramel.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000518329656",
     },
     {
@@ -546,7 +524,7 @@ const chocolates = [
         flavor: "아몬드",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/ghirardelli_almond.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000040645833",
     },
     {
@@ -557,7 +535,7 @@ const chocolates = [
         flavor: "카라멜",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/ghirardelli_salted_caramel.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000040645702",
     },
     {
@@ -568,7 +546,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/schogetten_milk.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=2097001076538",
     },
     {
@@ -579,7 +557,7 @@ const chocolates = [
         flavor: "딸기",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/schogetten_strawberry.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=2097001235591",
     },
     {
@@ -590,7 +568,7 @@ const chocolates = [
         flavor: "쿠키",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/schogetten_cookie.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=2097001745526",
     },
     {
@@ -601,7 +579,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/schogetten_kids.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000280143063",
     },
     {
@@ -612,7 +590,7 @@ const chocolates = [
         flavor: "헤이즐넛",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/schogetten_hazelnuts.webp",
         url: "https://front.homeplus.co.kr/item?itemNo=069698738",
     },
     {
@@ -623,7 +601,7 @@ const chocolates = [
         flavor: "녹차",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/osulloc_chocolate_bar.webp",
         url: "https://www.osulloc.com/kr/ko/shop/item/bakery/6063",
     },
     {
@@ -634,7 +612,7 @@ const chocolates = [
         flavor: "녹차",
         type: "화이트",
         description: "",
-        image: "",
+        image: "/assets/chocolate/osulloc_rasberry.webp",
         url: "https://www.osulloc.com/kr/ko/shop/item/bakery/18783",
     },
     {
@@ -645,7 +623,7 @@ const chocolates = [
         flavor: "녹차",
         type: "화이트",
         description: "",
-        image: "",
+        image: "/assets/chocolate/osulloc_almond_ball.webp",
         url: "https://www.osulloc.com/kr/ko/shop/item/bakery/17803",
     },
     {
@@ -656,7 +634,7 @@ const chocolates = [
         flavor: "피넛",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/m&m's_peanut.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000010706913",
     },
     {
@@ -667,7 +645,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/m&m's_milk.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000010706915",
     },
     {
@@ -678,7 +656,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/m&m's_crispy.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000022024030",
     },
     {
@@ -689,7 +667,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/m&m's_bar_milk.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000252587908",
     },
     {
@@ -700,7 +678,7 @@ const chocolates = [
         flavor: "아몬드",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/m&m's_bar_almond.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000252587920",
     },
     {
@@ -711,7 +689,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/m&m's_bar_crispy.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000252587927",
     },
     {
@@ -722,7 +700,7 @@ const chocolates = [
         flavor: "민트",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/andes_creme_de_mint",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000004456287",
     },
     {
@@ -733,7 +711,7 @@ const chocolates = [
         flavor: "민트",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/andes_mint_parfait.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000004456287",
     },
     {
@@ -744,7 +722,7 @@ const chocolates = [
         flavor: "토피넛",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/andes_toffee_crunch.webp",
         url: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000015859",
     },
     {
@@ -755,7 +733,7 @@ const chocolates = [
         flavor: "플레인",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/cadbury_bubbly.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000038260018",
     },
     {
@@ -766,7 +744,7 @@ const chocolates = [
         flavor: "아몬드",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/peacock_almond_bark.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000010746553",
     },
     {
@@ -777,7 +755,7 @@ const chocolates = [
         flavor: "쿠키",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/peacock_cookie.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000038571762",
     },
     {
@@ -788,7 +766,7 @@ const chocolates = [
         flavor: "헤이즐넛",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/peacock_hazelnut.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000023360416",
     },
     {
@@ -799,7 +777,7 @@ const chocolates = [
         flavor: "카라멜",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/peacock_caramel.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000051029055",
     },
     {
@@ -810,7 +788,7 @@ const chocolates = [
         flavor: "아몬드",
         type: "밀크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/peacock_almond_ball.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000549087412",
     },
     {
@@ -821,7 +799,7 @@ const chocolates = [
         flavor: "민트",
         type: "화이트",
         description: "",
-        image: "",
+        image: "/assets/chocolate/peacock_mint.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000200912199",
     },
     {
@@ -832,7 +810,7 @@ const chocolates = [
         flavor: "딸기",
         type: "화이트",
         description: "",
-        image: "",
+        image: "/assets/chocolate/peacock_strawberry.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000053392894",
     },
     {
@@ -843,7 +821,7 @@ const chocolates = [
         flavor: "플레인",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/peacock_no_sugar",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000036685034",
     },
     {
@@ -854,7 +832,9 @@ const chocolates = [
         flavor: "아몬드",
         type: "다크",
         description: "",
-        image: "",
+        image: "/assets/chocolate/peacock_low_sugar.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=1000560499338",
     },
 ];
+
+export default chocolates;
