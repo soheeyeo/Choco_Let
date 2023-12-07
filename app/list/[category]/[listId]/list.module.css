@@ -32,7 +32,11 @@
 .item_li {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
+    gap: 30px;
+}
+
+.item {
+    width: 380px;
 }
 
 .item_card {
@@ -81,13 +85,50 @@
 }
 
 .dropdown {
+    display: inline;
+    float: right;
+    margin-top: 36px;
     font-size: 13px;
     color: var(--main-color);
-    text-align: right;
 }
 
 .dropdown_btn {
+    position: relative;
     padding: 5px 24px;
-    background-color: transparent;
+    background-color: #fff;
     color: var(--main-color);
+}
+
+.dropdown_btn:hover {
+    background-color: var(--sub-color);
+}
+
+.icon {
+    position: absolute;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    background: no-repeat 100% url("/assets/icon_down.svg");
+    background-position: center;
+    background-size: cover;
+}
+
+.dropdown_li {
+    position: absolute;
+    margin-top: 5px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+}
+
+.dropdown_item {
+    padding: 6px 10px;
+    width: 100%;
+    background-color: #fff;
+    color: var(--main-color);
+    text-align: left;
+}
+
+.dropdown_item:hover {
+    font-weight: 700;
+    background-color: var(--sub-color);
 }

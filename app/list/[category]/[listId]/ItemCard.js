@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 export default function ItemCard({ styles, link, img, brand, name, price }) {
-    console.log(link);
     return (
         <Link href={"/detail/" + link}>
             <div className={styles.item_card}>

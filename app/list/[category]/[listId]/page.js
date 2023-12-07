@@ -1,5 +1,6 @@
 import styles from "./list.module.css";
 import NavList from "./NavList";
+import DropdownBtn from "./DropdownBtn";
 import ItemCard from "./ItemCard";
 import chocolates from "@/util/data";
 
@@ -8,11 +9,12 @@ export default function List() {
         <main>
             <section className={styles.list_section}>
                 <NavList styles={styles} />
+                <DropdownBtn styles={styles} />
                 <div className={styles.item_container}>
                     <ul className={styles.item_li}>
                         {chocolates.map((chocolate, i) => {
                             return (
-                                <li>
+                                <li className={styles.item}>
                                     <ItemCard
                                         link={i + 1}
                                         styles={styles}
