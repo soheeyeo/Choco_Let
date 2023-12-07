@@ -1,0 +1,80 @@
+.detail_section {
+    margin: 80px auto;
+    max-width: 1200px;
+}
+
+.info_container {
+    display: flex;
+    gap: 65px;
+}
+
+.img_wrapper {
+    width: 500px;
+    height: 500px;
+}
+
+.info_img {
+    width: 100%;
+}
+
+.feature_container {
+    margin-bottom: 24px;
+}
+
+.feature_box {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 6px 8px;
+    font-size: 14px;
+    text-align: center;
+    color: var(--main-color);
+    background-color: var(--sub-color);
+    border-radius: 5px;
+}
+
+.info_brand {
+    margin-bottom: 14px;
+    font-size: 30px;
+    color: var(--accent-color);
+}
+
+.info_name {
+    font-size: 28px;
+    color: (--txt-color);
+}
+
+.price {
+    margin: 14px 0 30px;
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+.info_price {
+    display: inline-block;
+    margin-right: 3px;
+    font-size: 36px;
+    vertical-align: middle;
+}
+
+.info_price_won {
+    margin-right: 6px;
+    font-size: 24px;
+}
+
+.info_price_s {
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: text-bottom;
+}
+
+.info_txt {
+    margin-bottom: 64px;
+    line-height: 32px;
+    white-space: pre-line;
+    word-break: keep-all;
+}
+
+.info_store {
+    color: var(--main-color);
+    text-decoration: underline;
+}
