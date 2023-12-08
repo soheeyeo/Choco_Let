@@ -94,7 +94,9 @@
 
 .dropdown_btn {
     position: relative;
-    padding: 5px 24px;
+    padding: 5px;
+    width: 84px;
+    text-align: left;
     background-color: #fff;
     color: var(--main-color);
 }
@@ -114,10 +116,15 @@
 }
 
 .dropdown_li {
+    display: none;
     position: absolute;
     margin-top: 5px;
     background-color: #fff;
     border: 1px solid var(--border-color);
+}
+
+.open {
+    display: block;
 }
 
 .dropdown_item {
