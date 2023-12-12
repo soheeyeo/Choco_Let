@@ -921,7 +921,7 @@ const chocolates = [
         type: "다크",
         description:
             "세계 3대 초콜릿 브랜드 중 하나인 고디바 초콜릿을 캐주얼하게 즐길 수 있는 제품입니다. \n지 큐브 다크 랩트 초콜릿은 다크 초콜릿 쉘 안에 진한 다크 초콜릿 가나슈 필링이 들어있는 초콜릿입니다. \n낱개 포장이 되어있어 가족이나 친구와 함께 나눠먹기 좋고, 나를 위한 선물으로도 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/godiva_gcube_dark.webp",
         url: "https://www.godiva.kr/item/7121208",
     },
     {
@@ -934,7 +934,7 @@ const chocolates = [
         type: "밀크",
         description:
             "세계 3대 초콜릿 브랜드 중 하나인 고디바 초콜릿을 캐주얼하게 즐길 수 있는 제품입니다. \n지 큐브 밀크 랩트 초콜릿은 부드러운 밀크 초콜릿 쉘 안에 밀크 초콜릿 가나슈 필링이 들어있는 초콜릿입니다. \n낱개 포장이 되어있어 가족이나 친구와 함께 나눠먹기 좋고, 나를 위한 선물으로도 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/godiva_gcube_milk.webp",
         url: "https://www.godiva.kr/item/7121108",
     },
     {
@@ -947,7 +947,7 @@ const chocolates = [
         type: "밀크",
         description:
             "세계 3대 초콜릿 브랜드 중 하나인 고디바 초콜릿을 캐주얼하게 즐길 수 있는 제품입니다. \n지 큐브 밀크 랩트 초콜릿은 부드러운 밀크 초콜릿 쉘 안에 달콤 짭짤한 솔티드 캐러멜 가나슈 필링이 들어있는 초콜릿입니다. \n낱개 포장이 되어있어 가족이나 친구와 함께 나눠먹기 좋고, 나를 위한 선물으로도 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/godiva_gcube_salted_caramel.webp",
         url: "https://www.godiva.kr/item/7121408",
     },
     {
@@ -960,7 +960,7 @@ const chocolates = [
         type: "밀크",
         description:
             "세계 3대 초콜릿 브랜드 중 하나인 고디바 초콜릿을 캐주얼하게 즐길 수 있는 제품입니다. \n지 큐브 밀크 랩트 초콜릿은 부드러운 밀크 초콜릿 쉘 안에 고소한 헤이즐넛 밀크 초콜릿 가나슈 필링이 들어있는 초콜릿입니다. \n낱개 포장이 되어있어 가족이나 친구와 함께 나눠먹기 좋고, 나를 위한 선물으로도 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/godiva_gcube_hazelnut.webp",
         url: "https://www.godiva.kr/item/7121308",
     },
     {
@@ -973,7 +973,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 브랜드 중 하나인 고디바의 시그니처 초콜릿입니다. \n다양한 필링으로 채워진 밀크, 다크, 화이트 초콜릿을 즐길 수 있습니다. \n고급스러운 패키지로 수험생 선물으로 인기있고, 특별한 날 소중한 사람을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/godiva_gold_8.webp",
         url: "https://www.godiva.kr/item/3211108",
     },
     {
@@ -986,7 +986,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 브랜드 중 하나인 고디바의 시그니처 초콜릿입니다. \n다양한 필링으로 채워진 밀크, 다크, 화이트 초콜릿을 즐길 수 있습니다. \n고급스러운 패키지로 수험생 선물으로 인기있고, 특별한 날 소중한 사람을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/godiva_gold_collection_12.webp",
         url: "https://www.godiva.kr/item/3211112",
     },
     {
@@ -999,7 +999,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 브랜드 중 하나인 고디바의 시그니처 초콜릿입니다. \n다양한 필링으로 채워진 밀크, 다크, 화이트 초콜릿을 즐길 수 있습니다. \n고급스러운 패키지로 수험생 선물으로 인기있고, 특별한 날 소중한 사람을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/godiva_gold_20.webp",
         url: "https://www.godiva.kr/item/3211120",
     },
     {
@@ -1012,7 +1012,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 브랜드 중 하나인 고디바의 시그니처 초콜릿을 더욱 모던하게 즐길 수 있는 초콜릿입니다. \n더욱 풍부하고 다양한 필링으로 채워진 밀크, 다크, 화이트 초콜릿을 즐길 수 있습니다. \n화려하고 고급진 패키지로 수험생 선물으로 인기있고, 특별한 날 소중한 사람을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/godiva_discovery_6.webp",
         url: "https://www.godiva.kr/item/3211306",
     },
     {
@@ -1025,7 +1025,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 브랜드 중 하나인 고디바의 시그니처 초콜릿을 더욱 모던하게 즐길 수 있는 초콜릿입니다. \n더욱 풍부하고 다양한 필링으로 채워진 밀크, 다크, 화이트 초콜릿을 즐길 수 있습니다. \n화려하고 고급진 패키지로 수험생 선물으로 인기있고, 특별한 날 소중한 사람을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/godiva_discovery_9.webp",
         url: "https://www.godiva.kr/item/3211309",
     },
     {
@@ -1038,7 +1038,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 브랜드 중 하나인 고디바의 시그니처 초콜릿을 더욱 모던하게 즐길 수 있는 초콜릿입니다. \n더욱 풍부하고 다양한 필링으로 채워진 밀크, 다크, 화이트 초콜릿을 즐길 수 있습니다. \n화려하고 고급진 패키지로 수험생 선물으로 인기있고, 특별한 날 소중한 사람을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/godiva_discovery_15.webp",
         url: "https://www.godiva.kr/item/3211315",
     },
     {
@@ -1051,7 +1051,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "스위스 대표 최고급 수제 초콜릿 브랜드인 레더라의 대표 제품인 프랄린 초콜릿 컬렉션입니다. \n화려한 모양과 견과류, 누가, 트러플 필링으로 다채로운 맛을 즐길 수 있습니다. \n고급스러운 패키지와 맛으로 특별한 날 연인, 가족, 어른들을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/laderah_collection_18.webp",
         url: "https://kr.laderach.com/shop/item.php?it_id=L18",
     },
     {
@@ -1064,7 +1064,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "스위스 대표 최고급 수제 초콜릿 브랜드인 레더라의 대표 제품인 프랄린 초콜릿 컬렉션입니다. \n화려한 모양과 견과류, 누가, 트러플 필링으로 다채로운 맛을 즐길 수 있습니다. \n고급스러운 패키지와 맛으로 특별한 날 연인, 가족, 어른들을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/laderah_collection_24.webp",
         url: "https://kr.laderach.com/shop/item.php?it_id=L24",
     },
     {
@@ -1077,7 +1077,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "스위스 대표 최고급 수제 초콜릿 브랜드인 레더라의 대표 제품인 프랄린 초콜릿 컬렉션입니다. \n화려한 모양과 견과류, 누가, 트러플 필링으로 다채로운 맛을 즐길 수 있습니다. \n작은 패키지로 소중한 사람을 위한 선물이나 나를 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/laderah_collection_4.webp",
         url: "https://kr.laderach.com/shop/item.php?it_id=L4",
     },
     {
@@ -1090,7 +1090,7 @@ const chocolates = [
         type: "믹스",
         description:
             "스위스 대표 최고급 수제 초콜릿 브랜드인 레더라의 특별한 레시피로 제공되는 인기 제품입니다. \n캐러멜 라이즈드 된 통 견과류와 초콜릿이 절묘한 하모니를 이루며 다양한 식감과 맛을 선사합니다. \n특별한 날 연인, 친구, 가족들을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/laderach_assorted.webp",
         url: "https://kr.laderach.com/shop/item.php?it_id=1696406916",
     },
     {
@@ -1103,7 +1103,7 @@ const chocolates = [
         type: "믹스",
         description:
             "스위스 대표 최고급 수제 초콜릿 브랜드인 레더라의 특별한 레시피로 제공되는 인기 제품입니다. \n캐러멜 라이즈드 된 통 견과류와 초콜릿이 절묘한 하모니를 이루며 다양한 식감과 맛을 선사합니다. \n특별한 날 연인, 친구, 가족들을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/laderah_fresh_320.webp",
         url: "https://kr.laderach.com/shop/item.php?it_id=1577432185",
     },
     {
@@ -1116,7 +1116,7 @@ const chocolates = [
         type: "믹스",
         description:
             "스위스 대표 최고급 수제 초콜릿 브랜드인 레더라의 특별한 레시피로 제공되는 인기 제품입니다. \n캐러멜 라이즈드 된 통 견과류와 초콜릿이 절묘한 하모니를 이루며 다양한 식감과 맛을 선사합니다. \n특별한 날 연인, 친구, 가족들을 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/laderah_fresh_220.webp",
         url: "https://kr.laderach.com/shop/item.php?it_id=1663654378",
     },
     {
@@ -1129,7 +1129,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "스위스 대표 최고급 수제 초콜릿 브랜드인 레더라의 프랄린 초콜릿을 즐길 수 있는 제품입니다. \n견과류, 누가, 트러플 필링으로 다채로운 맛을 경험할 수 있습니다. \n작은 패키지로 소중한 사람을 위한 선물이나 나를 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/laderah_praline.webp",
         url: "https://kr.laderach.com/shop/item.php?it_id=L6",
     },
     {
@@ -1142,22 +1142,22 @@ const chocolates = [
         type: "다크",
         description:
             "스위스 대표 최고급 수제 초콜릿 브랜드인 레더라의 파베 초콜릿 세트입니다. \n부드러운 아몬드 잔두야 가나슈를 코코아 파우더로 감싼 초콜릿으로 입안에서 녹아내리는 생 초콜릿입니다. \n소중한 사람을 위한 선물이나 나를 위한 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/laderah_pave.webp",
         url: "https://kr.laderach.com/shop/item.php?it_id=P6",
     },
-    {
-        name: "노이하우스 프리미엄 히스토리 컬렉션 28P",
-        brand: "노이하우스",
-        price: 120000,
-        recommendation: 10,
-        country: "벨기에",
-        flavor: "믹스",
-        type: "프랄린",
-        description:
-            "세계 3대 초콜릿 중 하나인 노이하우스가 만들어 온 플라린 중 가장 대표적인 14가지의 프랄린을 모두 맛볼 수 있는 컬렉션입니다. \n누가틴, 지안두자 등을 감싼 다양한 밀크, 다크, 화이트 프랄린 초콜릿으로 다채로운 풍미와 식감을 경험할 수 있습니다. \n160년 동안 사랑을 받은 초콜릿의 스토리가 소개되어 있으며, 고급스러운 발로틴 상자에 담겨있어 특별한 날 연인, 가족, 어른들 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
-        url: "https://smartstore.naver.com/neuhauschocolate_kr/products/8867195162",
-    },
+    // {
+    //     name: "노이하우스 프리미엄 히스토리 컬렉션 28P",
+    //     brand: "노이하우스",
+    //     price: 120000,
+    //     recommendation: 10,
+    //     country: "벨기에",
+    //     flavor: "믹스",
+    //     type: "프랄린",
+    //     description:
+    //         "세계 3대 초콜릿 중 하나인 노이하우스가 만들어 온 플라린 중 가장 대표적인 14가지의 프랄린을 모두 맛볼 수 있는 컬렉션입니다. \n누가틴, 지안두자 등을 감싼 다양한 밀크, 다크, 화이트 프랄린 초콜릿으로 다채로운 풍미와 식감을 경험할 수 있습니다. \n160년 동안 사랑을 받은 초콜릿의 스토리가 소개되어 있으며, 고급스러운 발로틴 상자에 담겨있어 특별한 날 연인, 가족, 어른들 선물으로 추천드립니다.",
+    //     image: "/assets/chocolate/.webp",
+    //     url: "https://smartstore.naver.com/neuhauschocolate_kr/products/8867195162",
+    // },
     {
         name: "노이하우스 밀크&다크&화이트 초콜릿 컬렉션 믹스 12P",
         brand: "노이하우스",
@@ -1168,7 +1168,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 중 하나인 노이하우스에서 꾸준히 인기를 이어온 컬렉션입니다. \n누가틴, 지안두자 등을 감싼 다양한 밀크, 다크, 화이트 프랄린 초콜릿으로 다채로운 풍미와 식감을 경험할 수 있습니다. \n고급스럽고 화려한 패키지로 특별한 날 연인, 가족, 어른들 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/neuhaus_collection.webp",
         url: "https://smartstore.naver.com/neuhauschocolate_kr/products/8867194748",
     },
     {
@@ -1181,7 +1181,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 중 하나인 노이하우스의 초콜릿을 커스터마이징 하여 즐길 수 있는 제품입니다. \n6가지 초콜릿 베이스와 6가지 토핑 중 하나씩 골라 믹스하여 맛과 재미를 선사합니다. \n고급스러운 패키지와 재미있는 조화로 가족 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/neuhaus_duets.webp",
         url: "https://smartstore.naver.com/neuhauschocolate_kr/products/8867194204",
     },
     {
@@ -1194,7 +1194,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 중 하나인 노이하우스만의 특별한 초콜릿입니다. \n생크림과 가나슈를 누가틴으로 감싸 밀크, 다크, 화이트 초콜릿으로 코팅하여 바삭한 식감까지 느낄 수 있는 초콜릿입니다. \n고급스러운 패키지와 새로운 맛으로 특별한 날 연인, 가족, 어른들 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/neuhaus_irresistibles.webp",
         url: "https://smartstore.naver.com/neuhauschocolate_kr/products/8867192910",
     },
     {
@@ -1207,7 +1207,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 중 하나인 노이하우스에서 꾸준히 인기를 이어온 프랄린 초콜릿입니다. \n누가틴, 견과류 등을 감싼 다양한 밀크, 다크, 화이트 프랄린 초콜릿으로 달콤하고 부드러운 맛을 경험할 수 있습니다. \n고급스럽고 화려한 패키지로 특별한 날 연인, 가족, 어른들 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/neuhaus_classic.webp",
         url: "https://smartstore.naver.com/neuhauschocolate_kr/products/8867192703",
     },
     {
@@ -1220,7 +1220,7 @@ const chocolates = [
         type: "프랄린",
         description:
             "세계 3대 초콜릿 중 하나인 노이하우스의 얇은 판 초콜릿 세트입니다. \n커피, 참깨, 라즈베리, 오렌지 등 10가지 맛의 초콜릿으로 다양한 풍미를 골라 즐길 수 있습니다. \n특별한 날 연인, 가족, 어른들 선물으로 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/neuhaus_carre.webp",
         url: "https://smartstore.naver.com/neuhauschocolate_kr/products/8867193589",
     },
 ];
