@@ -18,6 +18,8 @@
 }
 
 .feature_container {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 24px;
 }
 
@@ -30,6 +32,11 @@
     color: var(--main-color);
     background-color: var(--sub-color);
     border-radius: 5px;
+}
+
+.like_btn {
+    background-color: #fff;
+    text-align: right;
 }
 
 .info_brand {
