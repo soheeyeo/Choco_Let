@@ -19,7 +19,7 @@ model Chocolate {
     country        String
     flavor         String
     type           String
-    description    String
+    description    String @db.Text
     image          String
     url            String
     like           Like[]
