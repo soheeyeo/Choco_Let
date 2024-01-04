@@ -131,6 +131,7 @@
     margin-top: 5px;
     background-color: #fff;
     border: 1px solid var(--border-color);
+    z-index: 1;
 }
 
 .open {
