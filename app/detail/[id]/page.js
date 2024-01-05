@@ -1,26 +1,35 @@
+"use client";
 import styles from "./detail.module.css";
 import Link from "next/link";
-import chocolates from "@/util/data";
+import { useState, useEffect } from "react";
 
-export default function Detail() {
+export default function Detail({ params: { id } }) {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch(`/api/detail?id=${id}`)
+            .then((res) => res.json())
+            .then((result) => {
+                setData(result);
+            });
+    }, []);
+    console.log(data);
+
     return (
         <main>
             <section className={styles.detail_section}>
                 <div className={styles.info_container}>
                     <div className={styles.img_wrapper}>
-                        <img
-                            className={styles.info_img}
-                            src={chocolates[0].image}
-                        />
+                        <img className={styles.info_img} src={data.image} />
                     </div>
                     <div className={styles.info_contaner}>
                         <div className={styles.feature_container}>
                             <div>
                                 <div className={styles.feature_box}>
-                                    <p>{chocolates[0].country}</p>
+                                    <p>{data.country}</p>
                                 </div>
                                 <div className={styles.feature_box}>
-                                    <p>{chocolates[0].type}</p>
+                                    <p>{data.type}</p>
                                 </div>
                             </div>
                             <button className={styles.like_btn}>
@@ -39,26 +48,21 @@ export default function Detail() {
                                 </svg>
                             </button>
                         </div>
-                        <h4 className={styles.info_brand}>
-                            {chocolates[0].brand}
-                        </h4>
-                        <span className={styles.info_name}>
-                            {chocolates[0].name}
-                        </span>
+                        <h4 className={styles.info_brand}>{data.brand}</h4>
+                        <span className={styles.info_name}>{data.name}</span>
 
                         <div className={styles.price}>
                             <span className={styles.info_price}>
-                                {chocolates[0].price}
+                                {data.price}
                             </span>
                             <span className={styles.info_price_won}>원</span>
                             <span className={styles.info_price_s}>정가</span>
                         </div>
-                        <p className={styles.info_txt}>
-                            {chocolates[0].description}
-                        </p>
+                        <p className={styles.info_txt}>{data.description}</p>
                         <Link
                             className={styles.info_store}
-                            href={chocolates[0].url}
+                            href={`${data.url}`}
+                            target="_blank"
                         >
                             판매처 바로가기
                         </Link>

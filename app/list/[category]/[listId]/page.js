@@ -61,7 +61,7 @@ export default function List({ params: { category } }) {
                             return (
                                 <li className={styles.item}>
                                     <ItemCard
-                                        link={i + 1}
+                                        link={chocolate.id}
                                         styles={styles}
                                         img={chocolate.image}
                                         brand={chocolate.brand}
