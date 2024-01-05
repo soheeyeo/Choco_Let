@@ -18,6 +18,8 @@
     color: var(--main-color);
     background-color: var(--sub-color);
     border-radius: 50%;
+    text-align: center;
+    word-break: keep-all;
 }
 
 .active {

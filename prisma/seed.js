@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import chocolate from "../util/data.js";
+import { chocolate } from "../util/data.js";
 
 const prisma = new PrismaClient();
 

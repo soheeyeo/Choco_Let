@@ -3,41 +3,53 @@ import styles from "./list.module.css";
 import NavList from "./NavList";
 import DropdownBtn from "./DropdownBtn";
 import ItemCard from "./ItemCard";
-import chocolates from "@/util/data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 
-export default function List() {
+export default function List({ params: { category } }) {
     const [selected, setSelected] = useState("추천순");
+    const [data, setData] = useState([]);
 
-    let chocoData = [...chocolates];
+    const params = useParams();
+    const param1 = params.category;
+    const param2 = params.listId;
 
-    function handleSortItems() {
+    useEffect(() => {
+        fetch(`/api/list/${param1}/${param2}`)
+            .then((res) => res.json())
+            .then((result) => {
+                setData(result);
+            });
+    }, [data]);
+
+    function handleSortItems(selected) {
+        let sortedData = [...data];
         if (selected === "추천순") {
-            chocoData.sort((a, b) => {
+            sortedData.sort((a, b) => {
                 return a.recommendation < b.recommendation ? 1 : -1;
             });
         } else if (selected === "브랜드명순") {
-            chocoData.sort((a, b) => {
+            sortedData.sort((a, b) => {
                 return a.brand > b.brand ? 1 : -1;
             });
         } else if (selected === "낮은가격순") {
-            chocoData.sort((a, b) => {
+            sortedData.sort((a, b) => {
                 return a.price > b.price ? 1 : -1;
             });
         } else {
-            chocoData.sort((a, b) => {
+            sortedData.sort((a, b) => {
                 return a.price < b.price ? 1 : -1;
             });
         }
-        return chocoData;
+        return sortedData;
     }
 
-    const sortedChocoData = handleSortItems();
+    const sortedChocoData = handleSortItems(selected);
 
     return (
         <main>
             <section className={styles.list_section}>
-                <NavList styles={styles} />
+                <NavList styles={styles} category={category} />
                 <DropdownBtn
                     styles={styles}
                     selected={selected}
