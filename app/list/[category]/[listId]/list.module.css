@@ -60,19 +60,36 @@
 }
 
 .info_container {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    padding: 28px 16px 24px;
+    padding: 10px 16px 24px;
     width: 100%;
+}
+
+.btn_container {
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.feature_box {
+    margin-right: 10px;
+    padding: 4px 8px;
+    font-size: 10px;
+    text-align: center;
+    color: var(--main-color);
+    background-color: var(--sub-color);
+    border-radius: 5px;
 }
 
 .like_btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
     background-color: #fff;
+}
+
+.info_contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 24px);
 }
 
 .info_brand_name {

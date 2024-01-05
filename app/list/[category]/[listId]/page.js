@@ -64,6 +64,7 @@ export default function List({ params: { category } }) {
                                         link={chocolate.id}
                                         styles={styles}
                                         img={chocolate.image}
+                                        country={chocolate.country}
                                         brand={chocolate.brand}
                                         name={chocolate.name}
                                         price={chocolate.price}
