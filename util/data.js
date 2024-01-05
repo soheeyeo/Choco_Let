@@ -845,7 +845,7 @@ const chocolate = [
         price: 4900,
         recommendation: 4,
         country: "미국",
-        flavor: "토피넛",
+        flavor: "민트",
         type: "밀크",
         description: `민트 초콜릿으로 유명한 앤디스 초콜릿은 미국에서 식후 디저트로 사랑받고 있는 초콜릿 브랜드입니다. \n앤디스 민트 쿠키크런치 띤은 바삭한 쿠키 크런치가 들어있는 민트 초콜릿과 달콤한 밀크 초콜릿의 조화로 상큼함과 식감을 함께 즐길 수 있는 제품입니다. \n개별 포장되어 있어 주변 사람들과 나누어 먹기에 좋고, 민트를 좋아하는 주변 지인들에게도 선물해보세요.`,
         image: "/assets/chocolate/andes_cookie_crunch.webp",
@@ -1492,4 +1492,4 @@ const chocolate = [
     },
 ];
 
-export default chocolate;
+export { chocolate };

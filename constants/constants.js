@@ -25,8 +25,20 @@ export const priceCategory = [
     "6만 원 ~",
 ];
 
-export const countryCategory = ["벨기에", "독일", "미국", "대한민국", "그 외"];
+export const countryCategory = [
+    "벨기에 / 이탈리아",
+    "독일 / 스위스",
+    "미국 / 영국",
+    "대한민국",
+    "그 외",
+];
 
 export const typeCategory = ["밀크", "다크", "화이트", "프랄린", "그 외"];
 
-export const flavorCategory = ["아몬드", "헤이즐넛", "카라멜", "딸기", "그 외"];
+export const flavorCategory = [
+    "견과",
+    "카라멜 / 토피",
+    "과일 / 비스킷",
+    "어쏘티드",
+    "그 외",
+];
