@@ -1,9 +1,9 @@
 import { prisma } from "@/lib/prisma";
 
-export default async function handler(req, res) {
-    const params = req.query.param;
-    if (params[0] === "price") {
-        if (params[1] === "1") {
+export async function GET(req, { params }) {
+    const param = params.param;
+    if (param[0] === "price") {
+        if (param[1] === "1") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     price: {
@@ -11,8 +11,8 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "2") {
+            return Response.json(result);
+        } else if (param[1] === "2") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     price: {
@@ -21,8 +21,8 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "3") {
+            return Response.json(result);
+        } else if (param[1] === "3") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     price: {
@@ -31,8 +31,8 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "4") {
+            return Response.json(result);
+        } else if (param[1] === "4") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     price: {
@@ -41,8 +41,8 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "5") {
+            return Response.json(result);
+        } else if (param[1] === "5") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     price: {
@@ -50,10 +50,10 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
+            return Response.json(result);
         }
-    } else if (params[0] === "country") {
-        if (params[1] === "1") {
+    } else if (param[0] === "country") {
+        if (param[1] === "1") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     country: {
@@ -61,8 +61,8 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "2") {
+            return Response.json(result);
+        } else if (param[1] === "2") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     country: {
@@ -70,8 +70,8 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "3") {
+            return Response.json(result);
+        } else if (param[1] === "3") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     country: {
@@ -79,15 +79,15 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "4") {
+            return Response.json(result);
+        } else if (param[1] === "4") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     country: "대한민국",
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "5") {
+            return Response.json(result);
+        } else if (param[1] === "5") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     country: {
@@ -103,38 +103,38 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
+            return Response.json(result);
         }
-    } else if (params[0] === "type") {
-        if (params[1] === "1") {
+    } else if (param[0] === "type") {
+        if (param[1] === "1") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     type: "밀크",
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "2") {
+            return Response.json(result);
+        } else if (param[1] === "2") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     type: "다크",
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "3") {
+            return Response.json(result);
+        } else if (param[1] === "3") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     type: "화이트",
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "4") {
+            return Response.json(result);
+        } else if (param[1] === "4") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     type: "프랄린",
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "5") {
+            return Response.json(result);
+        } else if (param[1] === "5") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     type: {
@@ -142,10 +142,10 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
+            return Response.json(result);
         }
-    } else if (params[0] === "country") {
-        if (params[1] === "1") {
+    } else if (param[0] === "country") {
+        if (param[1] === "1") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     country: {
@@ -153,8 +153,8 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "2") {
+            return Response.json(result);
+        } else if (param[1] === "2") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     country: {
@@ -162,8 +162,8 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "3") {
+            return Response.json(result);
+        } else if (param[1] === "3") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     country: {
@@ -171,15 +171,15 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "4") {
+            return Response.json(result);
+        } else if (param[1] === "4") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     country: "대한민국",
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "5") {
+            return Response.json(result);
+        } else if (param[1] === "5") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     country: {
@@ -195,10 +195,10 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
+            return Response.json(result);
         }
-    } else if (params[0] === "flavor") {
-        if (params[1] === "1") {
+    } else if (param[0] === "flavor") {
+        if (param[1] === "1") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     flavor: {
@@ -213,8 +213,8 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "2") {
+            return Response.json(result);
+        } else if (param[1] === "2") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     flavor: {
@@ -222,8 +222,8 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "3") {
+            return Response.json(result);
+        } else if (param[1] === "3") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     flavor: {
@@ -239,15 +239,15 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "4") {
+            return Response.json(result);
+        } else if (param[1] === "4") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     flavor: "믹스",
                 },
             });
-            return res.status(200).json(result);
-        } else if (params[1] === "5") {
+            return Response.json(result);
+        } else if (param[1] === "5") {
             const result = await prisma.chocolate.findMany({
                 where: {
                     flavor: {
@@ -273,7 +273,7 @@ export default async function handler(req, res) {
                     },
                 },
             });
-            return res.status(200).json(result);
+            return Response.json(result);
         }
     }
 }

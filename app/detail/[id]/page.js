@@ -13,7 +13,6 @@ export default function Detail({ params: { id } }) {
                 setData(result);
             });
     }, []);
-    console.log(data);
 
     return (
         <main>
