@@ -1,5 +1,7 @@
+"use client";
 import styles from "./login.module.css";
 import LoginForm from "./LoginForm";
+import { signIn } from "next-auth/react";
 
 export default function Login() {
     return (
@@ -13,15 +15,24 @@ export default function Login() {
                     <div className={styles.social_login_container}>
                         <button
                             className={`${styles.social_btn} ${styles.kakao_btn}`}
+                            onClick={() => {
+                                signIn("kakao");
+                            }}
                         ></button>
                         <span className="ir">카카오 로그인</span>
                         <button
                             className={`${styles.social_btn} ${styles.naver_btn}`}
+                            onClick={() => {
+                                signIn("naver");
+                            }}
                         >
                             <span className="ir">네이버 로그인</span>
                         </button>
                         <button
                             className={`${styles.social_btn} ${styles.google_btn}`}
+                            onClick={() => {
+                                signIn("google");
+                            }}
                         >
                             <span className="ir">구글 로그인</span>
                         </button>

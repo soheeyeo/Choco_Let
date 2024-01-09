@@ -59,7 +59,7 @@ export default function List({ params: { category } }) {
                     <ul className={styles.item_li}>
                         {sortedChocoData.map((chocolate, i) => {
                             return (
-                                <li className={styles.item}>
+                                <li className={styles.item} key={i}>
                                     <ItemCard
                                         link={chocolate.id}
                                         styles={styles}
