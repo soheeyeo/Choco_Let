@@ -1491,5 +1491,3 @@ const chocolate = [
         url: "https://smartstore.naver.com/seescandies/products/7947683820",
     },
 ];
-
-export { chocolate };
