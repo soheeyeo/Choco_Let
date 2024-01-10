@@ -1,0 +1,8 @@
+.signup_btn {
+    margin-top: 36px;
+}
+
+.signup_btn_disabled {
+    background-color: var(--border-color);
+    cursor: default;
+}

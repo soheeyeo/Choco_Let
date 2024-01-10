@@ -15,7 +15,7 @@ export default function Login() {
                 <div>
                     <button
                         className={styles.join_link_btn}
-                        onClick={() => router.push("/join")}
+                        onClick={() => router.push("/signup")}
                     >
                         회원가입
                     </button>
