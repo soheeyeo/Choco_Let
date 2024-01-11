@@ -2,6 +2,10 @@
     border-bottom: 1px solid var(--border-color);
 }
 
+.login_btn {
+    margin-top: 20px;
+}
+
 .join_link_btn {
     padding: 13px 0;
     margin: 40px 0 60px;
