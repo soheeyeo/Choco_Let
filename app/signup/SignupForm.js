@@ -1,7 +1,10 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SignupForm({ styles }) {
+    const router = useRouter();
+
     const [inputValue, setInputValue] = useState({
         email: "",
         validEmail: false,
@@ -119,8 +122,30 @@ export default function SignupForm({ styles }) {
         inputValue.validPw & inputValue.matchPw &&
         inputValue.validNickname;
 
+    const handleOnSubmit = async (e) => {
+        const email = inputValue.email;
+        const pw = inputValue.pw;
+        const nickname = inputValue.nickname;
+        e.preventDefault();
+        try {
+            const res = await fetch("/api/auth/signup", {
+                method: "POST",
+                body: JSON.stringify({ email, pw, nickname }),
+            });
+            const result = await res.json();
+            if (result.message === "가입완료") {
+                alert("가입이 완료되었습니다.");
+                router.push("/login");
+            } else {
+                alert("이미 가입된 이메일입니다.");
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     return (
-        <form method="POST" action="/api/auth/signup" className="account_form">
+        <form method="POST" className="account_form">
             <input
                 type="email"
                 id="email"
@@ -181,6 +206,7 @@ export default function SignupForm({ styles }) {
                         : `submit_btn ${styles.signup_btn_disabled}`
                 }
                 disabled={!isPassedSignup}
+                onClick={handleOnSubmit}
             >
                 가입하기
             </button>

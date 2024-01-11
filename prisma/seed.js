@@ -8,7 +8,6 @@ async function main() {
         const chocolate = await prisma.chocolate.create({
             data: item,
         });
-        console.log(chocolate);
     }
 }
 
