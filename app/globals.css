@@ -146,6 +146,13 @@ header {
     padding-left: 10px;
 }
 
+.account_li button {
+    font-size: 12px;
+    font-weight: 700;
+    color: #eb7ea2;
+    background-color: transparent;
+}
+
 .account_section {
     padding: 16px;
     margin: 80px auto;
@@ -203,6 +210,57 @@ header {
     text-align: center;
     background-color: var(--main-color);
     border-radius: 160px;
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal_container {
+    position: relative;
+    width: 360px;
+    margin: 15% auto;
+    padding: 50px 68px 40px;
+    background-color: #fefefe;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.modal_content p:first-child {
+    margin-bottom: 10px;
+}
+
+.modal_btn_container {
+    display: block;
+    margin-top: 30px;
+}
+
+.modal_btn_l {
+    padding: 10px 27px;
+    margin-right: 10px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--txt-colortxt-color);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.modal_btn_r {
+    padding: 10px 27px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: var(--main-color);
+    font-weight: 500;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1200px) {
