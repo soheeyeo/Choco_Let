@@ -1,7 +1,12 @@
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route.js";
 import Link from "next/link";
 import { categories } from "@/constants/constants";
+import LogoutBtn from "./LogoutBtn.js";
 
-export default function Header() {
+export default async function Header() {
+    const session = await getServerSession(authOptions);
+
     return (
         <header>
             <div className="navbar">
@@ -22,10 +27,17 @@ export default function Header() {
                         <Link href="/test">추천 테스트</Link>
                     </li>
                 </ul>
-                <div className="account_li">
-                    <Link href="/signup">회원가입</Link>
-                    <Link href="/login">로그인</Link>
-                </div>
+                {session ? (
+                    <div className="account_li">
+                        <Link href="/mypage">관심 목록</Link>
+                        <LogoutBtn />
+                    </div>
+                ) : (
+                    <div className="account_li">
+                        <Link href="/signup">회원가입</Link>
+                        <Link href="/login">로그인</Link>
+                    </div>
+                )}
             </div>
         </header>
     );
