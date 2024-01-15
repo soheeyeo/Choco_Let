@@ -38,6 +38,7 @@
 }
 
 .item {
+    position: relative;
     width: 380px;
 }
 
@@ -83,6 +84,9 @@
 
 .like_btn {
     background-color: #fff;
+    position: absolute;
+    top: 12px;
+    right: 16px;
 }
 
 .info_contents {

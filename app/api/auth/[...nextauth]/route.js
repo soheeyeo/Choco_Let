@@ -7,7 +7,7 @@ import GoogleProvider from "next-auth/providers/google";
 import KakaoProvider from "next-auth/providers/kakao";
 import NaverProvider from "next-auth/providers/naver";
 
-const authOptions = {
+export const authOptions = {
     adapter: PrismaAdapter(prisma),
     providers: [
         CredentialsProvider({
@@ -23,7 +23,6 @@ const authOptions = {
             },
 
             async authorize(credentials, req) {
-                console.log(credentials);
                 if (!credentials.email) {
                     throw new Error("아이디를 입력해주세요.");
                 } else if (!credentials.password) {
@@ -42,7 +41,7 @@ const authOptions = {
                 );
 
                 if (user && pwCheck) {
-                    return credentials;
+                    return user;
                 }
                 throw new Error("아이디 혹은 비밀번호가 일치하지 않습니다.");
             },
@@ -66,19 +65,17 @@ const authOptions = {
     callbacks: {
         jwt: async ({ token, user }) => {
             if (user) {
-                token.user = {};
-                token.user.email = user.email;
+                token.sub = user.id;
             }
             return token;
         },
-        session: async ({ session, token }) => {
-            session.user = token.user;
-            return session;
-        },
-    },
-    session: async ({ session, token }) => {
-        session.user = token.user;
-        return session;
+        session: async ({ session, token }) => ({
+            ...session,
+            user: {
+                ...session.user,
+                id: token.sub,
+            },
+        }),
     },
     pages: {
         signIn: "/login",

@@ -68,6 +68,7 @@ export default function List({ params: { category } }) {
                                         brand={chocolate.brand}
                                         name={chocolate.name}
                                         price={chocolate.price}
+                                        id={chocolate.id}
                                     />
                                 </li>
                             );
