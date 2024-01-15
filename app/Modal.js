@@ -1,6 +1,14 @@
-import Link from "next/link";
+"use client";
 
-export default function Modal() {
+import { useRouter } from "next/navigation";
+
+export default function Modal({ setIsOpen }) {
+    const router = useRouter();
+
+    const handleOnClick = () => {
+        setIsOpen(false);
+    };
+
     return (
         <div className="modal">
             <div className="modal_container">
@@ -9,8 +17,15 @@ export default function Modal() {
                     <p>로그인하시겠습니까?</p>
                 </div>
                 <div className="modal_btn_container">
-                    <button className="modal_btn_l">취소</button>
-                    <button className="modal_btn_r">확인</button>
+                    <button onClick={handleOnClick} className="modal_btn_l">
+                        취소
+                    </button>
+                    <button
+                        onClick={() => router.push("/login")}
+                        className="modal_btn_r"
+                    >
+                        확인
+                    </button>
                 </div>
             </div>
         </div>
