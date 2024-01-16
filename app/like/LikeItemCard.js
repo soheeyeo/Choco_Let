@@ -9,7 +9,19 @@ export default function LikeItemCard({
     brand,
     name,
     price,
+    id,
 }) {
+    const handleOnClick = async () => {
+        try {
+            const res = await fetch("/api/like/likeList", {
+                method: "DELETE",
+                body: JSON.stringify(id),
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     return (
         <>
             <Link href={"/detail/" + link}>
@@ -42,8 +54,8 @@ export default function LikeItemCard({
                     </div>
                 </div>
             </Link>
-            <button className={styles.delete_btn}>
-                <HiXMark color="#EB7EA2" size="16px" />
+            <button onClick={handleOnClick} className={styles.delete_btn}>
+                <HiXMark color="#EB7EA2" size="18px" />
             </button>
         </>
     );

@@ -23,3 +23,21 @@ export async function GET(req) {
     });
     return Response.json(likeList);
 }
+
+export async function DELETE(req) {
+    const chocolateId = await req.json();
+
+    let find = await prisma.like.findFirst({
+        where: {
+            chocolateId: chocolateId,
+        },
+    });
+
+    const deleteItem = await prisma.like.delete({
+        where: {
+            id: find.id,
+        },
+    });
+
+    return Response.json(deleteItem);
+}
