@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LikeBtn from "./LikeBtn";
+import LikeBtn from "@/app/LikeBtn";
 
 export default function ItemCard({
     styles,
@@ -44,7 +44,7 @@ export default function ItemCard({
                     </div>
                 </div>
             </Link>
-            <LikeBtn id={id} styles={styles} liked={liked} />
+            <LikeBtn id={id} styles={styles} liked={liked} size={"20px"} />
         </>
     );
 }
