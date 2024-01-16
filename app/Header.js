@@ -29,7 +29,7 @@ export default async function Header() {
                 </ul>
                 {session ? (
                     <div className="account_li">
-                        <Link href="/mypage">관심 목록</Link>
+                        <Link href="/like">관심 목록</Link>
                         <LogoutBtn />
                     </div>
                 ) : (

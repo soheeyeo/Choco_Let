@@ -1,0 +1,105 @@
+.like_section {
+    margin: 62px auto;
+    max-width: 1200px;
+}
+
+.like_tit {
+    text-align: center;
+}
+
+.item_container {
+    margin-top: 60px;
+}
+
+.item_li {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.item {
+    position: relative;
+    width: 380px;
+}
+
+.item_card {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.img_wrapper {
+    flex: none;
+    width: 182px;
+    height: 182px;
+}
+
+.item_img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.info_container {
+    padding: 10px 16px 24px;
+    width: 100%;
+}
+
+.btn_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.feature_box {
+    margin-right: 10px;
+    padding: 4px 8px;
+    font-size: 10px;
+    text-align: center;
+    color: var(--main-color);
+    background-color: var(--sub-color);
+    border-radius: 5px;
+}
+
+.like_btn {
+    background-color: #fff;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+}
+
+.info_contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 24px);
+}
+
+.info_brand_name {
+    margin-bottom: 19px;
+    font-size: 18px;
+    color: var(--accent-color);
+}
+
+.info_item_name {
+    word-break: keep-all;
+}
+
+.info_price {
+    margin-right: 5px;
+    font-weight: 700;
+    color: var(--main-color);
+}
+
+.info_price_s {
+    font-size: 12px;
+    color: var(--main-color);
+}
+
+.delete_btn {
+    background-color: #fff;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+}
