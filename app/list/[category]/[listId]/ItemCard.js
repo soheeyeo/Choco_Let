@@ -10,6 +10,7 @@ export default function ItemCard({
     name,
     price,
     id,
+    liked,
 }) {
     return (
         <>
@@ -43,7 +44,7 @@ export default function ItemCard({
                     </div>
                 </div>
             </Link>
-            <LikeBtn id={id} styles={styles} />
+            <LikeBtn id={id} styles={styles} liked={liked} />
         </>
     );
 }

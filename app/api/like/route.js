@@ -19,7 +19,7 @@ export async function POST(req) {
                 id: find.id,
             },
         });
-        return Response.json({ message: "좋아요 취소" }, { status: 500 });
+        return Response.json(like);
     } else {
         let like = await prisma.like.create({
             data: {
@@ -27,6 +27,17 @@ export async function POST(req) {
                 userId: session.user.id,
             },
         });
-        return Response.json({ message: "좋아요" }, { status: 200 });
+        return Response.json(like);
     }
+}
+
+export async function GET(req) {
+    const session = await getServerSession(authOptions);
+
+    const likedItems = await prisma.like.findMany({
+        where: {
+            userId: session.user.id,
+        },
+    });
+    return Response.json(likedItems);
 }

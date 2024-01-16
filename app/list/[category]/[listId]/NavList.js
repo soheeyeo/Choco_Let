@@ -32,6 +32,7 @@ export default function NavList({ styles, category }) {
                             className={`${styles.nav_btn} ${
                                 params.listId == i + 1 ? styles.active : ""
                             }`}
+                            key={i}
                         >
                             {a}
                         </Link>

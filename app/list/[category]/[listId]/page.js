@@ -9,6 +9,7 @@ import { useParams } from "next/navigation";
 export default function List({ params: { category } }) {
     const [selected, setSelected] = useState("추천순");
     const [data, setData] = useState([]);
+    const [likedItem, setLikedItem] = useState([]);
 
     const params = useParams();
     const param1 = params.category;
@@ -21,6 +22,16 @@ export default function List({ params: { category } }) {
                 setData(result);
             });
     }, [data]);
+
+    useEffect(() => {
+        fetch("/api/like")
+            .then((res) => res.json())
+            .then((result) => {
+                setLikedItem(result);
+            });
+    }, []);
+
+    const likedItemList = likedItem.map((chocolate) => chocolate.chocolateId);
 
     function handleSortItems(selected) {
         let sortedData = [...data];
@@ -69,6 +80,9 @@ export default function List({ params: { category } }) {
                                         name={chocolate.name}
                                         price={chocolate.price}
                                         id={chocolate.id}
+                                        liked={likedItemList.includes(
+                                            chocolate.id
+                                        )}
                                     />
                                 </li>
                             );

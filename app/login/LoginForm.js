@@ -21,12 +21,12 @@ export default function LoginForm({ styles }) {
                 email: inputValue.email,
                 password: inputValue.pw,
                 redirect: false,
+                callbackUrl: "/",
             });
-            console.log(res);
             if (!res.ok) {
                 alert(res.error);
             } else {
-                router.push("/");
+                router.push(res.url);
             }
         } catch (err) {
             console.log(err);
