@@ -9,6 +9,12 @@ export default function Modal({ setIsOpen }) {
         setIsOpen(false);
     };
 
+    const handleRouter = () => {
+        const storage = globalThis?.sessionStorage;
+        storage.setItem("prevPath", globalThis.location.pathname);
+        router.push("/login");
+    };
+
     return (
         <div className="modal">
             <div className="modal_container">
@@ -20,10 +26,7 @@ export default function Modal({ setIsOpen }) {
                     <button onClick={handleOnClick} className="modal_btn_l">
                         취소
                     </button>
-                    <button
-                        onClick={() => router.push("/login")}
-                        className="modal_btn_r"
-                    >
+                    <button onClick={handleRouter} className="modal_btn_r">
                         확인
                     </button>
                 </div>

@@ -2,9 +2,13 @@
 import styles from "./detail.module.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 import LikeBtn from "@/app/LikeBtn";
 
 export default function Detail({ params: { id } }) {
+    const session = useSession();
+
+    const [isLoading, setIsLoading] = useState(false);
     const [data, setData] = useState([]);
     const [likedItem, setLikedItem] = useState([]);
 
@@ -13,20 +17,32 @@ export default function Detail({ params: { id } }) {
             .then((res) => res.json())
             .then((result) => {
                 setData(result);
+                setIsLoading(true);
             });
     }, []);
 
     useEffect(() => {
-        fetch("/api/like")
-            .then((res) => res.json())
-            .then((result) => {
-                setLikedItem(result);
-            });
+        if (session.data) {
+            fetch("/api/like")
+                .then((res) => res.json())
+                .then((result) => {
+                    setLikedItem(result);
+                });
+        }
+    }, []);
+
+    useEffect(() => {
+        sessionStorage?.removeItem("prevPath");
     }, []);
 
     const likedItemList = likedItem.map((chocolate) => chocolate.chocolateId);
 
     const liked = likedItemList.includes(data.id);
+
+    if (isLoading) {
+        const price = data.price.toLocaleString();
+        data.price = price;
+    }
 
     return (
         <main>

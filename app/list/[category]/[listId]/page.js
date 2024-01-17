@@ -5,8 +5,11 @@ import DropdownBtn from "./DropdownBtn";
 import ItemCard from "./ItemCard";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function List({ params: { category } }) {
+    const session = useSession();
+
     const [selected, setSelected] = useState("추천순");
     const [data, setData] = useState([]);
     const [likedItem, setLikedItem] = useState([]);
@@ -24,11 +27,17 @@ export default function List({ params: { category } }) {
     }, [data]);
 
     useEffect(() => {
-        fetch("/api/like")
-            .then((res) => res.json())
-            .then((result) => {
-                setLikedItem(result);
-            });
+        if (session.data) {
+            fetch("/api/like")
+                .then((res) => res.json())
+                .then((result) => {
+                    setLikedItem(result);
+                });
+        }
+    }, []);
+
+    useEffect(() => {
+        sessionStorage?.removeItem("prevPath");
     }, []);
 
     const likedItemList = likedItem.map((chocolate) => chocolate.chocolateId);

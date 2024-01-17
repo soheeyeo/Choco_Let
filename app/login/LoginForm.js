@@ -20,8 +20,7 @@ export default function LoginForm({ styles }) {
             const res = await signIn("credentials", {
                 email: inputValue.email,
                 password: inputValue.pw,
-                redirect: false,
-                callbackUrl: "/",
+                callbackUrl: sessionStorage.getItem("prevPath") || "/",
             });
             if (!res.ok) {
                 alert(res.error);

@@ -4,6 +4,7 @@ import LikeItemCard from "./LikeItemCard";
 import { useState, useEffect } from "react";
 
 export default function Like() {
+    const [isLoading, setIsLoading] = useState(false);
     const [likeList, setLikedList] = useState([]);
 
     useEffect(() => {
@@ -11,6 +12,7 @@ export default function Like() {
             .then((res) => res.json())
             .then((result) => {
                 setLikedList(result);
+                setIsLoading(true);
             });
     }, [likeList]);
 
@@ -20,11 +22,11 @@ export default function Like() {
                 <div className={styles.like_tit}>
                     <h1 className="h1_tit">관심 목록</h1>
                 </div>
-                {likeList.length !== 0 ? (
-                    <div className={styles.item_container}>
-                        <ul className={styles.item_li}>
-                            {likeList.map((chocolate, i) => {
-                                return (
+                {isLoading ? (
+                    likeList.length !== 0 ? (
+                        <div className={styles.item_container}>
+                            <ul className={styles.item_li}>
+                                {likeList.map((chocolate, i) => (
                                     <li className={styles.item} key={i}>
                                         <LikeItemCard
                                             link={chocolate.id}
@@ -37,16 +39,18 @@ export default function Like() {
                                             id={chocolate.id}
                                         />
                                     </li>
-                                );
-                            })}
-                        </ul>
-                    </div>
+                                ))}
+                            </ul>
+                        </div>
+                    ) : (
+                        <div className={styles.txt_wrapper}>
+                            <p className={styles.like_empty_msg}>
+                                아직 관심 목록이 없어요.
+                            </p>
+                        </div>
+                    )
                 ) : (
-                    <div className={styles.txt_wrapper}>
-                        <p className={styles.like_empty_msg}>
-                            아직 관심 목록이 없어요.
-                        </p>
-                    </div>
+                    ""
                 )}
             </section>
         </main>
