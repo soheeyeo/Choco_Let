@@ -12,6 +12,8 @@ export default function ItemCard({
     id,
     liked,
 }) {
+    const formattedPrice = price.toLocaleString();
+
     return (
         <>
             <Link href={"/detail/" + link}>
@@ -34,7 +36,7 @@ export default function ItemCard({
                             </div>
                             <div>
                                 <span className={styles.info_price}>
-                                    {price}원
+                                    {formattedPrice}원
                                 </span>
                                 <span className={styles.info_price_s}>
                                     정가
