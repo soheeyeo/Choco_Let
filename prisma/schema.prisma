@@ -12,7 +12,7 @@ datasource db {
 
 model Chocolate {
     id             Int    @id @default(autoincrement())
-    name           String
+    name           String @unique
     brand          String
     price          Int
     recommendation Int
