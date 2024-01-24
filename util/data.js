@@ -451,7 +451,7 @@ const chocolate = [
         country: "독일",
         flavor: "믹스",
         type: "믹스",
-        description: `100년 이상의 역사를 자랑하는 리터 스포트는 독일의 국민 초콜릿이라고도 불리는 초콜릿 브랜드입니다. \n리터 초코큐브 초콜릿 포유는 헤이즐넛 프랄린, 프라린, 더블 카라멜, 초코 크리스프 4가지 종류의 초콜릿으로 구성된 제품입니다. \n개별 포장되어 있어 주변 사람들과 나누어 먹거나 소중한 사람을 위한 선물, 간식용으로 추천드립니다.`,
+        description: `100년 이상의 역사를 자랑하는 리터 스포트는 독일의 국민 초콜릿이라고도 불리는 초콜릿 브랜드입니다. \n리터 초코큐브 초콜릿 포유는 헤이즐넛 프랄린, 프랄린, 더블 카라멜, 초코 크리스프 4가지 종류의 초콜릿으로 구성된 제품입니다. \n개별 포장되어 있어 주변 사람들과 나누어 먹거나 소중한 사람을 위한 선물, 간식용으로 추천드립니다.`,
         image: "/assets/chocolate/rittersport_foryou.webp",
         url: "https://front.homeplus.co.kr/item?itemNo=127794438&storeType=HYPER",
     },
@@ -643,7 +643,7 @@ const chocolate = [
         country: "미국",
         flavor: "카라멜",
         type: "다크",
-        description: `세계 3대 초콜릿 브랜드 중 하나인 기라델리는 오랜 역사와 전통을 자랑하는 미국의 대표 초콜릿 브랜드입니다. \n기라델리 씨솔트 아몬드는 진한 다크 초콜릿에 카라멜과 소금이 풍미를 더해주는 바 형식의 초콜릿입니다. \n소중한 사람을 위한 선물이나 간식으로 추천드립니다.`,
+        description: `세계 3대 초콜릿 브랜드 중 하나인 기라델리는 오랜 역사와 전통을 자랑하는 미국의 대표 초콜릿 브랜드입니다. \n기라델리 인텐스 다크 솔티드 카라멜은 진한 다크 초콜릿에 카라멜과 소금이 풍미를 더해주는 바 형식의 초콜릿입니다. \n소중한 사람을 위한 선물이나 간식으로 추천드립니다.`,
         image: "/assets/chocolate/ghirardelli_salted_caramel.webp",
         url: "https://front.homeplus.co.kr/item?itemNo=052575334&storeType=HYPER",
     },
@@ -1500,7 +1500,7 @@ const chocolate = [
         type: "다크",
         description:
             "토블론은 150년 전통의 스위스 초콜릿 브랜드로 알프스 산맥을 닮은 시그니처 삼각형 모양이 특징입니다. \n토블론 스위스 다크 초콜릿은 쌉쌀한 다크 초콜릿에 달콤한 누가가 박혀있어 적당한 달콤함과 쌉쌀함이 조화를 이루는 초콜릿입니다. \n한 칸씩 나누어 먹기 편해 간식용으로도 좋고, 가벼운 선물용으로도 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/toblerone_dark.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=0000008044472",
     },
     {
@@ -1513,7 +1513,7 @@ const chocolate = [
         type: "밀크",
         description:
             "토블론은 150년 전통의 스위스 초콜릿 브랜드로 알프스 산맥을 닮은 시그니처 삼각형 모양이 특징입니다. \n토블론 스위스 밀크 초콜릿은 부드러운 밀크 초콜릿에 누가, 아몬드가 박혀있어 진한 달콤함과 식감을 즐길 수 있는 제품입니다. \n한 칸씩 나누어 먹기 편해 간식용으로도 좋고, 가벼운 선물용으로도 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/toblerone_milk.webp",
         url: "https://www.ssg.com/item/itemView.ssg?itemId=0000008333003",
     },
     {
@@ -1526,7 +1526,7 @@ const chocolate = [
         type: "화이트",
         description:
             "토블론은 150년 전통의 스위스 초콜릿 브랜드로 알프스 산맥을 닮은 시그니처 삼각형 모양이 특징입니다. \n토블론 스위스 화이트 초콜릿은 달콤하고 부드러운 화이트 초콜릿에 누가, 아몬드가 박혀있어 달콤함과 식감을 즐길 수 있는 제품입니다. \n한 칸씩 나누어 먹기 편해 간식용으로도 좋고, 가벼운 선물용으로도 추천드립니다.",
-        image: "/assets/chocolate/.webp",
+        image: "/assets/chocolate/toblerone_white.webp",
         url: "https://www.lotteon.com/p/product/LM7614500010310?sitmNo=LM7614500010310_001&mall_no=1",
     },
     {
