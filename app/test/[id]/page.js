@@ -99,7 +99,7 @@ export default function TestContent() {
 
     useEffect(() => {
         if (finished) {
-            router.push("/test/result");
+            router.push(`/test/result/${prevType}`);
         }
     }, [finished]);
 
