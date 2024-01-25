@@ -1,0 +1,67 @@
+.test_main {
+    background-color: var(--sub-color);
+    height: 100vh;
+}
+
+.test_section {
+    margin: 200px auto;
+    max-width: 1200px;
+    color: var(--main-color);
+}
+
+.test_li {
+    margin: 0 auto;
+    width: 180px;
+}
+
+.test_tit {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.test_tit:first-child {
+    margin-bottom: 70px;
+}
+
+.test_link {
+    display: flex;
+    justify-content: space-between;
+}
+
+.test_qna_section {
+    margin: 150px auto;
+    max-width: 1200px;
+    color: var(--main-color);
+}
+
+.test_content {
+    text-align: center;
+}
+
+.test_question {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.test_options {
+    display: flex;
+    margin: 100px auto 0;
+    flex-direction: column;
+    gap: 24px;
+    width: 360px;
+}
+
+.test_option {
+    padding: 15px;
+    background-color: var(--border-color);
+    color: var(--main-color);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 100px;
+    white-space: pre-line;
+}
+
+.test_option:hover {
+    background-color: rgba(255, 199, 218, 0.6);
+}
