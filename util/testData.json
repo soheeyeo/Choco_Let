@@ -1,4 +1,196 @@
 {
+    "QNA_G": [
+        {
+            "id": 1,
+            "q": "상대의 연령대는?",
+            "a": [
+                {
+                    "type": "A",
+                    "content": "어린이"
+                },
+                {
+                    "type": "B",
+                    "content": "청소년"
+                },
+                {
+                    "type": "C",
+                    "content": "20-30대"
+                },
+                {
+                    "type": "D",
+                    "content": "40대 이상"
+                }
+            ]
+        },
+        {
+            "id": 2.1,
+            "q": "개별 포장이 되어있으면 좋겠다.",
+            "a": [
+                {
+                    "type": "E",
+                    "content": "그렇다"
+                },
+                {
+                    "type": "F",
+                    "content": "아니다 / 상관없다"
+                }
+            ]
+        },
+        {
+            "id": 2.2,
+            "q": "어떤 상황에 선물할까?",
+            "a": [
+                {
+                    "type": "G",
+                    "content": "생일, 발렌타인데이 등 특별한 기념일에"
+                },
+                {
+                    "type": "H",
+                    "content": "시험을 앞두고 있을 때"
+                },
+                {
+                    "type": "I",
+                    "content": "일상 속 가벼운 선물을 하고 싶을 때"
+                }
+            ]
+        },
+        {
+            "id": 2.3,
+            "q": "어떤 상황에 선물할까?",
+            "a": [
+                {
+                    "type": "G",
+                    "content": "생일, 발렌타인데이 등 특별한 기념일에"
+                },
+                {
+                    "type": "I",
+                    "content": "일상 속 가벼운 선물을 하고 싶을 때"
+                }
+            ]
+        },
+        {
+            "id": 3.1,
+            "q": "상대는 딸기, 블루베리 등 과일 맛이 나는 간식(요거트 젤리 등)을 좋아한다.",
+            "a": [
+                {
+                    "type": "J",
+                    "content": "그렇다"
+                },
+                {
+                    "type": "K",
+                    "content": "아니다 / 잘 모르겠다"
+                }
+            ]
+        },
+        {
+            "id": 3.2,
+            "q": "상대의 입맛은?",
+            "a": [
+                {
+                    "type": "L",
+                    "content": "달달한 걸 좋아한다"
+                },
+                {
+                    "type": "M",
+                    "content": "너무 단 건 싫어한다"
+                },
+                {
+                    "type": "N",
+                    "content": "잘 모르겠다"
+                }
+            ]
+        },
+        {
+            "id": 4.1,
+            "q": "선물할 초콜릿 사이즈는?",
+            "a": [
+                {
+                    "type": "O",
+                    "content": "하루 만에 먹기 좋은 사이즈"
+                },
+                {
+                    "type": "P",
+                    "content": "며칠 동안 나누어 먹기 좋은 사이즈"
+                }
+            ]
+        },
+        {
+            "id": 4.2,
+            "q": "상대는 평소에 커피나 차를 즐겨마신다.",
+            "a": [
+                {
+                    "type": "Q",
+                    "content": "그렇다"
+                },
+                {
+                    "type": "R",
+                    "content": "안 마신다 / 잘 모르겠다"
+                }
+            ]
+        },
+        {
+            "id": 5.1,
+            "q": "원하는 가격대는?",
+            "a": [
+                {
+                    "type": "T",
+                    "content": "2만 원 이하"
+                },
+                {
+                    "type": "U",
+                    "content": "4만 원 이하"
+                },
+                {
+                    "type": "V",
+                    "content": "상관없다"
+                }
+            ]
+        },
+        {
+            "id": 5.2,
+            "q": "원하는 가격대는?",
+            "a": [
+                {
+                    "type": "S",
+                    "content": "만 원 이하"
+                },
+                {
+                    "type": "T",
+                    "content": "2만 원 이하"
+                },
+                {
+                    "type": "U",
+                    "content": "4만 원 이히"
+                },
+                {
+                    "type": "V",
+                    "content": "상관없다"
+                }
+            ]
+        },
+        {
+            "id": 5.3,
+            "q": "원하는 가격대는?",
+            "a": [
+                {
+                    "type": "W",
+                    "content": "오천 원 이하"
+                },
+                {
+                    "type": "S",
+                    "content": "만 원 이하"
+                },
+                {
+                    "type": "Y",
+                    "content": "만 오천 원 이히"
+                },
+                {
+                    "type": "T",
+                    "content": "2만 원 이하"
+                }
+            ]
+        }
+    ],
     "QNA": [
         {
             "id": 1,
@@ -161,19 +353,19 @@
             "name": "토블론 스위스 밀크 초콜릿"
         },
         {
-            "type": "MIRBA",
+            "type": ["MIRBA", "BINRS"],
             "name": "토니스 허니 아몬드 누가 밀크 초콜릿"
         },
         {
-            "type": "MIRGS",
+            "type": ["MIRGS", "CGNRT", "DGNRT"],
             "name": "피스타초스 카라메리싸도스 레치"
         },
         {
-            "type": "MIRGK",
+            "type": ["MIRGK", "CINQW"],
             "name": "앤디스 토피 크런치 띤"
         },
         {
-            "type": "MIRGA",
+            "type": ["MIRGA", "BILRW"],
             "name": "노브랜드 카라멜 아몬드 초콜릿"
         },
         {
@@ -181,7 +373,7 @@
             "name": "아몬드 클러스터"
         },
         {
-            "type": "MIUBK",
+            "type": ["MIUBK", "BGLRU", "BGLRV", "CGLRV", "DGLRV"],
             "name": "넛 클러스터"
         },
         {
@@ -189,31 +381,27 @@
             "name": "리얼 밀크 초콜릿 아몬드 크런치 초코볼"
         },
         {
-            "type": "MIUGS",
+            "type": ["MIUGS", "BHLQT", "BINRT"],
             "name": "린도볼 헤이즐넛"
         },
         {
-            "type": "MIUGK",
+            "type": ["MIUGK", "BGNQT", "BINQVT", "CHNRT"],
             "name": "지 큐브 밀크 헤이즐넛 랩트 초콜릿 8개입"
         },
         {
-            "type": "MIUGA",
-            "name": "페레로 로쉐 오리지널 헤이즐넛"
-        },
-        {
-            "type": "MERBS",
+            "type": ["MERBS", "BINQS"],
             "name": "리얼 밀크 초콜릿 카라멜 초코볼"
         },
         {
-            "type": "MERBK",
+            "type": ["MERBK", "DILQS"],
             "name": "부샤드 카라멜&씨솔트 밀크 초콜릿"
         },
         {
-            "type": "MERBA",
+            "type": ["MERBA", "BILRS"],
             "name": "토니스 카라멜 씨솔트 밀크 초콜릿"
         },
         {
-            "type": "MERGS",
+            "type": ["MERGS", "BGNRT", "BHLRT", "BILRT", "CHLRT"],
             "name": "지 큐브 솔티드 캐러멜 랩트 초콜릿 8개입"
         },
         {
@@ -225,11 +413,20 @@
             "name": "휘태커스 말보로 씨솔트&카라멜 밀크 초콜릿"
         },
         {
-            "type": "MEUBS",
+            "type": [
+                "MEUBS",
+                "VJBS",
+                "BGMQT",
+                "BHMRT",
+                "BIMRT",
+                "CHMRT",
+                "CIMRT",
+                "DIMQT"
+            ],
             "name": "스위스 씬즈 밀크"
         },
         {
-            "type": "MEUBK",
+            "type": ["MEUBK", "VJBK"],
             "name": "부샤드 밀크 초콜릿"
         },
         {
@@ -250,7 +447,7 @@
         },
 
         {
-            "type": "DIRB",
+            "type": ["DIRB", "DINRT"],
             "name": "엑스트라 다크 로카 캐니스터"
         },
         {
@@ -258,27 +455,27 @@
             "name": "기라델리 인텐스 다크 솔티드 카라멜"
         },
         {
-            "type": "DER",
+            "type": ["DER", "BINRY", "DIMRY"],
             "name": "기라델리 스퀘어백 다크 초콜릿 씨솔트 카라멜"
         },
         {
-            "type": "DIUBS",
+            "type": ["DIUBS", "CGMRT", "DGMRT"],
             "name": "로카스 수이자스 네그로"
         },
         {
-            "type": "DIUBK",
+            "type": ["DIUBK", "BHMRS", "BIMQS", "CHMRS"],
             "name": "로스티드 아몬드 다크 초콜릿"
         },
         {
-            "type": "DIUBA",
+            "type": ["DIUBA", "BINRW", "CINRW", "DILRW", "DINRW"],
             "name": "리터 스포트 다크 홀아몬드 초콜릿"
         },
         {
-            "type": "DIUGS",
+            "type": ["DIUGS", "CIMQS"],
             "name": "게이샤 다크 초콜릿"
         },
         {
-            "type": "DIUGK",
+            "type": ["DIUGK", "CIMRY", "DIMQY"],
             "name": "기라델리 스퀘어백 인텐스 다크 72% 카카오"
         },
         {
@@ -286,32 +483,43 @@
             "name": "페레로 로쉐 다크 헤이즐넛"
         },
         {
-            "type": "DEUBS",
+            "type": ["DEUBS", "BIMQT", "CIMQT"],
             "name": "스위스 씬즈 다크"
         },
         {
-            "type": "DEUBK",
+            "type": ["DEUBK", "BIMRS", "CIMRS"],
             "name": "부샤드 다크 초콜릿 72%"
         },
         {
-            "type": "DEUBA",
+            "type": ["DEUBA", "BIMRW", "DIMQW"],
             "name": "토니스 다크 초콜릿"
         },
         {
-            "type": "DEUGS",
+            "type": [
+                "DEUGS",
+                "BGMQU",
+                "BGMRU",
+                "BGNQU",
+                "BGNRU",
+                "BHMRU",
+                "BIMRY",
+                "CGMQU",
+                "CHMQU",
+                "DGMQU"
+            ],
             "name": "파베 6P"
         },
         {
-            "type": "DEUGK",
+            "type": ["DEUGK", "BHMQT", "CGMQT", "CHMQT", "DGMQT", "DIMRT"],
             "name": "지 큐브 다크 랩트 초콜릿 8개입"
         },
         {
-            "type": "DEUGA",
+            "type": ["DEUGA", "BGMRV"],
             "name": "린도볼 엑스트라 다크"
         },
 
         {
-            "type": "WIBS",
+            "type": ["WIBS", "CGLRT", "CILRT", "DGLRT", "DILRT"],
             "name": "아벨라나스 카라메리싸다스 레치"
         },
         {
@@ -323,19 +531,15 @@
             "name": "리터 스포트 화이트 홀 헤이즐넛 초콜릿"
         },
         {
-            "type": "WIGS",
+            "type": ["WIGS", "DILRY"],
             "name": "화이트살라미"
         },
         {
-            "type": "WIGK",
+            "type": ["WIGK", "WIGA", "CILQS"],
             "name": "페레로 로쉐 화이트 헤이즐넛"
         },
         {
-            "type": "WIGA",
-            "name": "페레로 로쉐 화이트 헤이즐넛"
-        },
-        {
-            "type": "WETS",
+            "type": ["WETS", "BGLQT", "DINQY"],
             "name": "얼그레이 생초콜릿"
         },
         {
@@ -343,7 +547,7 @@
             "name": "말차 생초콜릿"
         },
         {
-            "type": "WETA",
+            "type": ["WETA", "CILQY", "DILQY"],
             "name": "화이트모카 35%"
         },
         {
@@ -356,31 +560,39 @@
             "name": "리터 미니 초콜릿 믹스 8p"
         },
         {
-            "type": "PHBZ",
+            "type": ["PHBZ", "BGLQV", "BHLQV", "CGLRU", "DGLRU"],
             "name": "노이하우스 디스커버리 이리지스터블 초콜릿 5P"
         },
         {
-            "type": "PHGX",
+            "type": ["PHGX", "BHNQU", "CHNQU"],
             "name": "골드 디스커버리 6개입"
         },
         {
-            "type": "PHGZ",
+            "type": [
+                "PHGZ",
+                "BGLRT",
+                "CGLQT",
+                "CGNQT",
+                "DGLQT",
+                "DGNQT",
+                "DILQT"
+            ],
             "name": "레더라 컬렉션 4P"
         },
         {
-            "type": "PLBX",
+            "type": ["PLBX", "BHNRT"],
             "name": "페레로 콜렉션 T-9"
         },
         {
-            "type": "PLBZ",
+            "type": ["PLBZ", "BGNRV", "CGNRV", "DGNRV"],
             "name": "레더라 후리쉬쇼기 어쏘티드 박스"
         },
         {
-            "type": "PLGX",
+            "type": ["PLGX", "BHNQT", "BILQT", "CHLQT", "CHNQT", "CILQT"],
             "name": "린도볼 어쏘티드"
         },
         {
-            "type": "PLGZ",
+            "type": ["PLGZ", "CGLQV", "DGLQV"],
             "name": "노이하우스 밀크&다크&화이트 초콜릿 컬렉션 믹스 12P"
         },
 
@@ -389,7 +601,7 @@
             "name": "알멘드라스 카라메리싸다스 네그로"
         },
         {
-            "type": "VNBK",
+            "type": ["VNBK", "BHLQU", "CGNRU", "DGNRU"],
             "name": "크로캉 세트"
         },
         {
@@ -397,15 +609,15 @@
             "name": "후레쉬 초콜릿 모음 세트 220g"
         },
         {
-            "type": "VNGS",
+            "type": ["VNGS", "MIUGA"],
             "name": "페레로 로쉐 오리지널 헤이즐넛"
         },
         {
-            "type": "VNGK",
+            "type": ["VNGK", "BHLRS", "CHLRS", "CHNRS"],
             "name": "리터 초코큐브 초콜릿 포유"
         },
         {
-            "type": "VNGA",
+            "type": ["VNGA", "BIMQW", "BINQW", "CIMQW"],
             "name": "쇼게튼 다크 초콜릿 위드 헤이즐넛"
         },
         {
@@ -413,15 +625,15 @@
             "name": "칼파제르 스트로베리 앤 바닐라 밀크 초콜릿"
         },
         {
-            "type": "VFBK",
+            "type": ["VFBK", "AFJP"],
             "name": "리얼 화이트 초콜릿 딸기"
         },
         {
-            "type": "VFBA",
+            "type": ["VFBA", "CILRW"],
             "name": "리터 스포트 딸기 요거트 초콜릿"
         },
         {
-            "type": "VFGS",
+            "type": ["VFGS", "CILRS", "DILRS"],
             "name": "휘태커스 넬슨 페어&마누카꿀 밀크 초콜릿"
         },
         {
@@ -429,40 +641,32 @@
             "name": "칼파제르 셀렉션 초콜릿"
         },
         {
-            "type": "VFGA",
+            "type": ["VFGA", "AFJO"],
             "name": "쇼게튼 요거트 스트로베리 초콜릿"
         },
         {
-            "type": "VCBS",
+            "type": ["VCBS", "CINQVT", "DINQVT"],
             "name": "밀크웨딩 51%"
         },
         {
-            "type": "VCBK",
+            "type": ["VCBK", "DIMQS", "BHNQS", "CHNQS"],
             "name": "오설록 제주섬 녹차 초콜릿 바"
         },
         {
-            "type": "VCBA",
+            "type": ["VCBA", "DINRS"],
             "name": "오설록 제주섬 녹차 아몬드볼"
         },
         {
-            "type": "VCGS",
+            "type": ["VCGS", "BILQY"],
             "name": "오설록 제주섬 녹차 라즈베리 트러플"
         },
         {
-            "type": "VCGK",
+            "type": ["VCGK", "BINQY", "CINQY"],
             "name": "펄 카푸치노 초콜릿"
         },
         {
-            "type": "VCGA",
+            "type": ["VCGA", "CINQS", "DINQS"],
             "name": "휘태커스 웰링턴 로스티드 슈프림 커피 다크 초콜릿"
-        },
-        {
-            "type": "VJBS",
-            "name": "스위스 씬즈 밀크"
-        },
-        {
-            "type": "VJBK",
-            "name": "부샤드 밀크 초콜릿"
         },
         {
             "type": "VJBA",
@@ -473,12 +677,112 @@
             "name": "린도볼 밀크"
         },
         {
-            "type": "VJGK",
+            "type": ["VJGK", "BHNRS"],
             "name": "칼파제르 밀크 초콜릿"
         },
         {
             "type": "VJGA",
             "name": "밀카 버블리"
+        },
+        {
+            "type": ["BGLQU", "BGNQV", "CGNQU", "CHLQU", "DGNQU"],
+            "name": "프랄린 6P"
+        },
+        {
+            "type": ["BGMQV", "BHMRV", "CGMQV", "CHMRV", "DGMQV"],
+            "name": "까레 어쏘트먼트 밀크&다크 24개입"
+        },
+        {
+            "type": "AEKO",
+            "name": "킨더 초콜릿 4개입"
+        },
+        {
+            "type": "AEKP",
+            "name": "킨더 초콜릿 미니 T-20"
+        },
+        {
+            "type": "AFKO",
+            "name": "킨더 조이 걸"
+        },
+        {
+            "type": "AFKP",
+            "name": "쇼게튼 포 키즈 위드 밀크"
+        },
+        {
+            "type": ["BGMRT", "BHMQS", "CHMQS", "DIMRS"],
+            "name": "칼파제르 다크 초콜릿"
+        },
+        {
+            "type": ["BHLQS", "CHLQS"],
+            "name": "페레로 로쉐 T8 하트"
+        },
+        {
+            "type": ["BHLRU", "CGLQU", "DGLQU"],
+            "name": "노이하우스 디스커버리 클래식 초콜릿 세트 6P"
+        },
+        {
+            "type": ["BHLRV", "CGNQV", "CHLRV", "DGNQV"],
+            "name": "레더라 컬렉션 18P"
+        },
+        {
+            "type": ["BHMQU", "CGMRU", "CHMRU", "DGMRU"],
+            "name": "까레 어쏘트먼트 다크 50% 16개입"
+        },
+        {
+            "type": ["BHMQV", "CGMRV", "CHMQV", "DGMRV"],
+            "name": "까레 박스 그랑 크루"
+        },
+        {
+            "type": ["BHNQV", "CHLQV", "CHNQV"],
+            "name": "골드 디스커버리 9개입"
+        },
+        {
+            "type": ["BHNRU", "CHLRU", "CHNRU"],
+            "name": "골드 컬렉션 8개입"
+        },
+        {
+            "type": ["BHNRV", "CHNRV"],
+            "name": "골드 컬렉션 12개입"
+        },
+        {
+            "type": ["BILQW", "CILQW"],
+            "name": "리터 스포트 버터 비스킷 초콜릿"
+        },
+        {
+            "type": "BILQS",
+            "name": "리얼 밀크 초콜릿 헤이즐넛 모카 바크씬"
+        },
+        {
+            "type": ["BILRY", "CINRY"],
+            "name": "펄 밀크 초콜릿"
+        },
+        {
+            "type": ["BIMQY", "CIMQY"],
+            "name": "펄 다크 초콜릿"
+        },
+        {
+            "type": ["CILRY", "DINRY"],
+            "name": "밀크살라미"
+        },
+        {
+            "type": "CIMRW",
+            "name": "무설탕 초콜릿으로 만든 다크 70% 초코볼"
+        },
+        {
+            "type": "CINRS",
+            "name": "기라델리 씨솔트 아몬드"
+        },
+        {
+            "type": "CINRT",
+            "name": "아몬드 로카 캐니스터"
+        },
+        {
+            "type": "DILQW",
+            "name": "토니스 밀크 초콜릿 헤이즐넛"
+        },
+        {
+            "type": "DIMRW",
+            "name": "토니스 다크 초콜릿 아몬드 씨솔트"
         }
     ]
 }
