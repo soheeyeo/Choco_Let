@@ -1727,6 +1727,45 @@ const chocolate = [
         image: "/assets/chocolate/treetobar_milk_wedding.webp",
         url: "https://smartstore.naver.com/treetobar/products/5895425590",
     },
+    {
+        name: "까레 어쏘트먼트 다크 50% 16개입",
+        brand: "고디바",
+        price: 34000,
+        recommendation: 8,
+        country: "벨기에",
+        flavor: "플레인",
+        type: "다크",
+        description:
+            "세계 3대 초콜릿 브랜드 중 하나인 고디바 초콜릿은 최고급 초콜릿을 선보이는 벨기에 프리미엄 초콜릿 브랜드입니다. \n까레 어쏘트먼트 다크 50% 16개입은 다크 초콜릿 본연의 맛을 깔끔하게 즐길 수 있는 제품입니다. \n낱개 포장이 되어있어 나누어 먹기 좋고, 깔끔한 포장으로 선물용으로도 추천드립니다.",
+        image: "/assets/chocolate/godiva_carres_dark.webp",
+        url: "https://www.godiva.kr/item/9215016",
+    },
+    {
+        name: "까레 어쏘트먼트 밀크&다크 24개입",
+        brand: "고디바",
+        price: 50000,
+        recommendation: 8,
+        country: "벨기에",
+        flavor: "플레인",
+        type: "믹스",
+        description:
+            "세계 3대 초콜릿 브랜드 중 하나인 고디바 초콜릿은 최고급 초콜릿을 선보이는 벨기에 프리미엄 초콜릿 브랜드입니다. \n까레 어쏘트먼트 밀크&다크 24개입 부드러운 밀크 초콜릿과 깊은 다크 초콜릿 본연의 맛을 깔끔하게 즐길 수 있는 제품입니다. \n낱개 포장이 되어있어 나누어먹기 좋고, 깔끔한 포장으로 선물용으로도 추천드립니다.",
+        image: "/assets/chocolate/godiva_carres_milk_dark.webp",
+        url: "https://www.godiva.kr/item/9210024",
+    },
+    {
+        name: "까레 박스 그랑 크루",
+        brand: "레더라",
+        price: 48000,
+        recommendation: 7,
+        country: "스위스",
+        flavor: "플레인",
+        type: "다크",
+        description:
+            "스위스 대표 최고급 수제 초콜릿 브랜드인 레더라는 최상의 재료와 신선한 맛으로 세계적인 사랑을 받고 있는 초콜릿 브랜드입니다. \n까레 박스 그랑 크루는 에콰도르, 브라질, 트리니다드, 마다가스카르, 그레나다의 카카오빈을 원료로 만들어진 다크 초콜릿 세트로 각각 다른 맛과 향을 즐길 수 있는 제품입니다. \n깔끔한 포장으로 어른들이나 지인 선물용으로 추천드립니다.",
+        image: "/assets/chocolate/laderach-carres.webp",
+        url: "https://kr.laderach.com/shop/item.php?it_id=G",
+    },
 ];
 
 module.exports = chocolate;
