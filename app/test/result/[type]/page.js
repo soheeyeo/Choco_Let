@@ -9,7 +9,13 @@ export default function Result({ params: { type } }) {
     const [isLoading, setIsLoading] = useState(false);
 
     const testResult = testData.result;
-    const result = testResult.filter((data) => data.type === type)[0];
+    const result = testResult.find((data) => {
+        if (Array.isArray(data.type)) {
+            return data.type.includes(type);
+        } else {
+            return data.type === type;
+        }
+    });
 
     useEffect(() => {
         fetch(`/api/result?name=${result.name}`)
