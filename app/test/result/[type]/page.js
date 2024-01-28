@@ -18,20 +18,13 @@ export default function Result({ params: { type } }) {
     });
 
     useEffect(() => {
-        fetch(`/api/result?name=${result.name}`)
+        fetch(`/api/result/${result.name}`)
             .then((res) => res.json())
             .then((result) => {
                 setData(result);
                 setIsLoading(true);
             });
     }, []);
-
-    console.log(data);
-
-    if (isLoading) {
-        const price = data.price.toLocaleString();
-        data.price = price;
-    }
 
     return (
         <main className={styles.result_main}>
@@ -63,26 +56,12 @@ export default function Result({ params: { type } }) {
                                     />
                                 </div>
                                 <div className={styles.result_info_container}>
-                                    <div
-                                        className={styles.result_info_contents}
-                                    >
-                                        <div>
-                                            <h4
-                                                className={
-                                                    styles.result_brand_name
-                                                }
-                                            >
-                                                {data.brand}
-                                            </h4>
-                                            <p
-                                                className={
-                                                    styles.result_item_name
-                                                }
-                                            >
-                                                {data.name}
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <h4 className={styles.result_brand_name}>
+                                        {data.brand}
+                                    </h4>
+                                    <p className={styles.result_item_name}>
+                                        {data.name}
+                                    </p>
                                 </div>
                             </Link>
                         </div>
