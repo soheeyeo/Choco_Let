@@ -11,14 +11,18 @@ export default function Test() {
                 <ul className={styles.test_li}>
                     <li className={styles.test_tit}>
                         <Link href={"/test/1"} className={styles.test_link}>
-                            선물 추천 테스트
-                            <HiArrowNarrowRight />
+                            <span className={styles.test_txt}>
+                                선물 추천 테스트
+                            </span>
+                            <HiArrowNarrowRight className={styles.test_arrow} />
                         </Link>
                     </li>
                     <li className={styles.test_tit}>
                         <Link href={"/test/2"} className={styles.test_link}>
-                            초콜릿 취향 테스트
-                            <HiArrowNarrowRight />
+                            <span className={styles.test_txt}>
+                                초콜릿 취향 테스트
+                            </span>
+                            <HiArrowNarrowRight className={styles.test_arrow} />
                         </Link>
                     </li>
                 </ul>

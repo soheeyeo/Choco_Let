@@ -12,11 +12,11 @@
 
 .test_li {
     margin: 0 auto;
-    width: 180px;
+    text-align: center;
 }
 
 .test_tit {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -25,8 +25,25 @@
 }
 
 .test_link {
-    display: flex;
-    justify-content: space-between;
+    transition: all 0.4s ease-out;
+}
+
+.test_link:hover .test_txt {
+    padding-right: 30px;
+}
+
+.test_link:hover .test_arrow {
+    opacity: 1;
+    transition: 0.5s ease-out;
+}
+
+.test_txt {
+    transition: all 0.4s ease-out;
+}
+
+.test_arrow {
+    opacity: 0;
+    vertical-align: middle;
 }
 
 .test_qna_section {
@@ -40,13 +57,13 @@
 }
 
 .test_question {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
 }
 
 .test_options {
     display: flex;
-    margin: 100px auto 0;
+    margin: 90px auto 0;
     flex-direction: column;
     gap: 24px;
     width: 360px;
@@ -57,7 +74,7 @@
     background-color: var(--border-color);
     color: var(--main-color);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 24px;
     border-radius: 100px;
     white-space: pre-line;
@@ -70,7 +87,7 @@
 .result_section {
     margin: 80px auto;
     max-width: 1200px;
-    color: var(--main-color);
+    color: #803c33;
     text-align: center;
 }
 
@@ -84,11 +101,10 @@
 
 .result_item_container {
     padding: 20px;
-    margin: 50px auto;
+    margin: 34px auto;
     width: 400px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 -2px 10px 1px #0003;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: var(--border-color) 0px 5px 15px 0px;
     transition-property: transform;
 }
 
@@ -121,18 +137,33 @@
     border-radius: 5px;
 }
 
+.result_info_container {
+    position: relative;
+    padding: 40px 50px 20px;
+}
+
 .result_brand_name {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 24px;
-    color: var(--accent-color);
+    color: #c86d8b;
+}
+
+.result_brand_name::before {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 5px;
+    top: 14px;
+    left: 155px;
+    background-color: var(--border-color);
 }
 
 .result_item_name {
-    margin-bottom: 30px;
     font-size: 18px;
     font-weight: 600;
-    color: var(--accent-color);
+    color: #c86d8b;
     word-break: keep-all;
+    line-height: 26px;
 }
 
 .result_link {
