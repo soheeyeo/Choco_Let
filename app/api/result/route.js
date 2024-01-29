@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
-export async function GET(req, { params }) {
-    const name = params.type;
+export async function POST(req) {
+    const name = await req.json();
 
     const result = await prisma.chocolate.findUnique({
         where: { name: name },

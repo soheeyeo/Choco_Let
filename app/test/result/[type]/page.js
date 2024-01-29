@@ -18,7 +18,10 @@ export default function Result({ params: { type } }) {
     });
 
     useEffect(() => {
-        fetch(`/api/result/${result.name}`)
+        fetch("/api/result", {
+            method: "POST",
+            body: JSON.stringify(result.name),
+        })
             .then((res) => res.json())
             .then((result) => {
                 setData(result);
