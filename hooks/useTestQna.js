@@ -2,11 +2,12 @@
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 
-export default function useTestQnaHook() {
+export default function useTestQna() {
     const [qna, setQna] = useState(1);
     const [prevType, setPrevType] = useState("");
     const [currentType, setCurrentType] = useState("");
     const [finished, setFinished] = useState(false);
+    const [disabled, setDisabled] = useState(false);
 
     const router = useRouter();
 
@@ -38,10 +39,13 @@ export default function useTestQnaHook() {
                         setQna(2.1);
                     } else if (currentType === "E" || currentType === "F") {
                         setQna(3.1);
-                    } else if (currentType === "K") {
+                    } else if (
+                        (prevType.includes("F") && currentType === "J") ||
+                        currentType === "K"
+                    ) {
                         setQna(4.1);
                     } else if (
-                        currentType === "J" ||
+                        (prevType.includes("E") && currentType === "J") ||
                         currentType === "O" ||
                         currentType === "P"
                     ) {
@@ -133,8 +137,8 @@ export default function useTestQnaHook() {
                 case prevType === "" || currentType === "":
                     setQna(1);
                     break;
-                case prevType.startsWith("M") || prevType.startsWith("D"):
-                    if (currentType === "M" || currentType === "D") {
+                case prevType.startsWith("M"):
+                    if (currentType === "M") {
                         setQna(2.1);
                     } else if (currentType === "I" || currentType === "E") {
                         setQna(3.1);
@@ -143,6 +147,32 @@ export default function useTestQnaHook() {
                     } else if (currentType === "B" || currentType === "G") {
                         setQna(5.1);
                     } else if (
+                        currentType === "S" ||
+                        currentType === "K" ||
+                        currentType === "A"
+                    ) {
+                        setFinished(true);
+                    }
+                    break;
+                case prevType.startsWith("D"):
+                    if (currentType === "D") {
+                        setQna(2.1);
+                    } else if (currentType === "I" || currentType === "E") {
+                        setQna(3.1);
+                    } else if (
+                        (prevType.includes("I") && currentType === "R") ||
+                        currentType === "U"
+                    ) {
+                        setQna(4);
+                    } else if (
+                        (prevType.includes("IU") || prevType.includes("EU")) &&
+                        (currentType === "B" || currentType === "G")
+                    ) {
+                        setQna(5.1);
+                    } else if (
+                        (prevType.includes("E") && currentType === "R") ||
+                        (prevType.includes("IR") &&
+                            (currentType === "B" || currentType === "G")) ||
                         currentType === "S" ||
                         currentType === "K" ||
                         currentType === "A"
@@ -210,6 +240,14 @@ export default function useTestQnaHook() {
     }, [currentType, prevType]);
 
     useEffect(() => {
+        if (qna === 1) {
+            setDisabled(true);
+        } else {
+            setDisabled(false);
+        }
+    });
+
+    useEffect(() => {
         if (finished) {
             router.push(`/test/result/${prevType}`);
         }
@@ -217,6 +255,7 @@ export default function useTestQnaHook() {
 
     return {
         qna,
+        disabled,
         handleSaveType,
         handleBack,
     };

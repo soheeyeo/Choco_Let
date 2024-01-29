@@ -1,10 +1,11 @@
 "use client";
 import styles from "../test.module.css";
 import testData from "../../../util/testData";
-import useTestQnaHook from "@/hooks/useTestQnaHook";
+import useTestQna from "@/hooks/useTestQna";
+import { IoChevronBackOutline } from "react-icons/io5";
 
 export default function TestContent({ params: { id } }) {
-    const { qna, handleSaveType, handleBack } = useTestQnaHook();
+    const { qna, disabled, handleSaveType, handleBack } = useTestQna();
 
     const giftQna = testData.QNA_G;
     const tasteQna = testData.QNA;
@@ -18,7 +19,6 @@ export default function TestContent({ params: { id } }) {
             <section className={styles.test_qna_section}>
                 <h1 className="ir">추천 테스트</h1>
                 <div className={styles.test_content}>
-                    <button onClick={handleBack}>뒤로</button>
                     <span className={styles.test_question}>{findQna.q}</span>
                     <div className={styles.test_options}>
                         {findQna.a.map((option, i) => {
@@ -33,6 +33,21 @@ export default function TestContent({ params: { id } }) {
                             );
                         })}
                     </div>
+                    {disabled ? (
+                        ""
+                    ) : (
+                        <div className={styles.btn_container}>
+                            <button
+                                className={styles.test_back_btn}
+                                onClick={handleBack}
+                            >
+                                <IoChevronBackOutline
+                                    className={styles.test_back_icon}
+                                />
+                                이전
+                            </button>
+                        </div>
+                    )}
                 </div>
             </section>
         </main>

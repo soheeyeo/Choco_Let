@@ -53,20 +53,23 @@
 }
 
 .test_content {
+    margin: 0 auto;
     text-align: center;
+    width: 360px;
 }
 
 .test_question {
     font-size: 20px;
     font-weight: 600;
+    line-height: 28px;
+    word-break: keep-all;
 }
 
 .test_options {
     display: flex;
-    margin: 90px auto 0;
+    margin-top: 90px;
     flex-direction: column;
     gap: 24px;
-    width: 360px;
 }
 
 .test_option {
@@ -82,6 +85,30 @@
 
 .test_option:hover {
     background-color: rgba(255, 199, 218, 0.6);
+}
+
+.btn_container {
+    margin-top: 50px;
+    text-align: left;
+}
+
+.test_back_btn {
+    background-color: transparent;
+    color: #c86d8b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.test_back_icon {
+    margin: 0 5px 2px 0;
+    width: 22px;
+    height: 22px;
+    color: #c86d8b;
+    vertical-align: middle;
+}
+
+.disabled {
+    cursor: default;
 }
 
 .result_section {
@@ -106,6 +133,7 @@
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: var(--border-color) 0px 5px 15px 0px;
     transition-property: transform;
+    border-radius: 5px;
 }
 
 .result_item_container:hover {
