@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import LikeBtn from "@/app/LikeBtn";
+import Loading from "@/app/loading";
 
 export default function Detail({ params: { id } }) {
     const session = useSession();
@@ -46,8 +47,8 @@ export default function Detail({ params: { id } }) {
 
     return (
         <main>
-            <section className={styles.detail_section}>
-                {isLoading ? (
+            {isLoading ? (
+                <section className={styles.detail_section}>
                     <div className={styles.info_container}>
                         <div className={styles.img_wrapper}>
                             <img className={styles.info_img} src={data.image} />
@@ -97,10 +98,10 @@ export default function Detail({ params: { id } }) {
                             </Link>
                         </div>
                     </div>
-                ) : (
-                    ""
-                )}
-            </section>
+                </section>
+            ) : (
+                <Loading style={"data_f"} />
+            )}
         </main>
     );
 }

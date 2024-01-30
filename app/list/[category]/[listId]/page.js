@@ -6,11 +6,13 @@ import ItemCard from "./ItemCard";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { useSession } from "next-auth/react";
+import Loading from "@/app/loading";
 
 export default function List({ params: { category } }) {
     const session = useSession();
 
     const [selected, setSelected] = useState("추천순");
+    const [isLoading, setIsLoading] = useState(false);
     const [data, setData] = useState([]);
     const [likedItem, setLikedItem] = useState([]);
 
@@ -23,6 +25,7 @@ export default function List({ params: { category } }) {
             .then((res) => res.json())
             .then((result) => {
                 setData(result);
+                setIsLoading(true);
             });
     }, [data]);
 
@@ -70,34 +73,40 @@ export default function List({ params: { category } }) {
         <main>
             <section className={styles.list_section}>
                 <NavList styles={styles} category={category} />
-                <DropdownBtn
-                    styles={styles}
-                    selected={selected}
-                    setSelected={setSelected}
-                />
-                <div className={styles.item_container}>
-                    <ul className={styles.item_li}>
-                        {sortedChocoData.map((chocolate, i) => {
-                            return (
-                                <li className={styles.item} key={i}>
-                                    <ItemCard
-                                        link={chocolate.id}
-                                        styles={styles}
-                                        img={chocolate.image}
-                                        country={chocolate.country}
-                                        brand={chocolate.brand}
-                                        name={chocolate.name}
-                                        price={chocolate.price}
-                                        id={chocolate.id}
-                                        liked={likedItemList.includes(
-                                            chocolate.id
-                                        )}
-                                    />
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
+                {isLoading ? (
+                    <>
+                        <DropdownBtn
+                            styles={styles}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <div className={styles.item_container}>
+                            <ul className={styles.item_li}>
+                                {sortedChocoData.map((chocolate, i) => {
+                                    return (
+                                        <li className={styles.item} key={i}>
+                                            <ItemCard
+                                                link={chocolate.id}
+                                                styles={styles}
+                                                img={chocolate.image}
+                                                country={chocolate.country}
+                                                brand={chocolate.brand}
+                                                name={chocolate.name}
+                                                price={chocolate.price}
+                                                id={chocolate.id}
+                                                liked={likedItemList.includes(
+                                                    chocolate.id
+                                                )}
+                                            />
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    </>
+                ) : (
+                    <Loading style={"data_s"} />
+                )}
             </section>
         </main>
     );
