@@ -135,7 +135,17 @@ header {
 .account_li :first-child::after {
     content: "";
     position: absolute;
-    right: 0;
+    right: 5px;
+    top: 1px;
+    width: 1px;
+    height: 12px;
+    background-color: var(--border-color);
+}
+
+.account_li :nth-child(2)::after {
+    content: "";
+    position: absolute;
+    right: 48px;
     top: 1px;
     width: 1px;
     height: 12px;
@@ -144,6 +154,10 @@ header {
 
 .account_li :last-child {
     padding-left: 10px;
+}
+
+.menu_btn {
+    display: none;
 }
 
 .account_li button {
@@ -340,16 +354,58 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-    header {
-        padding: 20px 36px;
-    }
-
     .link_li {
-        gap: 40px;
+        gap: 25px;
         font-size: 14px;
     }
 
     .login {
         font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .link_li {
+        display: none;
+        margin-top: 15px;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        width: 100%;
+    }
+
+    .active {
+        display: flex;
+    }
+
+    .link {
+        padding: 10px 0;
+    }
+
+    .link:hover {
+        color: var(--accent-color);
+    }
+
+    .account_li {
+        position: absolute;
+        display: flex;
+        top: 8px;
+        right: 0;
+    }
+
+    .menu_btn {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    header {
+        padding: 18px 24px;
     }
 }

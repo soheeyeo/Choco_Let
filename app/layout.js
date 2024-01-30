@@ -1,5 +1,5 @@
 import "./globals.css";
-import Header from "./Header";
+import Header from "./components/common/Header";
 import AuthSession from "./AuthSession";
 
 export const metadata = {
@@ -11,8 +11,10 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body>
-                <Header />
-                <AuthSession>{children}</AuthSession>
+                <AuthSession>
+                    <Header />
+                    {children}
+                </AuthSession>
             </body>
         </html>
     );

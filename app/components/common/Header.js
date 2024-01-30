@@ -1,11 +1,18 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route.js";
+"use client";
+
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { categories } from "@/constants/constants";
-import LogoutBtn from "./LogoutBtn.js";
+import LogoutBtn from "../button/LogoutBtn.js";
+import { useState } from "react";
 
-export default async function Header() {
-    const session = await getServerSession(authOptions);
+export default function Header() {
+    const session = useSession();
+    const [active, setActive] = useState(false);
+
+    const handleMenu = () => {
+        setActive(!active);
+    };
 
     return (
         <header>
@@ -15,7 +22,7 @@ export default async function Header() {
                         <img src="/assets/logo.png" className="logo_img" />
                     </Link>
                 </h1>
-                <ul className="link_li">
+                <ul className={`link_li ${active ? "active" : ""}`}>
                     {categories.map((a, i) => {
                         return (
                             <li className="link" key={i}>
@@ -29,6 +36,9 @@ export default async function Header() {
                 </ul>
                 {session ? (
                     <div className="account_li">
+                        <button className="menu_btn" onClick={handleMenu}>
+                            메뉴
+                        </button>
                         <Link href="/like">관심 목록</Link>
                         <LogoutBtn />
                     </div>
