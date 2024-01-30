@@ -16,9 +16,9 @@ export default async function Header() {
                     </Link>
                 </h1>
                 <ul className="link_li">
-                    {categories.map((a) => {
+                    {categories.map((a, i) => {
                         return (
-                            <li className="link">
+                            <li className="link" key={i}>
                                 <Link href={a.link}>{a.category}</Link>
                             </li>
                         );

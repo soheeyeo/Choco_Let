@@ -2,6 +2,7 @@
 import styles from "./like.module.css";
 import LikeItemCard from "./LikeItemCard";
 import { useState, useEffect } from "react";
+import Loading from "../loading";
 
 export default function Like() {
     const [isLoading, setIsLoading] = useState(false);
@@ -18,12 +19,12 @@ export default function Like() {
 
     return (
         <main>
-            <section className={styles.like_section}>
-                <div className={styles.like_tit}>
-                    <h1 className="h1_tit">관심 목록</h1>
-                </div>
-                {isLoading ? (
-                    likeList.length !== 0 ? (
+            {isLoading ? (
+                <section className={styles.like_section}>
+                    <div className={styles.like_tit}>
+                        <h1 className="h1_tit">관심 목록</h1>
+                    </div>
+                    {likeList.length !== 0 ? (
                         <div className={styles.item_container}>
                             <ul className={styles.item_li}>
                                 {likeList.map((chocolate, i) => (
@@ -48,11 +49,11 @@ export default function Like() {
                                 아직 관심 목록이 없어요.
                             </p>
                         </div>
-                    )
-                ) : (
-                    ""
-                )}
-            </section>
+                    )}
+                </section>
+            ) : (
+                <Loading style={"data_f"} />
+            )}
         </main>
     );
 }

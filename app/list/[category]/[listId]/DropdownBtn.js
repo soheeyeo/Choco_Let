@@ -37,9 +37,9 @@ export default function DropdownBtn({ styles, selected, setSelected }) {
             <ul
                 className={`${styles.dropdown_li} ${isOpen ? styles.open : ""}`}
             >
-                {sortOption.map((option) => {
+                {sortOption.map((option, i) => {
                     return (
-                        <li>
+                        <li key={i}>
                             <button
                                 className={styles.dropdown_item}
                                 onClick={handleSelect}
