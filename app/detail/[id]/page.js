@@ -2,16 +2,15 @@
 import styles from "./detail.module.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
 import LikeBtn from "@/app/LikeBtn";
 import Loading from "@/app/loading";
+import useGetLike from "@/hooks/useGetLike";
 
 export default function Detail({ params: { id } }) {
-    const session = useSession();
+    const { likedItemList } = useGetLike();
 
     const [isLoading, setIsLoading] = useState(false);
     const [data, setData] = useState([]);
-    const [likedItem, setLikedItem] = useState([]);
 
     useEffect(() => {
         fetch(`/api/detail?id=${id}`)
@@ -23,20 +22,8 @@ export default function Detail({ params: { id } }) {
     }, []);
 
     useEffect(() => {
-        if (session.data) {
-            fetch("/api/like")
-                .then((res) => res.json())
-                .then((result) => {
-                    setLikedItem(result);
-                });
-        }
-    }, []);
-
-    useEffect(() => {
         sessionStorage?.removeItem("prevPath");
     }, []);
-
-    const likedItemList = likedItem.map((chocolate) => chocolate.chocolateId);
 
     const liked = likedItemList.includes(data.id);
 
