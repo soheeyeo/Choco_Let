@@ -24,14 +24,24 @@ export default function Login() {
                         <button
                             className={`${styles.social_btn} ${styles.kakao_btn}`}
                             onClick={() => {
-                                signIn("kakao");
+                                signIn("kakao", {
+                                    redirect: true,
+                                    callbackUrl:
+                                        sessionStorage.getItem("prevPath") ||
+                                        "/",
+                                });
                             }}
                         ></button>
                         <span className="ir">카카오 로그인</span>
                         <button
                             className={`${styles.social_btn} ${styles.naver_btn}`}
                             onClick={() => {
-                                signIn("naver");
+                                signIn("naver", {
+                                    redirect: true,
+                                    callbackUrl:
+                                        sessionStorage.getItem("prevPath") ||
+                                        "/",
+                                });
                             }}
                         >
                             <span className="ir">네이버 로그인</span>
@@ -39,7 +49,12 @@ export default function Login() {
                         <button
                             className={`${styles.social_btn} ${styles.google_btn}`}
                             onClick={() => {
-                                signIn("google");
+                                signIn("google", {
+                                    redirect: true,
+                                    callbackUrl:
+                                        sessionStorage.getItem("prevPath") ||
+                                        "/",
+                                });
                             }}
                         >
                             <span className="ir">구글 로그인</span>
