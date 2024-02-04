@@ -49,7 +49,7 @@ export default function Header() {
                         <Link href="/test">추천 테스트</Link>
                     </li>
                 </ul>
-                {session ? (
+                {session.data ? (
                     <div className="account_li">
                         <button className="menu_btn" onClick={handleMenu}>
                             메뉴

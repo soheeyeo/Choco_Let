@@ -54,7 +54,6 @@ export default function Detail({ params: { id } }) {
                                     styles={styles}
                                     liked={liked}
                                     id={data.id}
-                                    size={"28px"}
                                 />
                             </div>
                             <h4 className={styles.info_brand}>{data.brand}</h4>

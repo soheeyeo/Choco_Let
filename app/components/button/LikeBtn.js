@@ -34,9 +34,15 @@ export default function LikeBtn({ styles, id, liked, size }) {
         <>
             <button onClick={handleOnClick} className={styles.like_btn}>
                 {like ? (
-                    <HiMiniHeart color="#EB7EA2" size={size} />
+                    <HiMiniHeart
+                        color="#EB7EA2"
+                        className={styles.like_icon_f}
+                    />
                 ) : (
-                    <HiOutlineHeart color="#EB7EA2" size={size} />
+                    <HiOutlineHeart
+                        color="#EB7EA2"
+                        className={styles.like_icon}
+                    />
                 )}
             </button>
             {isOpen && <Modal setIsOpen={setIsOpen} />}

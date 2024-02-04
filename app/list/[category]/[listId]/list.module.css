@@ -35,6 +35,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
+    justify-items: center;
 }
 
 .item {
@@ -50,8 +51,7 @@
 
 .img_wrapper {
     flex: none;
-    width: 182px;
-    height: 182px;
+    width: 50%;
 }
 
 .item_img {
@@ -172,4 +172,129 @@
 .dropdown_item:hover {
     font-weight: 700;
     background-color: var(--sub-color);
+}
+
+.like_icon_f,
+.like_icon {
+    width: 20px;
+    height: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    .list_section {
+        padding: 0 20px;
+    }
+
+    .item_li {
+        gap: 20px;
+    }
+
+    .item {
+        width: 340px;
+    }
+
+    .info_brand_name {
+        margin-bottom: 12px;
+    }
+
+    .info_item_name {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .item_li {
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    }
+
+    .item {
+        width: 360px;
+    }
+
+    .info_item_name {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav_li {
+        gap: 20px;
+    }
+
+    .nav_btn {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .list_section {
+        margin: 50px auto;
+        max-width: 100%;
+    }
+
+    .nav_li {
+        justify-content: stretch;
+        gap: 0;
+        width: 100%;
+    }
+
+    .nav_btn {
+        flex: 1 1 58px;
+        padding: 8px 0;
+        width: auto;
+        height: auto;
+        background-color: #fff;
+        border-radius: 3px;
+    }
+
+    .nav_btn:hover {
+        background-color: var(--sub-color);
+    }
+
+    .active {
+        color: #fff;
+        background-color: var(--main-color);
+    }
+
+    .active:hover {
+        background-color: var(--main-color);
+    }
+
+    .dropdown {
+        margin-top: 30px;
+    }
+
+    .item_li {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+
+    .item {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .info_container {
+        padding: 10px 10px 24px;
+    }
+
+    .info_brand_name {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .nav_li {
+        gap: 5px;
+    }
+
+    .nav_btn {
+        font-size: 14px;
+    }
+
+    .info_item_name {
+        font-size: 14px;
+    }
 }

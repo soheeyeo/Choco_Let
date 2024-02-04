@@ -38,10 +38,6 @@ body {
     overflow-x: hidden;
 }
 
-html {
-    font-size: 1vw;
-}
-
 body {
     font-family: "NanumSquareRound";
     font-size: 16px;
@@ -407,5 +403,9 @@ header {
 @media screen and (max-width: 360px) {
     header {
         padding: 18px 24px;
+    }
+
+    main {
+        padding-top: 68px;
     }
 }

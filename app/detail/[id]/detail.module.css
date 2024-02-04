@@ -85,3 +85,140 @@
     color: var(--main-color);
     text-decoration: underline;
 }
+
+.like_icon_f,
+.like_icon {
+    width: 28px;
+    height: 28px;
+}
+
+@media screen and (max-width: 1200px) {
+    .detail_section {
+        max-width: 95%;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .detail_section {
+        max-width: 95%;
+    }
+
+    .info_container {
+        gap: 20px;
+    }
+
+    .img_wrapper {
+        width: 60%;
+        height: 60%;
+    }
+
+    .feature_container {
+        margin-bottom: 20px;
+    }
+
+    .feature_box {
+        padding: 5px 6px;
+    }
+
+    .info_brand {
+        font-size: 24px;
+    }
+
+    .info_name {
+        font-size: 22px;
+    }
+
+    .price {
+        margin: 14px 0 20px;
+    }
+
+    .info_price {
+        font-size: 30px;
+    }
+
+    .info_price_won {
+        font-size: 18px;
+    }
+
+    .info_txt {
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .feature_container {
+        margin-bottom: 8px;
+    }
+
+    .feature_box {
+        font-size: 13px;
+    }
+
+    .info_brand {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .info_name {
+        font-size: 18px;
+    }
+
+    .price {
+        margin: 10px 0 20px;
+    }
+
+    .info_price {
+        font-size: 24px;
+    }
+
+    .info_price_won {
+        font-size: 16px;
+    }
+
+    .info_txt {
+        margin-bottom: 40px;
+    }
+
+    .info_store {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .detail_section {
+        margin: 40px 36px 60px;
+    }
+
+    .feature_container {
+        margin-bottom: 10px;
+    }
+
+    .info_container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info_container {
+        gap: 40px;
+    }
+
+    .info_brand {
+        margin-bottom: 12px;
+    }
+
+    .info_price {
+        font-size: 20px;
+    }
+
+    .like_icon_f,
+    .like_icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .info_txt {
+        margin-bottom: 30px;
+    }
+}

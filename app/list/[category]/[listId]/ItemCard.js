@@ -46,7 +46,7 @@ export default function ItemCard({
                     </div>
                 </div>
             </Link>
-            <LikeBtn id={id} styles={styles} liked={liked} size={"20px"} />
+            <LikeBtn id={id} styles={styles} liked={liked} />
         </>
     );
 }
