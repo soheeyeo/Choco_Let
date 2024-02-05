@@ -54,12 +54,16 @@ export default function Header() {
                         <button className="menu_btn" onClick={handleMenu}>
                             메뉴
                         </button>
-                        <Link href="/like">관심 목록</Link>
+                        <Link href="/like" className="like_btn">
+                            관심 목록
+                        </Link>
                         <LogoutBtn />
                     </div>
                 ) : (
                     <div className="account_li">
-                        <Link href="/signup">회원가입</Link>
+                        <Link href="/signup" className="signUp_btn">
+                            회원가입
+                        </Link>
                         <Link href="/login">로그인</Link>
                     </div>
                 )}

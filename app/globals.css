@@ -123,25 +123,17 @@ header {
     color: #eb7ea2;
 }
 
-.account_li :first-child {
+.menu_btn,
+.like_btn,
+.signUp_btn {
     position: relative;
     padding-right: 10px;
 }
 
-.account_li :first-child::after {
+.like_btn::after {
     content: "";
     position: absolute;
-    right: 5px;
-    top: 1px;
-    width: 1px;
-    height: 12px;
-    background-color: var(--border-color);
-}
-
-.account_li :nth-child(2)::after {
-    content: "";
-    position: absolute;
-    right: 48px;
+    right: 0;
     top: 1px;
     width: 1px;
     height: 12px;
@@ -154,6 +146,26 @@ header {
 
 .menu_btn {
     display: none;
+}
+
+.menu_btn::after {
+    content: "";
+    position: absolute;
+    right: 5px;
+    top: 1px;
+    width: 1px;
+    height: 12px;
+    background-color: var(--border-color);
+}
+
+.signUp_btn::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 1px;
+    width: 1px;
+    height: 12px;
+    background-color: var(--border-color);
 }
 
 .account_li button {
@@ -397,6 +409,30 @@ header {
 
     .menu_btn {
         display: block;
+    }
+
+    .menu_btn::after {
+        content: "";
+        position: absolute;
+        right: 5px;
+        top: 1px;
+        width: 1px;
+        height: 12px;
+        background-color: var(--border-color);
+    }
+
+    .like_btn::after {
+        content: "";
+        position: absolute;
+        right: 4px;
+        top: 1px;
+        width: 1px;
+        height: 12px;
+        background-color: var(--border-color);
+    }
+
+    .account_li :last-child {
+        padding-left: 0;
     }
 }
 
