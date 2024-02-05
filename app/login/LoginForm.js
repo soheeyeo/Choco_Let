@@ -9,9 +9,16 @@ export default function LoginForm({ styles }) {
         email: "",
         pw: "",
     });
+    const [passedLogin, setPassedLogin] = useState(false);
 
     const handleInputValue = (e) => {
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+    };
+
+    const isPassedLogin = () => {
+        return inputValue.email !== "" && inputValue.pw !== ""
+            ? setPassedLogin(true)
+            : setPassedLogin(false);
     };
 
     const handleOnSubmit = async (e) => {
@@ -21,10 +28,17 @@ export default function LoginForm({ styles }) {
                 email: inputValue.email,
                 password: inputValue.pw,
                 callbackUrl: sessionStorage.getItem("prevPath") || "/",
+                redirect: false,
             });
-            if (!res.ok) {
+
+            if (res.status === 401) {
                 alert(res.error);
+                setInputValue({
+                    email: "",
+                    pw: "",
+                });
             } else {
+                router.refresh();
                 router.push(res.url);
             }
         } catch (err) {
@@ -45,6 +59,7 @@ export default function LoginForm({ styles }) {
                 className="account_input"
                 value={inputValue.email}
                 onChange={handleInputValue}
+                onKeyUp={isPassedLogin}
             />
             <input
                 type="password"
@@ -52,10 +67,15 @@ export default function LoginForm({ styles }) {
                 name="pw"
                 placeholder="비밀번호"
                 className="account_input"
-                value={inputValue.password}
+                value={inputValue.pw}
                 onChange={handleInputValue}
+                onKeyUp={isPassedLogin}
             />
-            <button type="submit" className={`submit_btn ${styles.login_btn}`}>
+            <button
+                type="submit"
+                className={`submit_btn ${styles.login_btn}`}
+                disabled={!passedLogin}
+            >
                 로그인
             </button>
         </form>

@@ -29,21 +29,26 @@ export const authOptions = {
                     throw new Error("비밀번호를 입력해주세요.");
                 }
 
-                let user = await prisma.user.findUnique({
-                    where: {
-                        email: credentials.email,
-                    },
-                });
+                try {
+                    let user = await prisma.user.findUnique({
+                        where: {
+                            email: credentials.email,
+                        },
+                    });
 
-                const pwCheck = await bcrypt.compare(
-                    credentials.password,
-                    user.password
-                );
+                    const pwCheck = await bcrypt.compare(
+                        credentials.password,
+                        user.password
+                    );
 
-                if (user && pwCheck) {
-                    return user;
+                    if (user && pwCheck) {
+                        return user;
+                    }
+                } catch (e) {
+                    throw new Error(
+                        "아이디 혹은 비밀번호가 일치하지 않습니다."
+                    );
                 }
-                throw new Error("아이디 혹은 비밀번호가 일치하지 않습니다.");
             },
         }),
         KakaoProvider({

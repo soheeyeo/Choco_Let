@@ -22,6 +22,8 @@ export default function SignupForm({ styles }) {
         pwCheck: "",
     });
 
+    const [passedSignup, setPassedSignup] = useState(false);
+
     const handleInputValue = (e) => {
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
     };
@@ -117,30 +119,50 @@ export default function SignupForm({ styles }) {
         }
     };
 
-    const isPassedSignup =
-        inputValue.validEmail &&
-        inputValue.validPw & inputValue.matchPw &&
-        inputValue.validNickname;
+    const isPassedSignup = () => {
+        return inputValue.validEmail &&
+            inputValue.validPw & inputValue.matchPw &&
+            (inputValue.validNickname ||
+                regexs.nicknameRegex.test(inputValue.nickname))
+            ? setPassedSignup(true)
+            : setPassedSignup(false);
+    };
 
     const handleOnSubmit = async (e) => {
         const email = inputValue.email;
         const pw = inputValue.pw;
+        const pwCheck = inputValue.pwCheck;
         const nickname = inputValue.nickname;
         e.preventDefault();
-        try {
-            const res = await fetch("/api/auth/signup", {
-                method: "POST",
-                body: JSON.stringify({ email, pw, nickname }),
-            });
-            const result = await res.json();
-            if (result.message === "가입완료") {
-                alert("가입이 완료되었습니다.");
-                router.push("/login");
-            } else {
-                alert("이미 가입된 이메일입니다.");
+        if (email === "" || pw === "" || pwCheck === "" || nickname === "") {
+            alert("모두 작성해주세요.");
+        } else {
+            try {
+                const res = await fetch("/api/auth/signup", {
+                    method: "POST",
+                    body: JSON.stringify({ email, pw, nickname }),
+                });
+                const result = await res.json();
+                if (result.message === "가입완료") {
+                    alert("가입이 완료되었습니다.");
+                    router.push("/login");
+                } else {
+                    alert("이미 가입된 이메일입니다.");
+                    setInputValue({
+                        email: "",
+                        validEmail: false,
+                        pw: "",
+                        validPw: false,
+                        pwCheck: "",
+                        matchPw: false,
+                        nickname: "",
+                        validNickname: false,
+                    });
+                    setPassedSignup(false);
+                }
+            } catch (err) {
+                console.log(err);
             }
-        } catch (err) {
-            console.log(err);
         }
     };
 
@@ -155,6 +177,7 @@ export default function SignupForm({ styles }) {
                 value={inputValue.email}
                 onChange={handleInputValue}
                 onBlur={handleInputBlur}
+                onKeyUp={isPassedSignup}
             />
             {errMessage.email && (
                 <span className="err_msg">{errMessage.email}</span>
@@ -168,6 +191,7 @@ export default function SignupForm({ styles }) {
                 value={inputValue.pw}
                 onChange={handleInputValue}
                 onBlur={handleInputBlur}
+                onKeyUp={isPassedSignup}
             />
             {errMessage.pw && <span className="err_msg">{errMessage.pw}</span>}
             <input
@@ -179,6 +203,7 @@ export default function SignupForm({ styles }) {
                 value={inputValue.pwCheck}
                 onChange={handleInputValue}
                 onBlur={handleInputBlur}
+                onKeyUp={isPassedSignup}
             />
             {errMessage.pwCheck && (
                 <span className="err_msg">{errMessage.pwCheck}</span>
@@ -193,6 +218,7 @@ export default function SignupForm({ styles }) {
                 value={inputValue.nickname}
                 onChange={handleInputValue}
                 onBlur={handleInputBlur}
+                onKeyUp={isPassedSignup}
             />
             {errMessage.nickname && (
                 <span className="err_msg">{errMessage.nickname}</span>
@@ -200,12 +226,8 @@ export default function SignupForm({ styles }) {
 
             <button
                 type="submit"
-                className={
-                    isPassedSignup
-                        ? `submit_btn ${styles.signup_btn}`
-                        : `submit_btn ${styles.signup_btn_disabled}`
-                }
-                disabled={!isPassedSignup}
+                className={`submit_btn ${styles.signup_btn}`}
+                disabled={!passedSignup}
                 onClick={handleOnSubmit}
             >
                 가입하기
