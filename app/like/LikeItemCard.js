@@ -17,8 +17,8 @@ export default function LikeItemCard({
                 method: "DELETE",
                 body: JSON.stringify(id),
             });
-        } catch (e) {
-            console.log(e);
+        } catch (err) {
+            console.log(err);
         }
     };
 

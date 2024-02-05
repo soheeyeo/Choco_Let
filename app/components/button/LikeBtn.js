@@ -20,8 +20,8 @@ export default function LikeBtn({ styles, id, liked, size }) {
                     body: JSON.stringify(id),
                 });
                 setLike(!like);
-            } catch (e) {
-                console.log(e);
+            } catch (err) {
+                console.log(err);
             }
         }
     };
