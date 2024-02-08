@@ -43,6 +43,10 @@ export const authOptions = {
 
                     if (user && pwCheck) {
                         return user;
+                    } else if (!pwCheck) {
+                        throw new Error(
+                            "아이디 혹은 비밀번호가 일치하지 않습니다."
+                        );
                     }
                 } catch (e) {
                     throw new Error(
