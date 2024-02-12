@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import {
     priceCategory,
     countryCategory,
@@ -7,9 +6,7 @@ import {
     flavorCategory,
 } from "@/constants/constants";
 
-export default function NavList({ styles, category }) {
-    const params = useParams();
-
+export default function NavList({ styles, category, listId }) {
     let list_item_category = [];
 
     if (category === "price") {
@@ -30,7 +27,7 @@ export default function NavList({ styles, category }) {
                         <Link
                             href={`/list/${category}/${i + 1}`}
                             className={`${styles.nav_btn} ${
-                                params.listId == i + 1 ? styles.active : ""
+                                listId == i + 1 ? styles.active : ""
                             }`}
                             key={i}
                         >
