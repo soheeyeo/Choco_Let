@@ -341,6 +341,12 @@ header {
     color: var(--main-color);
 }
 
+.loading_txt_result {
+    padding-top: 30px;
+    font-size: 18px;
+    color: var(--main-color);
+}
+
 @keyframes bounce {
     0%,
     100% {
