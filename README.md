@@ -96,3 +96,85 @@ NextAuth를 활용하여 Custom 로그인 및 소셜 로그인 기능을 구현�
 
 <br>
 <br>
+
+## 📁 폴더구조
+
+-   api/ : 서버 기능 관련 디렉토리
+-   components/ : 공통 컴포넌트 디렉토리
+-   constatns/ : 공통 사용 상수 값 관리
+-   hooks/ : Custom hook 디렉토리
+-   lib/ : Prisma Client 관리
+-   prisma/ : Prisma 관련 파일 디렉토리
+-   public/ : 이미지, 폰트 디렉토리
+-   util/ : 공통 데이터 관리
+
+```
+📦
+┣ 📂app
+┃ ┣ 📂api
+┃ ┃ ┣ 📂auth
+┃ ┃ ┣ 📂detail
+┃ ┃ ┣ 📂like
+┃ ┃ ┣ 📂list
+┃ ┃ ┗ 📂result
+┃ ┣ 📂components
+┃ ┃ ┣ 📂button
+┃ ┃ ┗ 📂common
+┃ ┣ 📂detail
+┃ ┃ ┗ 📂[id]
+┃ ┣ 📂like
+┃ ┣ 📂list
+┃ ┃ ┗ 📂[category]
+┃ ┃ ┃ ┗ 📂[listId]
+┃ ┣ 📂login
+┃ ┣ 📂signup
+┃ ┣ 📂test
+┃ ┃ ┣ 📂[id]
+┃ ┃ ┗ 📂result
+┃ ┃ ┃ ┗ 📂[type]
+┣ 📂constants
+┣ 📂hooks
+┣ 📂lib
+┣ 📂prisma
+┣ 📂public
+┗ 📂util
+```
+
+<br>
+<br>
+
+## 💡 핵심 코드
+
+### SSR vs CSR
+
+사용자의 요청에 따라 데이터를 불러오는 리스트, 상세 페이지 등은 `SSR(Server-Side Rendering)`을 사용하고, `metadata`를 통해 SEO를 적용했습니다.<br>
+반면 사용자와의 상호작용으로 인해 실시간으로 변경되어야 하는 관심 목록 페이지 등은 `CSR(Client-Side Rendering)`을 사용했습니다.
+https://github.com/soheeyeo/Choco_Let/blob/5b37e7130a8819c204bb1fbadd5e1c8077970fa9/app/detail/%5Bid%5D/page.js#L3-L33
+
+https://github.com/soheeyeo/Choco_Let/blob/5b37e7130a8819c204bb1fbadd5e1c8077970fa9/app/like/page.js#L7-L20
+
+## 💥 트러블 슈팅
+
+### 1) GET 요청시 Query String의 특수문자 사라지는 이슈
+
+테스트 결과 페이지에서 데이터를 요청할 때 Query String으로 제품명을 넘기도록 구현하였습니다. 하지만 특수문자 `&`이나 `%`가 포함된 제품명을 넘겨받을 때 특수문자가 사라지는 현상이 발생하였습니다.
+
+-   원인 <br>
+    `&`와 `+` 등 몇몇 특수문자들은 GET 방식일 때 웹에서 사용되는 지정된 문자이기 때문에 전송되지 않음.
+
+-   해결 <br>
+    POST 요청으로 변경하여 특수문자를 포함한 제품명 그대로 넘겨주었습니다.
+
+https://github.com/soheeyeo/Choco_Let/blob/5b37e7130a8819c204bb1fbadd5e1c8077970fa9/app/test/result/%5Btype%5D/page.js#L12-L19
+
+### 2) 로그인 오류 시 설정한 에러 핸들링이 출력되지 않는 이슈
+
+이메일이나 비밀번호 오류 시 nextauth 파일에 설정한 에러 메세지가 출력되지 않고, NextAuth 자체의 에러 핸들링 형태가 출력되는 현상이 발생하였습니다.
+
+-   원인 <br>
+    `try ...catch`문을 사용하지 않고 예외 처리를 해준 것이 문제. await으로 비동기 작업 시 예외가 발생하면 코드가 그대로 중단됨.
+
+-   해결 <br>
+    `try ...catch`문을 사용하여 예외가 발생했을 때 `throw`문을 통해 에러 메세지를 전달하도록 수정하였습니다.
+
+https://github.com/soheeyeo/Choco_Let/blob/5b37e7130a8819c204bb1fbadd5e1c8077970fa9/app/api/auth/%5B...nextauth%5D/route.js#L25-L56
