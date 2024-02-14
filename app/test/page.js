@@ -1,7 +1,13 @@
-"use client";
 import styles from "./test.module.css";
 import Link from "next/link";
 import { HiArrowNarrowRight } from "react-icons/hi";
+
+export const metadata = {
+    description: "초콜릿 추천 테스트",
+    openGraph: {
+        description: "초콜릿 추천 테스트",
+    },
+};
 
 export default function Test() {
     return (

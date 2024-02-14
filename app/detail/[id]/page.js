@@ -1,4 +1,18 @@
-import Content from "./content";
+import Content from "./Content";
+
+export async function generateMetadata({ params }) {
+    const id = params.id;
+    const item = await fetch(`${process.env.URL}/api/detail?id=${id}`).then(
+        (res) => res.json()
+    );
+
+    return {
+        description: `${item.brand}-${item.name} 상세 정보`,
+        openGraph: {
+            description: `${item.brand}-${item.name} 상세 정보`,
+        },
+    };
+}
 
 async function getData(id) {
     const res = await fetch(`${process.env.URL}/api/detail?id=${id}`, {
