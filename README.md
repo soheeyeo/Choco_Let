@@ -16,7 +16,7 @@
 
 Next.js를 적용한 개인 프로젝트입니다.<br>
 <br>
-Prisma seeding을 통해 100개 이상의 데이터 생성, Planetscale과 연동하여 DB 작업을 수행했습니다.<br>
+Prisma seeding을 통해 100개 이상의 데이터 생성, Supabase와 연동하여 DB 작업을 수행했습니다.<br>
 <br>
 Prisma Client를 사용하여 CRUD 작업을 수행했습니다.<br>
 <br>
@@ -34,7 +34,7 @@ NextAuth를 활용하여 Custom 로그인 및 소셜 로그인 기능을 구현�
 
 -   `Next.js`, `React`, `NextAuth`<br>
 -   `Prisma`<br>
--   `Planetscale`<br>
+-   `Supabase`<br>
 -   `Git` `Figma` `Vercel`
     <br>
     <br>
