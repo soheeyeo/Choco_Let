@@ -1,6 +1,6 @@
 export default function Loading({ style, result }) {
     return (
-        <section className={`loading_section ${style ? style : "common"}`}>
+        <section className={`loading_section ${style ? style : ""}`}>
             <div className="loading_container">
                 <div className="loading_drop"></div>
                 <div className="loading_drop"></div>

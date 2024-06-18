@@ -15,7 +15,7 @@ export default function TestContent({ params: { id } }) {
             : tasteQna.filter((data) => data.id === qna)[0];
 
     return (
-        <main className={styles.test_main}>
+        <main className={styles.test_qna_main}>
             <section className={styles.test_qna_section}>
                 <h1 className="ir">추천 테스트</h1>
                 <div className={styles.test_content}>

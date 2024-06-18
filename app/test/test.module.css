@@ -1,12 +1,17 @@
 .test_main,
+.test_qna_main,
 .result_main {
     background-color: var(--sub-color);
-    height: 100vh;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.test_main {
+    padding: 300px 0 100px;
 }
 
 .test_section {
-    margin: 200px auto;
-    max-width: 1200px;
+    background-color: inherit;
     color: var(--main-color);
 }
 
@@ -46,9 +51,12 @@
     vertical-align: middle;
 }
 
+.test_qna_main {
+    padding: 200px 0 100px;
+}
+
 .test_qna_section {
-    margin: 150px auto;
-    max-width: 1200px;
+    background-color: inherit;
     color: var(--main-color);
 }
 
@@ -111,9 +119,12 @@
     cursor: default;
 }
 
+.result_main {
+    padding: 150px 0 80px;
+}
+
 .result_section {
-    margin: 80px auto;
-    max-width: 1200px;
+    background-color: inherit;
     color: #803c33;
     text-align: center;
 }
@@ -195,6 +206,16 @@
 
 .result_link {
     font-size: 14px;
+}
+
+@media screen and (max-width: 1280px) {
+    .test_main {
+        padding: 200px 0 80px;
+    }
+
+    .test_qna_main {
+        padding: 150px 0 80px;
+    }
 }
 
 @media screen and (max-width: 480px) {
