@@ -3,9 +3,17 @@ import styles from "../test.module.css";
 import testData from "../../../util/testData";
 import useTestQna from "@/hooks/useTestQna";
 import { IoChevronBackOutline } from "react-icons/io5";
+import { useEffect } from "react";
 
 export default function TestContent({ params: { id } }) {
     const { qna, disabled, handleSaveType, handleBack } = useTestQna();
+
+    useEffect(() => {
+        document.body.classList.add(styles.height);
+        return () => {
+            document.body.classList.remove(styles.height);
+        };
+    }, []);
 
     const giftQna = testData.QNA_G;
     const tasteQna = testData.QNA;

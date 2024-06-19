@@ -1,12 +1,16 @@
+.height {
+    height: 100%;
+}
+
 .test_main,
 .test_qna_main,
 .result_main {
     background-color: var(--sub-color);
-    height: 100%;
     overflow-y: auto;
 }
 
 .test_main {
+    height: 100vh;
     padding: 300px 0 100px;
 }
 
@@ -121,6 +125,7 @@
 
 .result_main {
     padding: 150px 0 80px;
+    height: 100vh;
 }
 
 .result_section {
