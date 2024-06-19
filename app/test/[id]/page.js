@@ -9,8 +9,10 @@ export default function TestContent({ params: { id } }) {
     const { qna, disabled, handleSaveType, handleBack } = useTestQna();
 
     useEffect(() => {
+        document.documentElement.classList.add(styles.height);
         document.body.classList.add(styles.height);
         return () => {
+            document.documentElement.classList.remove(styles.height);
             document.body.classList.remove(styles.height);
         };
     }, []);

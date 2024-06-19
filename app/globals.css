@@ -309,6 +309,9 @@ header {
     height: 100vh;
 }
 
+.loading_test {
+}
+
 .loading_container {
     display: flex;
     justify-content: center;

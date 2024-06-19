@@ -52,7 +52,7 @@ export default function Content({ styles, item }) {
                     </div>
                 </section>
             ) : (
-                <Loading result={"result"} />
+                <Loading result={"result"} style={"loading_test"} />
             )}
         </>
     );
