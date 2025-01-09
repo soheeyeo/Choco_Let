@@ -1,4 +1,9 @@
-export default function Loading({ style, result }) {
+interface LoadingProps {
+    style: string;
+    result: string;
+}
+
+export default function Loading({ style, result }: LoadingProps) {
     return (
         <section className={`loading_section ${style ? style : "common"}`}>
             <div className="loading_container">
