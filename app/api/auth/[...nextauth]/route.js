@@ -36,21 +36,36 @@ export const authOptions = {
                         },
                     });
 
+                    if (!user) {
+                        throw new Error(
+                            "이메일 또는 비밀번호가 일치하지 않습니다."
+                        );
+                    }
+
                     const pwCheck = await bcrypt.compare(
                         credentials.password,
                         user.password
                     );
 
-                    if (user && pwCheck) {
-                        return user;
-                    } else if (!pwCheck) {
+                    if (!pwCheck) {
                         throw new Error(
-                            "아이디 혹은 비밀번호가 일치하지 않습니다."
+                            "이메일 또는 비밀번호가 일치하지 않습니다."
                         );
                     }
-                } catch (e) {
-                    throw new Error(
-                        "아이디 혹은 비밀번호가 일치하지 않습니다."
+                    return user;
+                } catch (err) {
+                    console.log(err);
+                    // try 문에서 전달된 에러 처리
+                    if (
+                        err.message ==
+                        "이메일 또는 비밀번호가 일치하지 않습니다."
+                    ) {
+                        throw err;
+                    }
+
+                    // 예상치 못한 에러 처리
+                    throw Error(
+                        "로그인 요청 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요."
                     );
                 }
             },
