@@ -1,5 +1,5 @@
 import "./globals.css";
-import Header from "./components/common/Header";
+import Header from "../components/common/Header";
 import AuthSession from "./AuthSession";
 
 export const metadata = {

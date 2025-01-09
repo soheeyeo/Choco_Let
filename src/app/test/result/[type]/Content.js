@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Loading from "@/app/loading";
+import Loading from "../../../loading";
 
 export default function Content({ styles, item }) {
     const data = item;

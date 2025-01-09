@@ -1,5 +1,5 @@
 import NextAuth from "next-auth";
-import { prisma } from "@/lib/prisma";
+// import { prisma } from "@/lib/prisma";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
@@ -36,6 +36,12 @@ export const authOptions = {
                         },
                     });
 
+                    // 유저가 없는 경우 에러 처리해야 함
+                    if (!user) {
+                        throw new Error(
+                            "아이디 혹은 비밀번호가 일치하지 않습니다."
+                        );
+                    }
                     const pwCheck = await bcrypt.compare(
                         credentials.password,
                         user.password
@@ -48,9 +54,18 @@ export const authOptions = {
                             "아이디 혹은 비밀번호가 일치하지 않습니다."
                         );
                     }
-                } catch (e) {
-                    throw new Error(
+                } catch (err) {
+                    console.log(err);
+                    if (
+                        err.message ===
                         "아이디 혹은 비밀번호가 일치하지 않습니다."
+                    ) {
+                        throw err;
+                    }
+
+                    // 예상치 못한 에러 메세지 처리
+                    throw new Error(
+                        "로그인 요청 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요."
                     );
                 }
             },

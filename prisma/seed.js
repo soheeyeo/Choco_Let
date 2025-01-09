@@ -1,5 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
-const chocolate = require("../util/data.js");
+const chocolate = require("../src/util/data.js");
 
 const prisma = new PrismaClient();
 

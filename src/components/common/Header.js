@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { categories } from "@/constants/constants";
+import { categories } from "@/constants/constants.js";
 import LogoutBtn from "../button/LogoutBtn.js";
 import { useState, useEffect, useRef } from "react";
 

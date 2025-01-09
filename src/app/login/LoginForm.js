@@ -21,12 +21,11 @@ export default function LoginForm({ styles }) {
             : setPassedLogin(false);
     };
 
-    const handleOnSubmit = async (e) => {
-        e.preventDefault();
+    const handleLogin = async (email, password) => {
         try {
             const res = await signIn("credentials", {
-                email: inputValue.email,
-                password: inputValue.pw,
+                email,
+                password,
                 callbackUrl: sessionStorage.getItem("prevPath") || "/",
                 redirect: false,
             });
@@ -42,8 +41,18 @@ export default function LoginForm({ styles }) {
                 router.push(res.url);
             }
         } catch (err) {
+            // signIn 호출 자체가 실패했을 때 실행
             console.log(err);
         }
+    };
+
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+        handleLogin(inputValue.email, inputValue.pw);
+    };
+
+    const handleTestLogin = () => {
+        handleLogin("test@test.com", "test1234");
     };
 
     return (
@@ -77,6 +86,13 @@ export default function LoginForm({ styles }) {
                 disabled={!passedLogin}
             >
                 로그인
+            </button>
+            <button
+                type="submit"
+                className={styles.test_login_btn}
+                onClick={handleTestLogin}
+            >
+                테스트 계정으로 로그인
             </button>
         </form>
     );

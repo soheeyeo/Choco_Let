@@ -2,7 +2,7 @@
 import styles from "./detail.module.css";
 import Link from "next/link";
 import { useEffect } from "react";
-import LikeBtn from "@/app/components/button/LikeBtn";
+import LikeBtn from "../../../components/button/LikeBtn";
 import useGetLike from "@/hooks/useGetLike";
 
 export default function Content({ item }) {

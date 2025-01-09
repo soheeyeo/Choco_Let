@@ -58,3 +58,15 @@
 .google_btn {
     background: no-repeat center/100% url("/assets/google.png");
 }
+
+.test_login_btn {
+    padding: 13px 0;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--main-color);
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid var(--main-color);
+    border-radius: 160px;
+}
