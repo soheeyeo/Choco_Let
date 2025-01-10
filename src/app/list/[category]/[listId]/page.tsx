@@ -2,7 +2,12 @@ import styles from "./list.module.css";
 import NavList from "./NavList";
 import Content from "./Content";
 
-export function generateMetadata({ params }) {
+interface ListParams {
+    category: string;
+    listId: string;
+}
+
+export function generateMetadata({ params }: { params: ListParams }) {
     const category = params.category;
 
     if (category === "price") {
@@ -36,7 +41,7 @@ export function generateMetadata({ params }) {
     }
 }
 
-async function getData(category, listId) {
+async function getData(category: string, listId: string) {
     const param1 = category;
     const param2 = listId;
 
@@ -47,13 +52,17 @@ async function getData(category, listId) {
     return result;
 }
 
-export default async function List({ params: { category, listId } }) {
-    const itemList = await getData(category, listId);
-
+export default async function List({ params }: { params: ListParams }) {
+    const itemList = await getData(params.category, params.listId);
+    console.log(typeof params.listId);
     return (
         <main>
             <section className={styles.list_section}>
-                <NavList styles={styles} category={category} listId={listId} />
+                <NavList
+                    styles={styles}
+                    category={params.category}
+                    listId={params.listId}
+                />
                 <Content itemList={itemList} styles={styles} />
             </section>
         </main>

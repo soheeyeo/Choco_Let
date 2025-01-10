@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function SignupForm({ styles }) {
+export default function SignupForm({ styles }: StylesProps) {
     const router = useRouter();
 
     const [inputValue, setInputValue] = useState({
@@ -20,11 +20,12 @@ export default function SignupForm({ styles }) {
         email: "",
         pw: "",
         pwCheck: "",
+        nickname: "",
     });
 
     const [passedSignup, setPassedSignup] = useState(false);
 
-    const handleInputValue = (e) => {
+    const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
     };
 
@@ -34,7 +35,7 @@ export default function SignupForm({ styles }) {
         nicknameRegex: /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/,
     };
 
-    const handleInputBlur = (e) => {
+    const handleInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "email") {
             if (!regexs.emailRegex.test(inputValue.email)) {
                 setErrMessage({
@@ -121,14 +122,15 @@ export default function SignupForm({ styles }) {
 
     const isPassedSignup = () => {
         return inputValue.validEmail &&
-            inputValue.validPw & inputValue.matchPw &&
+            inputValue.validPw &&
+            inputValue.matchPw &&
             (inputValue.validNickname ||
                 regexs.nicknameRegex.test(inputValue.nickname))
             ? setPassedSignup(true)
             : setPassedSignup(false);
     };
 
-    const handleOnSubmit = async (e) => {
+    const handleOnSubmit = async (e: MouseEvent) => {
         const email = inputValue.email;
         const pw = inputValue.pw;
         const pwCheck = inputValue.pwCheck;
@@ -228,7 +230,7 @@ export default function SignupForm({ styles }) {
                 type="submit"
                 className={`submit_btn ${styles.signup_btn}`}
                 disabled={!passedSignup}
-                onClick={handleOnSubmit}
+                onClick={() => handleOnSubmit}
             >
                 가입하기
             </button>

@@ -3,10 +3,11 @@ import styles from "./like.module.css";
 import LikeItemCard from "./LikeItemCard";
 import { useState, useEffect } from "react";
 import Loading from "../loading";
+import { Chocolate } from "@prisma/client";
 
 export default function Like() {
-    const [isLoading, setIsLoading] = useState(false);
-    const [likeList, setLikedList] = useState([]);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [likeList, setLikedList] = useState<Chocolate[]>([]);
 
     useEffect(() => {
         fetch("/api/like/likeList")
@@ -30,13 +31,8 @@ export default function Like() {
                                 {likeList.map((chocolate, i) => (
                                     <li className={styles.item} key={i}>
                                         <LikeItemCard
-                                            link={chocolate.id}
+                                            chocolate={chocolate}
                                             styles={styles}
-                                            img={chocolate.image}
-                                            country={chocolate.country}
-                                            brand={chocolate.brand}
-                                            name={chocolate.name}
-                                            price={chocolate.price}
                                             id={chocolate.id}
                                         />
                                     </li>

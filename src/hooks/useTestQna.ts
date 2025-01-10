@@ -3,18 +3,18 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 
 export default function useTestQna() {
-    const [qna, setQna] = useState(1);
-    const [prevType, setPrevType] = useState("");
-    const [currentType, setCurrentType] = useState("");
-    const [finished, setFinished] = useState(false);
-    const [disabled, setDisabled] = useState(false);
+    const [qna, setQna] = useState<number>(1);
+    const [prevType, setPrevType] = useState<string>("");
+    const [currentType, setCurrentType] = useState<string>("");
+    const [finished, setFinished] = useState<boolean>(false);
+    const [disabled, setDisabled] = useState<boolean>(false);
 
     const router = useRouter();
 
     const params = useParams();
     const id = params.id;
 
-    const handleSaveType = (type) => {
+    const handleSaveType = (type: string) => {
         setCurrentType(type);
         setPrevType(prevType + type);
     };

@@ -2,7 +2,11 @@
 
 import { useRouter } from "next/navigation";
 
-export default function Modal({ setIsOpen }) {
+interface ModalProps {
+    setIsOpen: (isOpen: boolean) => void;
+}
+
+export default function Modal({ setIsOpen }: ModalProps) {
     const router = useRouter();
 
     const handleOnClick = () => {

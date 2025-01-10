@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./page.module.css";
-import { categories } from "../constants/constants";
-import TestBtn from "../components/button/TestBtn";
+import { categories } from "@/constants/constants";
+import TestBtn from "@/components/button/TestBtn";
 
 export default function Home() {
     return (

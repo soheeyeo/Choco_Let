@@ -1,6 +1,6 @@
 interface LoadingProps {
     style: string;
-    result: string;
+    result?: string;
 }
 
 export default function Loading({ style, result }: LoadingProps) {

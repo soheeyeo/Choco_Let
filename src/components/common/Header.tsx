@@ -1,15 +1,15 @@
 "use client";
 
+import { categories } from "@/constants/constants";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { categories } from "@/constants/constants.js";
-import LogoutBtn from "../button/LogoutBtn.js";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import LogoutBtn from "../button/LogoutBtn";
 
 export default function Header() {
     const session = useSession();
     const menuRef = useRef<HTMLUListElement | null>(null);
-    const [active, setActive] = useState(false);
+    const [active, setActive] = useState<boolean>(false);
 
     useEffect(() => {
         // ref 바깥 영역 클릭 시 active 상태 false로 변경

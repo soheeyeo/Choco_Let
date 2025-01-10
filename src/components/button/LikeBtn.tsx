@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import Modal from "../common/Modal";
 import { HiOutlineHeart } from "react-icons/hi2";
 import { HiMiniHeart } from "react-icons/hi2";
 
-export default function LikeBtn({ styles, id, liked, size }) {
+interface LikeBtnProps {
+    styles: Record<string, string>;
+    id: number;
+    liked: boolean;
+}
+
+export default function LikeBtn({ styles, id, liked }: LikeBtnProps) {
     const session = useSession();
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [like, setLike] = useState(liked);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [like, setLike] = useState<boolean>(liked);
 
     const handleOnClick = async () => {
         if (!session.data) {

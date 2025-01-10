@@ -1,9 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Loading from "../../../loading";
+import Loading from "@/app/loading";
+import { Chocolate } from "@prisma/client";
 
-export default function Content({ styles, item }) {
+interface ContentProps {
+    styles: Record<string, string>;
+    item: Chocolate;
+}
+
+export default function Content({ styles, item }: ContentProps) {
     const data = item;
 
     const [isLoading, setIsLoading] = useState(false);

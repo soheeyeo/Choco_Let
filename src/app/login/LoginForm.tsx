@@ -2,7 +2,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-export default function LoginForm({ styles }) {
+export default function LoginForm({ styles }: StylesProps) {
     const router = useRouter();
 
     const [inputValue, setInputValue] = useState({
@@ -11,7 +11,7 @@ export default function LoginForm({ styles }) {
     });
     const [passedLogin, setPassedLogin] = useState(false);
 
-    const handleInputValue = (e) => {
+    const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
     };
 
@@ -21,7 +21,7 @@ export default function LoginForm({ styles }) {
             : setPassedLogin(false);
     };
 
-    const handleLogin = async (email, password) => {
+    const handleLogin = async (email: string, password: string) => {
         try {
             const res = await signIn("credentials", {
                 email,
@@ -30,7 +30,7 @@ export default function LoginForm({ styles }) {
                 redirect: false,
             });
 
-            if (res.status === 401) {
+            if (res?.status === 401) {
                 alert(res.error);
                 setInputValue({
                     email: "",
@@ -38,7 +38,7 @@ export default function LoginForm({ styles }) {
                 });
             } else {
                 router.refresh();
-                router.push(res.url);
+                router.push(res?.url || "/");
             }
         } catch (err) {
             // signIn 호출 자체가 실패했을 때 실행
@@ -46,7 +46,7 @@ export default function LoginForm({ styles }) {
         }
     };
 
-    const handleOnSubmit = (e) => {
+    const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         handleLogin(inputValue.email, inputValue.pw);
     };

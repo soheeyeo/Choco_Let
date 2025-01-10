@@ -1,6 +1,10 @@
 import Content from "./Content";
 
-export async function generateMetadata({ params }) {
+interface DetailParams {
+    id: string | number;
+}
+
+export async function generateMetadata({ params }: { params: DetailParams }) {
     const id = params.id;
     const item = await fetch(`${process.env.URL}/api/detail?id=${id}`).then(
         (res) => res.json()
@@ -14,7 +18,7 @@ export async function generateMetadata({ params }) {
     };
 }
 
-async function getData(id) {
+async function getData(id: number) {
     const res = await fetch(`${process.env.URL}/api/detail?id=${id}`, {
         cache: "no-store",
     });
@@ -22,8 +26,8 @@ async function getData(id) {
     return result;
 }
 
-export default async function Detail({ params: { id } }) {
-    const item = await getData(id);
+export default async function Detail({ params }: { params: DetailParams }) {
+    const item = await getData(params.id as number);
 
     return (
         <main>

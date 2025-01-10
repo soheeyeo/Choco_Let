@@ -1,14 +1,24 @@
 import { useState, useRef, useEffect } from "react";
 
-export default function DropdownBtn({ styles, selected, setSelected }) {
-    const dropDownRef = useRef(null);
+interface ContentProps {
+    styles: Record<string, string>;
+    selected: string;
+    setSelected: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function DropdownBtn({
+    styles,
+    selected,
+    setSelected,
+}: ContentProps) {
+    const dropDownRef = useRef<HTMLDivElement | null>(null);
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        function handleOutside(e) {
+        function handleOutside(e: MouseEvent) {
             if (
                 dropDownRef.current &&
-                !dropDownRef.current.contains(e.target)
+                !dropDownRef.current.contains(e.target as Node)
             ) {
                 setIsOpen(false);
             }
@@ -20,9 +30,8 @@ export default function DropdownBtn({ styles, selected, setSelected }) {
     const handleToggle = () => {
         setIsOpen(!isOpen);
     };
-
-    const handleSelect = (e) => {
-        setSelected(e.target.innerText);
+    const handleSelect = (e: React.MouseEvent<HTMLButtonElement>) => {
+        setSelected((e.target as HTMLButtonElement).textContent || "");
         setIsOpen(false);
     };
 

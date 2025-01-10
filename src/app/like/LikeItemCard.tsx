@@ -1,16 +1,18 @@
+import { Chocolate } from "@prisma/client";
 import Link from "next/link";
 import { HiXMark } from "react-icons/hi2";
 
+interface LikeItemCardProps {
+    chocolate: Chocolate;
+    styles: Record<string, string>;
+    id: number;
+}
+
 export default function LikeItemCard({
+    chocolate,
     styles,
-    link,
-    img,
-    country,
-    brand,
-    name,
-    price,
     id,
-}) {
+}: LikeItemCardProps) {
     const handleOnClick = async () => {
         try {
             const res = await fetch("/api/like/likeList", {
@@ -22,27 +24,32 @@ export default function LikeItemCard({
         }
     };
 
-    const formattedPrice = price.toLocaleString();
+    const formattedPrice = chocolate.price.toLocaleString();
 
     return (
         <>
-            <Link href={"/detail/" + link}>
+            <Link href={"/detail/" + chocolate.id}>
                 <div className={styles.item_card}>
                     <div className={styles.img_wrapper}>
-                        <img className={styles.item_img} src={img} />
+                        <img
+                            className={styles.item_img}
+                            src={chocolate.image}
+                        />
                     </div>
                     <div className={styles.info_container}>
                         <div className={styles.btn_container}>
                             <div className={styles.feature_box}>
-                                <p>{country}</p>
+                                <p>{chocolate.country}</p>
                             </div>
                         </div>
                         <div className={styles.info_contents}>
                             <div>
                                 <h4 className={styles.info_brand_name}>
-                                    {brand}
+                                    {chocolate.brand}
                                 </h4>
-                                <p className={styles.info_item_name}>{name}</p>
+                                <p className={styles.info_item_name}>
+                                    {chocolate.name}
+                                </p>
                             </div>
                             <div>
                                 <span className={styles.info_price}>

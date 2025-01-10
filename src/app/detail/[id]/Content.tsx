@@ -1,11 +1,12 @@
 "use client";
-import styles from "./detail.module.css";
+import useGetLike from "@/hooks/useGetLike";
 import Link from "next/link";
 import { useEffect } from "react";
-import LikeBtn from "../../../components/button/LikeBtn";
-import useGetLike from "@/hooks/useGetLike";
+import LikeBtn from "@/components/button/LikeBtn";
+import styles from "./detail.module.css";
+import { Chocolate } from "@prisma/client";
 
-export default function Content({ item }) {
+export default function Content({ item }: { item: Chocolate }) {
     const { likedItemList } = useGetLike();
 
     const data = item;
@@ -17,7 +18,6 @@ export default function Content({ item }) {
     const liked = likedItemList.includes(data.id);
 
     const price = data.price.toLocaleString();
-    data.price = price;
 
     return (
         <section className={styles.detail_section}>
@@ -41,7 +41,7 @@ export default function Content({ item }) {
                     <span className={styles.info_name}>{data.name}</span>
 
                     <div className={styles.price}>
-                        <span className={styles.info_price}>{data.price}</span>
+                        <span className={styles.info_price}>{price}</span>
                         <span className={styles.info_price_won}>원</span>
                         <span className={styles.info_price_s}>정가</span>
                     </div>
