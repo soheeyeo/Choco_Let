@@ -1,11 +1,15 @@
 "use client";
 import styles from "../test.module.css";
-import testData from "../../../util/testData";
+import testData from "@/util/testData.json";
 import useTestQna from "@/hooks/useTestQna";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { useEffect } from "react";
 
-export default function TestContent({ params: { id } }) {
+interface TestContentParams {
+    id: string;
+}
+
+export default function TestContent({ params }: { params: TestContentParams }) {
     const { qna, disabled, handleSaveType, handleBack } = useTestQna();
 
     useEffect(() => {
@@ -20,7 +24,7 @@ export default function TestContent({ params: { id } }) {
     const giftQna = testData.QNA_G;
     const tasteQna = testData.QNA;
     const findQna =
-        id === "1"
+        params.id === "1"
             ? giftQna.filter((data) => data.id === qna)[0]
             : tasteQna.filter((data) => data.id === qna)[0];
 
