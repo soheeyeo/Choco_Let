@@ -1,10 +1,10 @@
 import Content from "./Content";
 
-interface Params {
+interface DetailParams {
     id: string | number;
 }
 
-export async function generateMetadata({ params }: { params: Params }) {
+export async function generateMetadata({ params }: { params: DetailParams }) {
     const id = params.id;
     const item = await fetch(`${process.env.URL}/api/detail?id=${id}`).then(
         (res) => res.json()
@@ -26,7 +26,7 @@ async function getData(id: number) {
     return result;
 }
 
-export default async function Detail({ params }: { params: Params }) {
+export default async function Detail({ params }: { params: DetailParams }) {
     const item = await getData(params.id as number);
 
     return (

@@ -3,11 +3,17 @@ import DropdownBtn from "./DropdownBtn";
 import ItemCard from "./ItemCard";
 import { useState, useEffect } from "react";
 import useGetLike from "@/hooks/useGetLike";
+import { Chocolate } from "@prisma/client";
 
-export default function Content({ itemList, styles }) {
+interface ContentProps {
+    itemList: Chocolate[];
+    styles: Record<string, string>;
+}
+
+export default function Content({ itemList, styles }: ContentProps) {
     const { likedItemList } = useGetLike();
 
-    const [selected, setSelected] = useState("추천순");
+    const [selected, setSelected] = useState<string>("추천순");
 
     const data = itemList;
 
@@ -15,7 +21,7 @@ export default function Content({ itemList, styles }) {
         sessionStorage?.removeItem("prevPath");
     }, []);
 
-    function handleSortItems(selected) {
+    function handleSortItems(selected: string) {
         let sortedData = [...data];
         if (selected === "추천순") {
             sortedData.sort((a, b) => {
@@ -52,14 +58,8 @@ export default function Content({ itemList, styles }) {
                         return (
                             <li className={styles.item} key={i}>
                                 <ItemCard
-                                    link={chocolate.id}
                                     styles={styles}
-                                    img={chocolate.image}
-                                    country={chocolate.country}
-                                    brand={chocolate.brand}
-                                    name={chocolate.name}
-                                    price={chocolate.price}
-                                    id={chocolate.id}
+                                    chocolate={chocolate}
                                     liked={likedItemList.includes(chocolate.id)}
                                 />
                             </li>

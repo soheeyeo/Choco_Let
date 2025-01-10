@@ -6,7 +6,13 @@ import {
     flavorCategory,
 } from "@/constants/constants";
 
-export default function NavList({ styles, category, listId }) {
+interface NavListProps {
+    styles: Record<string, string>;
+    category: string;
+    listId: string;
+}
+
+export default function NavList({ styles, category, listId }: NavListProps) {
     let list_item_category = [];
 
     if (category === "price") {
@@ -27,7 +33,7 @@ export default function NavList({ styles, category, listId }) {
                         <Link
                             href={`/list/${category}/${i + 1}`}
                             className={`${styles.nav_btn} ${
-                                listId == i + 1 ? styles.active : ""
+                                Number(listId) == i + 1 ? styles.active : ""
                             }`}
                             key={i}
                         >
