@@ -2,11 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-interface SignupFormProps {
-    styles: Record<string, string>;
-}
-
-export default function SignupForm({ styles }: SignupFormProps) {
+export default function SignupForm({ styles }: StylesProps) {
     const router = useRouter();
 
     const [inputValue, setInputValue] = useState({
