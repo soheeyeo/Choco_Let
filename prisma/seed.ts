@@ -1,10 +1,10 @@
 const { PrismaClient } = require("@prisma/client");
-const chocolate = require("../src/util/data.js");
+const chocolates = require("../src/util/data.js");
 
 const prisma = new PrismaClient();
 
 async function main() {
-    for (let item of chocolate) {
+    for (let item of chocolates) {
         const chocolate = await prisma.chocolate.create({
             data: item,
         });
