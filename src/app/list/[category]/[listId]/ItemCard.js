@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LikeBtn from "../../../../components/button/LikeBtn";
+import LikeBtn from "@/components/button/LikeBtn";
 
 export default function ItemCard({
     styles,

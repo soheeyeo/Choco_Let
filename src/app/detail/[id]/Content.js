@@ -1,9 +1,9 @@
 "use client";
-import styles from "./detail.module.css";
+import useGetLike from "@/hooks/useGetLike";
 import Link from "next/link";
 import { useEffect } from "react";
-import LikeBtn from "../../../components/button/LikeBtn";
-import useGetLike from "@/hooks/useGetLike";
+import LikeBtn from "@/components/button/LikeBtn";
+import styles from "./detail.module.css";
 
 export default function Content({ item }) {
     const { likedItemList } = useGetLike();
