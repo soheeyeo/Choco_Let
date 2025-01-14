@@ -54,7 +54,7 @@ async function getData(category: string, listId: string) {
 
 export default async function List({ params }: { params: ListParams }) {
     const itemList = await getData(params.category, params.listId);
-    console.log(typeof params.listId);
+
     return (
         <main>
             <section className={styles.list_section}>
