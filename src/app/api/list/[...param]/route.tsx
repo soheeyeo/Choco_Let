@@ -1,6 +1,12 @@
 import { prisma } from "@/lib/prisma";
 
-export async function GET(req, { params }) {
+interface RouteParams {
+    params: {
+        param: string;
+    };
+}
+
+export async function GET(req: Request, { params }: RouteParams) {
     const param = params.param;
     if (param[0] === "price") {
         if (param[1] === "1") {
