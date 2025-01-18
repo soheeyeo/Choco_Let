@@ -8,24 +8,6 @@
     --bg-color: #fff;
 }
 
-@font-face {
-    font-family: "NanumSquareRound";
-    font-weight: 400;
-    src: url("/fonts/NANUMSQUAREROUNDR.TTF") format("truetype");
-}
-
-@font-face {
-    font-family: "NanumSquareRound";
-    font-weight: 700;
-    src: url("/fonts/NANUMSQUAREROUNDB.TTF") format("truetype");
-}
-
-@font-face {
-    font-family: "NanumSquareRound";
-    font-weight: 800;
-    src: url("/fonts/NANUMSQUAREROUNDEB.TTF") format("truetype");
-}
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -39,7 +21,7 @@ body {
 }
 
 body {
-    font-family: NanumSquareRound;
+    /* font-family: "NanumSquareRound"; */
     font-size: 16px;
 }
 

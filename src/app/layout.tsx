@@ -2,6 +2,7 @@ import "@/app/globals.css";
 import Header from "@/components/common/Header";
 import AuthSession from "./AuthSession";
 import React from "react";
+import localFont from "next/font/local";
 
 export const metadata = {
     title: "ChocoLet",
@@ -21,12 +22,32 @@ export const metadata = {
     },
 };
 
+const NanumSquareRound = localFont({
+    src: [
+        {
+            path: "/fonts/NANUMSQUAREROUNDR.ttf",
+            weight: "400",
+            style: "normal",
+        },
+        {
+            path: "/fonts/NANUMSQUAREROUNDB.ttf",
+            weight: "700",
+            style: "normal",
+        },
+        {
+            path: "/fonts/NANUMSQUAREROUNDEB.ttf",
+            weight: "800",
+            style: "normal",
+        },
+    ],
+});
+
 export default function RootLayout({
     children,
 }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="ko">
-            <body>
+            <body className={NanumSquareRound.className}>
                 <AuthSession>
                     <Header />
                     {children}
