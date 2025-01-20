@@ -371,16 +371,19 @@ header {
     }
 
     .link_li {
-        display: none;
         margin-top: 15px;
         flex-direction: column;
         align-items: center;
         gap: 0;
+        max-height: 0;
         width: 100%;
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
     }
 
     .active {
         display: flex;
+        max-height: 428px;
     }
 
     .link {
