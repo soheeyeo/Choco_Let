@@ -3,22 +3,28 @@
 import { categories } from "@/constants/constants";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import LogoutBtn from "../button/LogoutBtn";
+import Loading from "@/app/loading";
 
 export default function Header() {
-    const session = useSession();
+    const { data: session, status } = useSession();
+    const isLoading = status === "loading";
     const menuRef = useRef<HTMLUListElement | null>(null);
-    const [active, setActive] = useState<boolean>(false);
+    const menuBtnRef = useRef<HTMLButtonElement | null>(null);
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
     useEffect(() => {
-        // ref 바깥 영역 클릭 시 active 상태 false로 변경
+        // 모바일 크기에서 ref 바깥 영역 클릭 시 메뉴 닫기
         function handleClickOutside(e: MouseEvent) {
             if (
                 menuRef.current &&
-                !menuRef.current.contains(e.target as Node)
+                !menuRef.current.contains(e.target as Node) &&
+                menuBtnRef.current &&
+                !menuBtnRef.current.contains(e.target as Node) &&
+                isMenuOpen
             ) {
-                setActive(false);
+                setIsMenuOpen(false);
             }
         }
 
@@ -26,11 +32,11 @@ export default function Header() {
 
         return () =>
             document.removeEventListener("mousedown", handleClickOutside);
-    }, [menuRef]);
+    }, [isMenuOpen]);
 
-    // 메뉴 버튼 클릭 시 active 상태 변경
-    const handleClickCategory = () => {
-        setActive(!active);
+    // 모바일 크기에서 메뉴 버튼 클릭 시 isMenuOpen 상태 변경
+    const handleClickMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
     };
 
     return (
@@ -38,19 +44,23 @@ export default function Header() {
             <div className="navbar">
                 <h1 className="logo">
                     <Link href="/" className="logo_wrapper">
-                        <img src="/assets/logo.png" className="logo_img" />
+                        <img
+                            src="/assets/logo.png"
+                            className="logo_img"
+                            alt="로고"
+                        />
                     </Link>
                 </h1>
                 <ul
                     ref={menuRef}
-                    className={`link_li ${active ? "active" : ""}`}
+                    className={`link_li ${isMenuOpen ? "active" : ""}`}
                 >
                     {categories.map((category, i) => {
                         return (
                             <li
                                 className="link"
                                 key={i}
-                                onClick={handleClickCategory}
+                                onClick={handleClickMenu}
                             >
                                 <Link href={category.link}>
                                     {category.category}
@@ -58,31 +68,39 @@ export default function Header() {
                             </li>
                         );
                     })}
-                    <li className="link" onClick={handleClickCategory}>
+                    <li className="link" onClick={handleClickMenu}>
                         <Link href="/test">추천 테스트</Link>
                     </li>
                 </ul>
-                {session.data ? (
-                    <div className="account_li">
-                        <button
-                            className="menu_btn"
-                            onClick={handleClickCategory}
-                        >
-                            메뉴
-                        </button>
-                        <Link href="/like" className="like_btn">
-                            관심 목록
-                        </Link>
-                        <LogoutBtn />
-                    </div>
-                ) : (
-                    <div className="account_li">
-                        <Link href="/signup" className="signUp_btn">
-                            회원가입
-                        </Link>
-                        <Link href="/login">로그인</Link>
-                    </div>
-                )}
+
+                <div className="account_li">
+                    {!isLoading && (
+                        <>
+                            {session ? (
+                                <>
+                                    <button
+                                        ref={menuBtnRef}
+                                        className="menu_btn"
+                                        onClick={handleClickMenu}
+                                    >
+                                        메뉴
+                                    </button>
+                                    <Link href="/like" className="like_btn">
+                                        관심 목록
+                                    </Link>
+                                    <LogoutBtn />
+                                </>
+                            ) : (
+                                <>
+                                    <Link href="/signup" className="signUp_btn">
+                                        회원가입
+                                    </Link>
+                                    <Link href="/login">로그인</Link>
+                                </>
+                            )}
+                        </>
+                    )}
+                </div>
             </div>
         </header>
     );

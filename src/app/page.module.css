@@ -5,7 +5,7 @@
 }
 
 .banner_img {
-    background: no-repeat url(/assets/banner.png);
+    background: no-repeat url(/assets/banner.webp);
     background-position: 30% 50%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -111,19 +111,19 @@
 }
 
 .category_card_01 {
-    background: no-repeat 100% url(/assets/category_card01.png);
+    background: no-repeat 100% url(/assets/category_card01.webp);
 }
 
 .category_card_02 {
-    background: no-repeat 100% url(/assets/category_card02.png);
+    background: no-repeat 100% url(/assets/category_card02.webp);
 }
 
 .category_card_03 {
-    background: no-repeat 100% url(/assets/category_card03.png);
+    background: no-repeat 100% url(/assets/category_card03.webp);
 }
 
 .category_card_04 {
-    background: no-repeat 100% url(/assets/category_card04.png);
+    background: no-repeat 100% url(/assets/category_card04.webp);
 }
 
 @media screen and (max-width: 1200px) {

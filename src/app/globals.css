@@ -8,24 +8,6 @@
     --bg-color: #fff;
 }
 
-@font-face {
-    font-family: "NanumSquareRound";
-    font-weight: 400;
-    src: url("/fonts/NANUMSQUAREROUNDR.TTF") format("truetype");
-}
-
-@font-face {
-    font-family: "NanumSquareRound";
-    font-weight: 700;
-    src: url("/fonts/NANUMSQUAREROUNDB.TTF") format("truetype");
-}
-
-@font-face {
-    font-family: "NanumSquareRound";
-    font-weight: 800;
-    src: url("/fonts/NANUMSQUAREROUNDEB.TTF") format("truetype");
-}
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -39,7 +21,6 @@ body {
 }
 
 body {
-    font-family: NanumSquareRound;
     font-size: 16px;
 }
 
@@ -118,6 +99,7 @@ header {
 }
 
 .account_li {
+    width: 112px;
     font-size: 12px;
     font-weight: 700;
     color: #eb7ea2;
@@ -390,16 +372,19 @@ header {
     }
 
     .link_li {
-        display: none;
         margin-top: 15px;
         flex-direction: column;
         align-items: center;
         gap: 0;
+        max-height: 0;
         width: 100%;
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
     }
 
     .active {
         display: flex;
+        max-height: 428px;
     }
 
     .link {
@@ -413,6 +398,7 @@ header {
     .account_li {
         position: absolute;
         display: flex;
+        width: 133px;
         top: 8px;
         right: 0;
     }
