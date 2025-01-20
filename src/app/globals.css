@@ -99,6 +99,7 @@ header {
 }
 
 .account_li {
+    width: 112px;
     font-size: 12px;
     font-weight: 700;
     color: #eb7ea2;
@@ -397,6 +398,7 @@ header {
     .account_li {
         position: absolute;
         display: flex;
+        width: 133px;
         top: 8px;
         right: 0;
     }

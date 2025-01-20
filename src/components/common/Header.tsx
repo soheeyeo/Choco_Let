@@ -5,9 +5,11 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import LogoutBtn from "../button/LogoutBtn";
+import Loading from "@/app/loading";
 
 export default function Header() {
-    const session = useSession();
+    const { data: session, status } = useSession();
+    const isLoading = status === "loading";
     const menuRef = useRef<HTMLUListElement | null>(null);
     const menuBtnRef = useRef<HTMLButtonElement | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -72,26 +74,30 @@ export default function Header() {
                 </ul>
 
                 <div className="account_li">
-                    {session.data ? (
+                    {!isLoading && (
                         <>
-                            <button
-                                ref={menuBtnRef}
-                                className="menu_btn"
-                                onClick={handleClickMenu}
-                            >
-                                메뉴
-                            </button>
-                            <Link href="/like" className="like_btn">
-                                관심 목록
-                            </Link>
-                            <LogoutBtn />
-                        </>
-                    ) : (
-                        <>
-                            <Link href="/signup" className="signUp_btn">
-                                회원가입
-                            </Link>
-                            <Link href="/login">로그인</Link>
+                            {session ? (
+                                <>
+                                    <button
+                                        ref={menuBtnRef}
+                                        className="menu_btn"
+                                        onClick={handleClickMenu}
+                                    >
+                                        메뉴
+                                    </button>
+                                    <Link href="/like" className="like_btn">
+                                        관심 목록
+                                    </Link>
+                                    <LogoutBtn />
+                                </>
+                            ) : (
+                                <>
+                                    <Link href="/signup" className="signUp_btn">
+                                        회원가입
+                                    </Link>
+                                    <Link href="/login">로그인</Link>
+                                </>
+                            )}
                         </>
                     )}
                 </div>
