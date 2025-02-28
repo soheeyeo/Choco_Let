@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 interface ContentProps {
     styles: Record<string, string>;
@@ -14,6 +14,7 @@ export default function DropdownBtn({
     const dropDownRef = useRef<HTMLDivElement | null>(null);
     const [isOpen, setIsOpen] = useState(false);
 
+    // 버튼 외부 클릭 시 드롭다운 닫기
     useEffect(() => {
         function handleOutside(e: MouseEvent) {
             if (
@@ -25,15 +26,21 @@ export default function DropdownBtn({
         }
         document.addEventListener("mousedown", handleOutside);
         return () => document.removeEventListener("mousedown", handleOutside);
-    }, [dropDownRef]);
+    }, []);
 
-    const handleToggle = () => {
+    // 버튼 클릭 시 열림/닫힘 상태 토글
+    const handleToggle = useCallback(() => {
         setIsOpen(!isOpen);
-    };
-    const handleSelect = (e: React.MouseEvent<HTMLButtonElement>) => {
-        setSelected((e.target as HTMLButtonElement).textContent || "");
-        setIsOpen(false);
-    };
+    }, [isOpen]);
+
+    // 옵션 선택 시 상태 업데이트 후 드롭다운 닫기
+    const handleSelect = useCallback(
+        (e: React.MouseEvent<HTMLButtonElement>) => {
+            setSelected((e.target as HTMLButtonElement).textContent || "");
+            setIsOpen(false);
+        },
+        [selected]
+    );
 
     const sortOption = ["추천순", "브랜드명순", "낮은가격순", "높은가격순"];
 
@@ -44,7 +51,9 @@ export default function DropdownBtn({
                 <span className={styles.icon}></span>
             </button>
             <ul
-                className={`${styles.dropdown_li} ${isOpen ? styles.open : ""}`}
+                className={`${styles.dropdown_li} ${
+                    isOpen ? "" : styles.close
+                }`}
             >
                 {sortOption.map((option, i) => {
                     return (

@@ -148,17 +148,44 @@
     background-size: cover;
 }
 
+@keyframes openDropdown {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes closeDropdown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        transform: translateY(-10%);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 .dropdown_li {
-    display: none;
+    display: block;
     position: absolute;
     margin-top: 5px;
     background-color: #fff;
     border: 1px solid var(--border-color);
     z-index: 1;
+    animation: openDropdown 0.2s ease-in-out forwards;
 }
 
-.open {
-    display: block;
+.close {
+    animation: closeDropdown 0.2s ease-in-out forwards;
 }
 
 .dropdown_item {
