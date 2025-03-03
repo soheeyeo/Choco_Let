@@ -55,9 +55,9 @@ export default function DropdownBtn({
                     isOpen ? "" : styles.close
                 }`}
             >
-                {sortOption.map((option, i) => {
+                {sortOption.map((option) => {
                     return (
-                        <li key={i}>
+                        <li key={option}>
                             <button
                                 className={styles.dropdown_item}
                                 onClick={handleSelect}

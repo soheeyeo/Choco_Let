@@ -13,27 +13,25 @@ interface NavListProps {
 }
 
 export default function NavList({ styles, category, listId }: NavListProps) {
-    let list_item_category = [];
+    // 카테고리별 리스트 정의
+    const categoryMap: Record<string, string[]> = {
+        price: priceCategory,
+        country: countryCategory,
+        type: typeCategory,
+        flavor: flavorCategory,
+    };
 
-    if (category === "price") {
-        list_item_category = priceCategory;
-    } else if (category === "country") {
-        list_item_category = countryCategory;
-    } else if (category === "type") {
-        list_item_category = typeCategory;
-    } else {
-        list_item_category = flavorCategory;
-    }
+    const listItemCategory = categoryMap[category] || [];
 
     return (
         <div className={styles.nav_container}>
             <nav className={styles.nav_li}>
-                {list_item_category.map((a, i) => {
+                {listItemCategory.map((a, i) => {
                     return (
                         <Link
                             href={`/list/${category}/${i + 1}`}
                             className={`${styles.nav_btn} ${
-                                Number(listId) == i + 1 ? styles.active : ""
+                                parseInt(listId) == i + 1 ? styles.active : ""
                             }`}
                             key={i}
                         >
