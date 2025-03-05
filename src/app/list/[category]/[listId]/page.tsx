@@ -1,6 +1,7 @@
 import styles from "./list.module.css";
 import NavList from "./NavList";
 import Content from "./Content";
+import { fetchData } from "@/data/fetchData";
 
 interface ListParams {
     category: string;
@@ -39,21 +40,21 @@ export function generateMetadata({ params }: { params: ListParams }) {
             },
         };
     }
-}
 
-async function getData(category: string, listId: string) {
-    const param1 = category;
-    const param2 = listId;
-
-    const res = await fetch(`${process.env.URL}/api/list/${param1}/${param2}`, {
-        cache: "no-store",
-    });
-    const result = await res.json();
-    return result;
+    return {
+        description: "초콜릿 목록",
+        openGraph: {
+            description: "초콜릿 목록 조회",
+        },
+    };
 }
 
 export default async function List({ params }: { params: ListParams }) {
-    const itemList = await getData(params.category, params.listId);
+    // 초콜릿 데이터 조회
+    const itemList = await fetchData(
+        "GET",
+        `list/${params.category}/${params.listId}`
+    );
 
     return (
         <main>

@@ -8,6 +8,7 @@ export default function TestBtn() {
     const handleOnClick = () => {
         router.push("/test");
     };
+
     return (
         <button className={styles.test_btn} onClick={handleOnClick}>
             초콜릿 추천 테스트 바로가기
