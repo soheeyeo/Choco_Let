@@ -41,7 +41,11 @@ export default function LikeBtn({ styles, id, liked }: LikeBtnProps) {
     return (
         <>
             {/* 좋아요 버튼 */}
-            <button onClick={handleOnClick} className={styles.like_btn}>
+            <button
+                onClick={handleOnClick}
+                className={styles.like_btn}
+                aria-label={like ? "좋아요 취소" : "좋아요"}
+            >
                 {like ? (
                     <HiMiniHeart
                         color="#EB7EA2"
