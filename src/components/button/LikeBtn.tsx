@@ -26,8 +26,7 @@ export default function LikeBtn({ styles, id, liked }: LikeBtnProps) {
 
         try {
             // 좋아요 API 요청
-            const res = await fetchData("POST", "like", id);
-            console.log(res);
+            await fetchData("POST", "like", id);
             setLike((prev) => !prev);
         } catch (err) {
             console.log(err);

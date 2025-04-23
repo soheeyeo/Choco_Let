@@ -16,7 +16,7 @@ export async function fetchData(
     };
 
     // POST 메서드에서 body를 포함하고 있을 경우 추가
-    if (method == "POST" && body) {
+    if ((method == "POST" || "DELETE") && body) {
         options.body = JSON.stringify(body);
     }
 

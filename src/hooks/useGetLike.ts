@@ -18,11 +18,6 @@ export default function useGetLike() {
                     console.log(error);
                 }
             };
-            fetch("/api/like")
-                .then((res) => res.json())
-                .then((result) => {
-                    setLikedItem(result);
-                });
         }
     }, [session, status]);
 
