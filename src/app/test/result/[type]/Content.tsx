@@ -12,17 +12,19 @@ interface ContentProps {
 export default function Content({ styles, item }: ContentProps) {
     const data = item;
 
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setTimeout(() => {
-            setIsLoading(true);
-        }, 3000);
+            setIsLoading(false);
+        }, 1500);
     });
 
     return (
         <>
             {isLoading ? (
+                <Loading result={"result"} style={"loading_test"} />
+            ) : (
                 <section className={styles.result_section}>
                     <h1 className={styles.result_tit}>
                         이 초콜릿을 추천드려요.
@@ -57,8 +59,6 @@ export default function Content({ styles, item }: ContentProps) {
                         </Link>
                     </div>
                 </section>
-            ) : (
-                <Loading result={"result"} style={"loading_test"} />
             )}
         </>
     );
