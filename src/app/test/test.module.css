@@ -158,12 +158,7 @@
 }
 
 .result_img_wrapper {
-    width: 320px;
     margin: 0 auto;
-}
-
-.result_img {
-    width: 100%;
 }
 
 .result_feature_container {

@@ -82,11 +82,6 @@ header {
     line-height: 0;
 }
 
-.logo_img {
-    width: 77px;
-    height: 100%;
-}
-
 .link_li {
     display: flex;
     gap: 80px;

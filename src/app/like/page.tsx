@@ -51,7 +51,6 @@ export default function Like() {
                                         <LikeItemCard
                                             chocolate={chocolate}
                                             styles={styles}
-                                            id={chocolate.id}
                                             handleOnClick={handleDeleteClick}
                                         />
                                     </li>

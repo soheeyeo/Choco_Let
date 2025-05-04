@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import LogoutBtn from "../button/LogoutBtn";
-import Loading from "@/app/loading";
+import Image from "next/image";
 
 export default function Header() {
     const { data: session, status } = useSession();
@@ -44,9 +44,10 @@ export default function Header() {
             <div className="navbar">
                 <h1 className="logo">
                     <Link href="/" className="logo_wrapper">
-                        <img
+                        <Image
+                            width={77}
+                            height={32}
                             src="/assets/logo.png"
-                            className="logo_img"
                             alt="로고"
                         />
                     </Link>

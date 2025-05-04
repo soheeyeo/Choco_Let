@@ -29,14 +29,7 @@
     border-radius: 5px;
 }
 
-.img_wrapper {
-    flex: none;
-    width: 50%;
-}
-
 .item_img {
-    width: 100%;
-    height: 100%;
     border-radius: 5px;
 }
 
