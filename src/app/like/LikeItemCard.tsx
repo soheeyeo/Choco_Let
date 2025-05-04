@@ -1,3 +1,4 @@
+import { fetchData } from "@/data/fetchData";
 import { Chocolate } from "@prisma/client";
 import Link from "next/link";
 import { HiXMark } from "react-icons/hi2";
@@ -6,24 +7,15 @@ interface LikeItemCardProps {
     chocolate: Chocolate;
     styles: Record<string, string>;
     id: number;
+    handleOnClick: (id: number) => Promise<void>;
 }
 
 export default function LikeItemCard({
     chocolate,
     styles,
     id,
+    handleOnClick,
 }: LikeItemCardProps) {
-    const handleOnClick = async () => {
-        try {
-            const res = await fetch("/api/like/likeList", {
-                method: "DELETE",
-                body: JSON.stringify(id),
-            });
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
     const formattedPrice = chocolate.price.toLocaleString();
 
     return (
@@ -63,7 +55,11 @@ export default function LikeItemCard({
                     </div>
                 </div>
             </Link>
-            <button onClick={handleOnClick} className={styles.delete_btn}>
+
+            <button
+                onClick={() => handleOnClick(id)}
+                className={styles.delete_btn}
+            >
                 <HiXMark color="#EB7EA2" size="18px" />
             </button>
         </>

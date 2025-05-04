@@ -1,4 +1,5 @@
 "use client";
+import { fetchData } from "@/data/fetchData";
 import { Like } from "@prisma/client";
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
@@ -9,11 +10,14 @@ export default function useGetLike() {
 
     useEffect(() => {
         if (session) {
-            fetch("/api/like")
-                .then((res) => res.json())
-                .then((result) => {
+            async () => {
+                try {
+                    const result = await fetchData("GET", "like");
                     setLikedItem(result);
-                });
+                } catch (error) {
+                    console.log(error);
+                }
+            };
         }
     }, [session, status]);
 

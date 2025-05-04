@@ -1,14 +1,10 @@
 import styles from "../../test.module.css";
 import testData from "@/util/testData.json";
 import Content from "./Content";
+import { fetchData } from "@/data/fetchData";
 
 interface ResultProps {
     type: string;
-}
-
-interface ResultItem {
-    type: string | string[];
-    name: string;
 }
 
 export const metadata = {
@@ -18,16 +14,8 @@ export const metadata = {
     },
 };
 
-async function getData(resultItem: ResultItem) {
-    const res = await fetch(`${process.env.URL}/api/result`, {
-        method: "POST",
-        body: JSON.stringify(resultItem.name),
-    });
-    const result = await res.json();
-    return result;
-}
-
 export default async function Result({ params }: { params: ResultProps }) {
+    // testData에서 결과 항목 가져온 후 URL 파라미터와 일치하는 결과 항목 가져오기
     const testResult = testData.result;
     const resultItem = testResult.find((data) => {
         if (Array.isArray(data.type)) {
@@ -42,9 +30,14 @@ export default async function Result({ params }: { params: ResultProps }) {
         return null;
     }
 
-    console.log(resultItem);
-
-    const item = await getData(resultItem);
+    // 테스트 결과 데이터 조회
+    let item;
+    try {
+        item = await fetchData("POST", "result", resultItem.name);
+    } catch (error) {
+        console.error("fetchData 요청 실패:", error);
+        return <p>결과 데이터를 불러오는 데 실패했습니다.</p>;
+    }
 
     return (
         <main className={styles.result_main}>

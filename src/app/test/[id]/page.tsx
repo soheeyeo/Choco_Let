@@ -23,44 +23,51 @@ export default function TestContent({ params }: { params: TestContentParams }) {
 
     const giftQna = testData.QNA_G;
     const tasteQna = testData.QNA;
-    const findQna =
-        params.id === "1"
-            ? giftQna.filter((data) => data.id === qna)[0]
-            : tasteQna.filter((data) => data.id === qna)[0];
+    const findQna = (params.id === "1" ? giftQna : tasteQna).find(
+        (data) => data.id === qna
+    );
 
     return (
         <main className={styles.test_qna_main}>
             <section className={styles.test_qna_section}>
                 <h1 className="ir">추천 테스트</h1>
                 <div className={styles.test_content}>
-                    <span className={styles.test_question}>{findQna.q}</span>
-                    <div className={styles.test_options}>
-                        {findQna.a.map((option, i) => {
-                            return (
-                                <button
-                                    className={styles.test_option}
-                                    key={i}
-                                    onClick={() => handleSaveType(option.type)}
-                                >
-                                    {option.content}
-                                </button>
-                            );
-                        })}
-                    </div>
-                    {disabled ? (
-                        ""
+                    {!findQna ? (
+                        <p className={styles.error_msg}>
+                            질문을 찾을 수 없습니다.
+                        </p>
                     ) : (
-                        <div className={styles.btn_container}>
-                            <button
-                                className={styles.test_back_btn}
-                                onClick={handleBack}
-                            >
-                                <IoChevronBackOutline
-                                    className={styles.test_back_icon}
-                                />
-                                이전
-                            </button>
-                        </div>
+                        <>
+                            <span className={styles.test_question}>
+                                {findQna.q}
+                            </span>
+                            <div className={styles.test_options}>
+                                {findQna.a.map((option, i) => (
+                                    <button
+                                        className={styles.test_option}
+                                        key={i}
+                                        onClick={() =>
+                                            handleSaveType(option.type)
+                                        }
+                                    >
+                                        {option.content}
+                                    </button>
+                                ))}
+                            </div>
+                            {!disabled && (
+                                <div className={styles.btn_container}>
+                                    <button
+                                        className={styles.test_back_btn}
+                                        onClick={handleBack}
+                                    >
+                                        <IoChevronBackOutline
+                                            className={styles.test_back_icon}
+                                        />
+                                        이전
+                                    </button>
+                                </div>
+                            )}
+                        </>
                     )}
                 </div>
             </section>

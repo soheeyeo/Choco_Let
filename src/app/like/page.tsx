@@ -4,23 +4,38 @@ import LikeItemCard from "./LikeItemCard";
 import { useState, useEffect } from "react";
 import Loading from "../loading";
 import { Chocolate } from "@prisma/client";
+import { fetchData } from "@/data/fetchData";
 
 export default function Like() {
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [likeList, setLikedList] = useState<Chocolate[]>([]);
 
     useEffect(() => {
-        fetch("/api/like/likeList")
-            .then((res) => res.json())
-            .then((result) => {
+        (async () => {
+            try {
+                // 관심목록 API 요청
+                const result = await fetchData("GET", "like/likeList");
                 setLikedList(result);
-                setIsLoading(true);
-            });
-    }, [likeList]);
+                setIsLoading(false);
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+    }, []);
+
+    // 삭제 버튼 클릭 핸들러
+    const handleDeleteClick = async (id: number) => {
+        try {
+            await fetchData("DELETE", "like/likeList", id);
+            setLikedList((prev) => prev.filter((item) => item.id !== id));
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <main>
-            {isLoading ? (
+            {!isLoading ? (
                 <section className={styles.like_section}>
                     <div className={styles.like_tit}>
                         <h1 className="h1_tit">관심 목록</h1>
@@ -28,12 +43,16 @@ export default function Like() {
                     {likeList.length !== 0 ? (
                         <div className={styles.item_container}>
                             <ul className={styles.item_li}>
-                                {likeList.map((chocolate, i) => (
-                                    <li className={styles.item} key={i}>
+                                {likeList.map((chocolate) => (
+                                    <li
+                                        className={styles.item}
+                                        key={chocolate.id}
+                                    >
                                         <LikeItemCard
                                             chocolate={chocolate}
                                             styles={styles}
                                             id={chocolate.id}
+                                            handleOnClick={handleDeleteClick}
                                         />
                                     </li>
                                 ))}
