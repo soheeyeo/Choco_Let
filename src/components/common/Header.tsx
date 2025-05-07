@@ -55,6 +55,7 @@ export default function Header() {
                 <ul
                     ref={menuRef}
                     className={`link_li ${isMenuOpen ? "active" : ""}`}
+                    id="menu"
                 >
                     {categories.map((category, i) => {
                         return (
@@ -74,34 +75,49 @@ export default function Header() {
                     </li>
                 </ul>
 
-                <div className="account_li">
+                <ul className="account_li">
                     {!isLoading && (
                         <>
                             {session ? (
                                 <>
-                                    <button
-                                        ref={menuBtnRef}
-                                        className="menu_btn"
-                                        onClick={handleClickMenu}
-                                    >
-                                        메뉴
-                                    </button>
-                                    <Link href="/like" className="like_btn">
-                                        관심 목록
-                                    </Link>
-                                    <LogoutBtn />
+                                    <li>
+                                        <button
+                                            ref={menuBtnRef}
+                                            className="menu_btn"
+                                            onClick={handleClickMenu}
+                                            aria-controls="menu"
+                                            aria-expanded={isMenuOpen}
+                                        >
+                                            메뉴
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <Link href="/like" className="like_btn">
+                                            관심 목록
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <LogoutBtn />
+                                    </li>
                                 </>
                             ) : (
                                 <>
-                                    <Link href="/signup" className="signUp_btn">
-                                        회원가입
-                                    </Link>
-                                    <Link href="/login">로그인</Link>
+                                    <li>
+                                        <Link
+                                            href="/signup"
+                                            className="signUp_btn"
+                                        >
+                                            회원가입
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/login">로그인</Link>
+                                    </li>
                                 </>
                             )}
                         </>
                     )}
-                </div>
+                </ul>
             </div>
         </header>
     );

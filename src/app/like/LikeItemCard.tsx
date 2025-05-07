@@ -1,4 +1,3 @@
-import { fetchData } from "@/data/fetchData";
 import { Chocolate } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
@@ -59,6 +58,7 @@ export default function LikeItemCard({
             <button
                 onClick={() => handleOnClick(chocolate.id)}
                 className={styles.delete_btn}
+                aria-label="삭제 버튼"
             >
                 <HiXMark color="#EB7EA2" size="18px" />
             </button>

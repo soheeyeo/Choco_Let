@@ -10,11 +10,7 @@ export default function TestBtn() {
     };
 
     return (
-        <button
-            className={styles.test_btn}
-            onClick={handleOnClick}
-            aria-label="초콜릿 추천 테스트 바로가기"
-        >
+        <button className={styles.test_btn} onClick={handleOnClick}>
             초콜릿 추천 테스트 바로가기
         </button>
     );
