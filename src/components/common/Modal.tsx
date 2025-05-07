@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface ModalProps {
     setIsOpen: (isOpen: boolean) => void;
@@ -29,8 +29,18 @@ export default function Modal({ setIsOpen }: ModalProps) {
         router.push("/login");
     };
 
+    // 모달 외부 영역 클릭 시 애니메이션 적용
+    const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (e.target === e.currentTarget) {
+            handleModalClose();
+        }
+    };
+
     return (
-        <div className={`modal ${isAnimating ? "close" : ""}`}>
+        <div
+            className={`modal ${isAnimating ? "close" : ""}`}
+            onClick={handleBackdropClick}
+        >
             <div className="modal_container">
                 <div className="modal_content">
                     <p>로그인이 필요한 서비스입니다.</p>
