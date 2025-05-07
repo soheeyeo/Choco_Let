@@ -80,7 +80,7 @@ export default function Header() {
                         <>
                             {session ? (
                                 <>
-                                    <li>
+                                    <li className="account_item">
                                         <button
                                             ref={menuBtnRef}
                                             className="menu_btn"
@@ -91,18 +91,18 @@ export default function Header() {
                                             메뉴
                                         </button>
                                     </li>
-                                    <li>
+                                    <li className="account_item">
                                         <Link href="/like" className="like_btn">
                                             관심 목록
                                         </Link>
                                     </li>
-                                    <li>
+                                    <li className="account_item">
                                         <LogoutBtn />
                                     </li>
                                 </>
                             ) : (
                                 <>
-                                    <li>
+                                    <li className="account_item">
                                         <Link
                                             href="/signup"
                                             className="signUp_btn"
@@ -110,7 +110,7 @@ export default function Header() {
                                             회원가입
                                         </Link>
                                     </li>
-                                    <li>
+                                    <li className="account_item">
                                         <Link href="/login">로그인</Link>
                                     </li>
                                 </>

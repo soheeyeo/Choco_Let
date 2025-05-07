@@ -94,17 +94,21 @@ header {
 }
 
 .account_li {
-    width: 112px;
+    display: flex;
     font-size: 12px;
     font-weight: 700;
     color: #eb7ea2;
+}
+
+.account_item {
+    display: inline;
 }
 
 .menu_btn,
 .like_btn,
 .signUp_btn {
     position: relative;
-    padding-right: 10px;
+    padding-right: 11px;
 }
 
 .like_btn::after {
@@ -117,7 +121,7 @@ header {
     background-color: var(--border-color);
 }
 
-.account_li :last-child {
+.account_li > li:last-child {
     padding-left: 10px;
 }
 
@@ -412,8 +416,7 @@ header {
 
     .account_li {
         position: absolute;
-        display: flex;
-        width: 133px;
+        /* width: 133px; */
         top: 8px;
         right: 0;
     }
@@ -425,7 +428,7 @@ header {
     .menu_btn::after {
         content: "";
         position: absolute;
-        right: 5px;
+        right: 0;
         top: 1px;
         width: 1px;
         height: 12px;
@@ -435,15 +438,15 @@ header {
     .like_btn::after {
         content: "";
         position: absolute;
-        right: 4px;
+        right: 0;
         top: 1px;
         width: 1px;
         height: 12px;
         background-color: var(--border-color);
     }
 
-    .account_li :last-child {
-        padding-left: 0;
+    .account_li > li:nth-child(2) {
+        padding-left: 10px;
     }
 }
 
