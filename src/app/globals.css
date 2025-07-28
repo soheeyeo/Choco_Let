@@ -352,6 +352,40 @@ header {
     color: var(--main-color);
 }
 
+.not_found_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.not_found_content {
+    width: 360px;
+    text-align: center;
+}
+
+.not_found_message {
+    padding-top: 20px;
+    font-size: 24px;
+    color: var(--main-color);
+}
+
+.not_found_btn {
+    padding: 16px 24px;
+    margin-top: 30px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    background-color: var(--main-color);
+    border-radius: 100px;
+}
+
+.not_found_btn:hover {
+    background-color: #b2154a;
+}
+
 @keyframes bounce {
     0%,
     100% {

@@ -1,6 +1,6 @@
 import { fetchData } from "@/data/fetchData";
 import Content from "./Content";
-import styles from "./detail.module.css";
+import { notFound } from "next/navigation";
 
 interface DetailParams {
     id: string | number;
@@ -37,17 +37,13 @@ export default async function Detail({ params }: { params: DetailParams }) {
         item = null;
     }
 
+    if (!item) {
+        notFound();
+    }
+
     return (
         <main>
-            {item ? (
-                <Content item={item} />
-            ) : (
-                <div className={styles.not_found_container}>
-                    <p className={styles.not_found_message}>
-                        해당 상품을 찾을 수 없습니다.
-                    </p>
-                </div>
-            )}
+            <Content item={item} />
         </main>
     );
 }
