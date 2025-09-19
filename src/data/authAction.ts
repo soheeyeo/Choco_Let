@@ -1,8 +1,11 @@
 "use server";
 
 import { auth, signIn } from "@/auth";
-import { SignupValidator, FormState } from "@/lib/validators";
+import { prisma } from "@/lib/prisma";
+import { SignupValidator, FormState, SignInValidator } from "@/lib/validators";
 import bcrypt from "bcryptjs";
+import { AuthError } from "next-auth";
+import { redirect } from "next/navigation";
 
 export async function signup(prevState: FormState, formData: FormData) {
     // formData 유효성 검사
@@ -70,13 +73,71 @@ export async function signup(prevState: FormState, formData: FormData) {
     }
 }
 
-export async function signInWithCredentials(formData: FormData) {
-    await signIn("credentials", {
-        email: formData.get("email") || "",
-        password: formData.get("password") || "",
-        redirect: true,
-        redirectTo: (formData.get("callbackUrl") as string) || "/",
+export async function signInWithCredentials(
+    prevState: FormState,
+    formData: FormData
+) {
+    const validatedFields = SignInValidator.safeParse({
+        email: formData.get("email"),
+        password: formData.get("password"),
     });
+
+    if (!validatedFields.success) {
+        const fieldErrors: Record<string, string[]> = {};
+
+        // Zod 에러 fieldErrors 객체로 가공
+        validatedFields.error.issues.forEach((issue) => {
+            const path = issue.path[0] as string;
+            if (!fieldErrors[path]) fieldErrors[path] = [];
+            fieldErrors[path].push(issue.message);
+        });
+
+        return {
+            errors: fieldErrors,
+            values: {
+                email: formData.get("email") as string,
+                password: formData.get("password") as string,
+            },
+        };
+    }
+
+    // 유효성 검사 성공 시 데이터 추출
+    const { email, password } = validatedFields.data;
+
+    const callbackUrl = (formData.get("callbackUrl") as string) || "/";
+
+    try {
+        await signIn("credentials", {
+            email,
+            password,
+        });
+
+        return {
+            status: 200,
+            message: "로그인 성공",
+        };
+    } catch (error) {
+        if (error instanceof AuthError) {
+            if (error.type === "CredentialsSignin") {
+                return {
+                    status: 400,
+                    message: "이메일 혹은 비밀번호가 일치하지 않습니다.",
+                    values: {
+                        email: formData.get("email") as string,
+                        password: formData.get("password") as string,
+                    },
+                };
+            } else {
+                return {
+                    status: 500,
+                    message:
+                        "로그인 요청 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.",
+                };
+            }
+        }
+    }
+    // 로그인 성공 시 redirect
+    redirect(callbackUrl);
 }
 
 export async function signInWithKakao() {
