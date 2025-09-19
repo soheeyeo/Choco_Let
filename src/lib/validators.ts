@@ -25,6 +25,13 @@ export const SignupValidator = z
         path: ["confirmPassword"],
     });
 
+export const SignInValidator = z.object({
+    email: z.string().min(1, { error: "이메일을 입력해주세요." }),
+    password: z.string().min(1, {
+        error: "비밀번호를 입력해주세요.",
+    }),
+});
+
 export type FormState =
     | {
           errors?: Record<string, string[]>;
