@@ -1,11 +1,11 @@
 "use client";
+import { useState, useEffect } from "react";
 import { fetchData } from "@/data/fetchData";
 import { Like } from "@prisma/client";
-import { useSession } from "next-auth/react";
-import { useState, useEffect } from "react";
+import useSession from "./useSession";
 
 export default function useGetLike() {
-    const { data: session, status } = useSession();
+    const session = useSession();
     const [likedItem, setLikedItem] = useState<Like[]>([]);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function useGetLike() {
                 }
             };
         }
-    }, [session, status]);
+    }, [session]);
 
     const likedItemList = likedItem.map((chocolate) => chocolate.chocolateId);
 

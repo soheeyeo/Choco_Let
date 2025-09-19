@@ -27,6 +27,7 @@
         "@types/bcrypt": "^6.0.0",
         "@types/node": "^22.10.5",
         "@types/react": "^19.0.4",
+        "@types/react-dom": "^19.1.9",
         "prisma": "^5.22.0",
         "typescript": "5.7.3"
     }

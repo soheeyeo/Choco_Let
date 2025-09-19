@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 import Modal from "../common/Modal";
 import { HiOutlineHeart } from "react-icons/hi2";
 import { HiMiniHeart } from "react-icons/hi2";
 import { fetchData } from "@/data/fetchData";
+import useSession from "@/hooks/useSession";
 
 interface LikeBtnProps {
     styles: Record<string, string>;
@@ -19,7 +19,7 @@ export default function LikeBtn({ styles, id, liked }: LikeBtnProps) {
     // 좋아요 버튼 클릭 핸들러
     const handleOnClick = async () => {
         // 로그인 세션이 없는 경우, 로그인 안내 모달 표시
-        if (!session.data) {
+        if (!session) {
             setIsOpen(true);
             return;
         }

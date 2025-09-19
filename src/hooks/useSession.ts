@@ -1,5 +1,4 @@
 "use client";
-
 import { useCallback, useEffect, useState } from "react";
 import { getSession } from "@/data/authAction";
 import type { Session } from "next-auth";
