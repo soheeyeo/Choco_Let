@@ -26,7 +26,9 @@ export default function Modal({ setIsOpen }: ModalProps) {
         // 현재 위치 storage에 저장 후 로그인 페이지 이동
         const storage = globalThis?.sessionStorage;
         storage.setItem("prevPath", globalThis.location.pathname);
-        router.push("/login");
+        router.push(
+            `/login?next=${encodeURIComponent(window.location.pathname)}`
+        );
     };
 
     // 모달 외부 영역 클릭 시 애니메이션 적용
