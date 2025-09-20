@@ -1,6 +1,6 @@
+import { Chocolate } from "@prisma/client";
 import Link from "next/link";
 import LikeBtn from "@/components/button/LikeBtn";
-import { Chocolate } from "@prisma/client";
 import Image from "next/image";
 
 interface ItemCardProps {
@@ -14,7 +14,7 @@ export default function ItemCard({ styles, chocolate, liked }: ItemCardProps) {
 
     return (
         <>
-            <Link href={"/detail/" + chocolate.id}>
+            <Link prefetch={false} href={"/detail/" + chocolate.id}>
                 <div className={styles.item_card}>
                     <Image
                         width={190}
