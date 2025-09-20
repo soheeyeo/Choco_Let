@@ -1,10 +1,10 @@
 "use client";
-import styles from "./like.module.css";
-import LikeItemCard from "./LikeItemCard";
 import { useState, useEffect } from "react";
-import Loading from "../loading";
+import styles from "./like.module.css";
 import { Chocolate } from "@prisma/client";
 import { fetchData } from "@/data/fetchData";
+import LikeItemCard from "./LikeItemCard";
+import Loading from "../loading";
 
 export default function Like() {
     const [isLoading, setIsLoading] = useState<boolean>(true);

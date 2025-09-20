@@ -1,5 +1,4 @@
 "use server";
-
 import { auth, signIn } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { SignupValidator, FormState, SignInValidator } from "@/lib/validators";
