@@ -19,6 +19,7 @@ export default function NotFound() {
                     경로가 정확한지 다시 확인해주세요.
                 </p>
                 <button
+                    type="button"
                     className="not_found_btn"
                     onClick={() => router.push("/")}
                 >

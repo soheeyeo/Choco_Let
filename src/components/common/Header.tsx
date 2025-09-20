@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import { Session } from "next-auth";
 import { categories } from "@/constants/constants";
@@ -78,6 +77,7 @@ export default function Header({ session }: { session: Session | null }) {
                         <>
                             <li className="account_item">
                                 <button
+                                    type="button"
                                     ref={menuBtnRef}
                                     className="menu_btn"
                                     onClick={handleClickMenu}

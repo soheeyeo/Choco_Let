@@ -14,6 +14,7 @@ export default function Login() {
                 <LoginForm styles={styles} />
                 <div>
                     <button
+                        type="button"
                         className={styles.join_link_btn}
                         onClick={() => router.push("/signup")}
                     >

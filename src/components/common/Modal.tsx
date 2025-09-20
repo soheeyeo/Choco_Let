@@ -1,7 +1,6 @@
 "use client";
-
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface ModalProps {
     setIsOpen: (isOpen: boolean) => void;
@@ -50,12 +49,14 @@ export default function Modal({ setIsOpen }: ModalProps) {
                 </div>
                 <div className="modal_btn_container">
                     <button
+                        type="button"
                         onClick={handleModalClose}
                         className="modal_cancel_btn"
                     >
                         취소
                     </button>
                     <button
+                        type="button"
                         onClick={handleModalConfirm}
                         className="modal_confirm_btn"
                     >
