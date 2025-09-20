@@ -1,17 +1,18 @@
-"use server";
-import { prisma } from "@/lib/prisma";
+import { getItems } from "@/lib/getItems";
 import { NextRequest, NextResponse } from "next/server";
 
 interface RouteParams {
-    params: {
-        param: string;
-    };
+    param: string;
 }
 
-export async function GET(req: NextRequest, { params }: RouteParams) {
+export async function GET(
+    req: NextRequest,
+    { params }: { params: Promise<RouteParams> }
+) {
+    const { param } = await params;
     try {
         // params.param 값이 잘못된 경우 에러 반환
-        if (!params.param || params.param.length < 2) {
+        if (!param || param.length < 2) {
             return NextResponse.json(
                 { error: "잘못된 요청 형식입니다." },
                 { status: 400 }
@@ -19,7 +20,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
         }
 
         // 파라미터를 category와 listId로 분리
-        const [category, listId] = params.param;
+        const [category, listId] = param;
         const listIndex = Number(listId) - 1;
 
         let result;
@@ -48,11 +49,10 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 
                 // 유효한 인덱스인 경우 해당 가격 조건으로 초콜릿 데이터 조회
                 if (listIndex >= 0 && listIndex < priceList.length) {
-                    result = await prisma.chocolate.findMany({
-                        where: {
-                            price: priceList[listIndex],
-                        },
-                    });
+                    const where = {
+                        price: priceList[listIndex],
+                    };
+                    result = await getItems(where);
                 }
                 break;
 
@@ -76,17 +76,16 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 
                 // 유효한 인덱스인 경우 해당 국가명 조건으로 초콜릿 데이터 조회
                 if (listIndex >= 0 && listIndex < countryList.length) {
-                    result = await prisma.chocolate.findMany({
-                        where: {
-                            country: Array.isArray(countryList[listIndex])
-                                ? listId === "5"
-                                    ? {
-                                          notIn: countryList[listIndex],
-                                      }
-                                    : { in: countryList[listIndex] }
-                                : countryList[listIndex],
-                        },
-                    });
+                    const where = {
+                        country: Array.isArray(countryList[listIndex])
+                            ? listId === "5"
+                                ? {
+                                      notIn: countryList[listIndex],
+                                  }
+                                : { in: countryList[listIndex] }
+                            : countryList[listIndex],
+                    };
+                    result = await getItems(where);
                 }
                 break;
 
@@ -96,14 +95,13 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 
                 // 유효한 인덱스인 경우 해당 종류 조건으로 초콜릿 데이터 조회
                 if (listIndex >= 0 && listIndex <= typeList.length) {
-                    result = await prisma.chocolate.findMany({
-                        where: {
-                            type:
-                                listId === "5"
-                                    ? { notIn: typeList }
-                                    : typeList[listIndex],
-                        },
-                    });
+                    const where = {
+                        type:
+                            listId === "5"
+                                ? { notIn: typeList }
+                                : typeList[listIndex],
+                    };
+                    result = await getItems(where);
                 }
                 break;
 
@@ -152,17 +150,16 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 
                 // 유효한 인덱스인 경우 해당 맛 조건으로 초콜릿 데이터 조회
                 if (listIndex >= 0 && listIndex < flavorList.length) {
-                    result = await prisma.chocolate.findMany({
-                        where: {
-                            flavor: Array.isArray(flavorList[listIndex])
-                                ? listId === "5"
-                                    ? {
-                                          notIn: flavorList[listIndex],
-                                      }
-                                    : { in: flavorList[listIndex] }
-                                : flavorList[listIndex],
-                        },
-                    });
+                    const where = {
+                        flavor: Array.isArray(flavorList[listIndex])
+                            ? listId === "5"
+                                ? {
+                                      notIn: flavorList[listIndex],
+                                  }
+                                : { in: flavorList[listIndex] }
+                            : flavorList[listIndex],
+                    };
+                    result = await getItems(where);
                 }
                 break;
         }
@@ -176,7 +173,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
         }
         return NextResponse.json(result, { status: 200 });
     } catch (error) {
-        console.error("데이터 조회 중 오류가 발생했습니다.", error);
+        console.error("error", error);
         throw new Error(
             "데이터 조회 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요."
         );
