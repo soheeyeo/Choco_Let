@@ -54,16 +54,16 @@ export default {
             },
         }),
         Google({
-            clientId: process.env.GOOGLE_CLIENT_ID!,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+            clientId: process.env.AUTH_GOOGLE_ID!,
+            clientSecret: process.env.AUTH_GOOGLE_SECRET!,
         }),
         Kakao({
-            clientId: process.env.KAKAO_CLIENT_ID!,
-            clientSecret: process.env.KAKAO_CLIENT_SECRET!,
+            clientId: process.env.AUTH_KAKAO_ID!,
+            clientSecret: process.env.AUTH_KAKAO_SECRET!,
         }),
         Naver({
-            clientId: process.env.NAVER_CLIENT_ID!,
-            clientSecret: process.env.NAVER_CLIENT_SECRET!,
+            clientId: process.env.AUTH_NAVER_ID!,
+            clientSecret: process.env.AUTH_NAVER_SECRET!,
         }),
     ],
     pages: {
