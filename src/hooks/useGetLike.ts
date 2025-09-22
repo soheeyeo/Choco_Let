@@ -5,12 +5,12 @@ import { Like } from "@prisma/client";
 import useSession from "./useSession";
 
 export default function useGetLike() {
-    const session = useSession();
+    const { session } = useSession();
     const [likedItem, setLikedItem] = useState<Like[]>([]);
 
     useEffect(() => {
         if (session) {
-            async () => {
+            const fetchLikes = async () => {
                 try {
                     const result = await fetchData("GET", "like");
                     setLikedItem(result);
@@ -18,6 +18,10 @@ export default function useGetLike() {
                     console.log(error);
                 }
             };
+
+            if (session) {
+                fetchLikes();
+            }
         }
     }, [session]);
 
