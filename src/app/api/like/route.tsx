@@ -1,9 +1,9 @@
+import { getSession } from "@/data/authAction";
 import { prisma } from "@/lib/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: Request) {
-    const session = await getServerSession(authOptions);
+export async function POST(req: NextRequest) {
+    const session = await getSession();
     const chocolateData = await req.json();
 
     let find = await prisma.like.findFirst({
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
                 id: find.id,
             },
         });
-        return Response.json(like);
+        return NextResponse.json(like);
     } else {
         if (!session?.user?.id) {
             throw new Error("사용자 인증 정보가 없습니다.");
@@ -30,17 +30,17 @@ export async function POST(req: Request) {
                 userId: session.user.id,
             },
         });
-        return Response.json(like);
+        return NextResponse.json(like);
     }
 }
 
-export async function GET(req: Request) {
-    const session = await getServerSession(authOptions);
+export async function GET(req: NextRequest) {
+    const session = await getSession();
 
     const likedItems = await prisma.like.findMany({
         where: {
             userId: session?.user?.id,
         },
     });
-    return Response.json(likedItems);
+    return NextResponse.json(likedItems);
 }
