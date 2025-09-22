@@ -1,8 +1,9 @@
 import "@/app/globals.css";
 import React from "react";
-import Header from "@/components/common/Header";
 import localFont from "next/font/local";
 import { getSession } from "@/data/authAction";
+import { AuthProvider } from "./AuthProvider";
+import Header from "@/components/common/Header";
 
 export const metadata = {
     title: "ChocoLet",
@@ -40,6 +41,7 @@ const NanumSquareRound = localFont({
             style: "normal",
         },
     ],
+    preload: false,
 });
 
 export default async function RootLayout({
@@ -48,10 +50,12 @@ export default async function RootLayout({
     const session = await getSession();
 
     return (
-        <html lang="ko">
-            <body className={NanumSquareRound.className}>
-                <Header session={session} />
-                {children}
+        <html lang="ko" className={NanumSquareRound.className}>
+            <body>
+                <AuthProvider session={session}>
+                    <Header session={session} />
+                    {children}
+                </AuthProvider>
             </body>
         </html>
     );

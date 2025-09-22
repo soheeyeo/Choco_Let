@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { fetchData } from "@/data/fetchData";
+import { useSessionContext } from "@/app/AuthProvider";
 import Modal from "../common/Modal";
 import { HiOutlineHeart } from "react-icons/hi2";
 import { HiMiniHeart } from "react-icons/hi2";
-import { fetchData } from "@/data/fetchData";
-import useSession from "@/hooks/useSession";
 
 interface LikeBtnProps {
     styles: Record<string, string>;
@@ -12,7 +12,7 @@ interface LikeBtnProps {
 }
 
 export default function LikeBtn({ styles, id, liked }: LikeBtnProps) {
-    const session = useSession();
+    const session = useSessionContext();
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [like, setLike] = useState<boolean>(liked);
 
@@ -41,6 +41,7 @@ export default function LikeBtn({ styles, id, liked }: LikeBtnProps) {
         <>
             {/* 좋아요 버튼 */}
             <button
+                type="button"
                 onClick={handleOnClick}
                 className={styles.like_btn}
                 aria-label={like ? "좋아요 취소" : "좋아요"}
