@@ -1,10 +1,10 @@
 "use client";
+import { useEffect } from "react";
+import { Chocolate } from "@prisma/client";
 import useGetLike from "@/hooks/useGetLike";
 import Link from "next/link";
-import { useEffect } from "react";
 import LikeBtn from "@/components/button/LikeBtn";
 import styles from "./detail.module.css";
-import { Chocolate } from "@prisma/client";
 import Image from "next/image";
 
 export default function Content({ item }: { item: Chocolate }) {
@@ -25,8 +25,10 @@ export default function Content({ item }: { item: Chocolate }) {
                     <Image
                         src={item.image}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         style={{ objectFit: "contain" }}
                         alt={`${item.name} 이미지`}
+                        priority
                     />
                 </div>
                 <div>

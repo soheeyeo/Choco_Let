@@ -18,7 +18,7 @@ export default function LikeItemCard({
 
     return (
         <>
-            <Link href={"/detail/" + chocolate.id}>
+            <Link prefetch={false} href={"/detail/" + chocolate.id}>
                 <div className={styles.item_card}>
                     <Image
                         width={190}
@@ -56,6 +56,7 @@ export default function LikeItemCard({
             </Link>
 
             <button
+                type="button"
                 onClick={() => handleOnClick(chocolate.id)}
                 className={styles.delete_btn}
                 aria-label="삭제 버튼"
