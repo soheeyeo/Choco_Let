@@ -1,7 +1,7 @@
 import styles from "../../test.module.css";
 import testData from "@/util/testData.json";
-import Content from "./Content";
 import { fetchData } from "@/data/fetchData";
+import Content from "./Content";
 
 interface ResultProps {
     type: string;
@@ -14,14 +14,19 @@ export const metadata = {
     },
 };
 
-export default async function Result({ params }: { params: ResultProps }) {
+export default async function Result({
+    params,
+}: {
+    params: Promise<ResultProps>;
+}) {
     // testData에서 결과 항목 가져온 후 URL 파라미터와 일치하는 결과 항목 가져오기
+    const { type } = await params;
     const testResult = testData.result;
     const resultItem = testResult.find((data) => {
         if (Array.isArray(data.type)) {
-            return data.type.includes(params.type);
+            return data.type.includes(type);
         } else {
-            return data.type === params.type;
+            return data.type === type;
         }
     });
 

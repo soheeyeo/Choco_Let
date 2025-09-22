@@ -1,14 +1,21 @@
 import { fetchData } from "@/data/fetchData";
-import Content from "./Content";
+import { getSession } from "@/data/authAction";
 import { notFound } from "next/navigation";
+import Content from "./Content";
 
 interface DetailParams {
     id: string | number;
 }
 
-export async function generateMetadata({ params }: { params: DetailParams }) {
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<DetailParams>;
+}) {
+    const { id } = await params;
+
     try {
-        const item = await fetchData("GET", `detail?id=${params.id}`);
+        const item = await fetchData("GET", `detail/${id}`);
 
         return {
             description: `${item.brand}-${item.name} 상세 정보`,
@@ -27,11 +34,18 @@ export async function generateMetadata({ params }: { params: DetailParams }) {
     }
 }
 
-export default async function Detail({ params }: { params: DetailParams }) {
+export default async function Detail({
+    params,
+}: {
+    params: Promise<DetailParams>;
+}) {
+    const session = await getSession();
     // 초콜릿 상세 정보 데이터 조회
+    const { id } = await params;
     let item;
+
     try {
-        item = await fetchData("GET", `detail?id=${params.id}`);
+        item = await fetchData("GET", `detail/${id}`);
     } catch (error) {
         console.error("상세 데이터 요청 실패:", error);
         item = null;
