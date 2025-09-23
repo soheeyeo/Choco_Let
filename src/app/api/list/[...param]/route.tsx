@@ -2,7 +2,7 @@ import { getItems } from "@/lib/getItems";
 import { NextRequest, NextResponse } from "next/server";
 
 interface RouteParams {
-    param: string;
+    param: string[];
 }
 
 export async function GET(
