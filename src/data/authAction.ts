@@ -139,22 +139,4 @@ export async function signInWithCredentials(
     redirect(callbackUrl);
 }
 
-export async function signInWithKakao() {
-    await signIn("kakao", {
-        redirect: false,
-    });
-}
-
-export async function signInWithGoogle() {
-    await signIn("google", {
-        redirect: false,
-    });
-}
-
-export async function signInWithNaver() {
-    await signIn("naver", {
-        redirect: false,
-    });
-}
-
 export { auth as getSession };

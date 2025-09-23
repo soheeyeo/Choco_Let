@@ -8,7 +8,6 @@ export default auth(async function middleware(req) {
     const { pathname } = req.nextUrl;
 
     if (pathname.startsWith("/login") || pathname.startsWith("/signup")) {
-        console.log("auth", req.auth);
         if (req.auth?.user) {
             return NextResponse.redirect(new URL("/", req.url));
         }
