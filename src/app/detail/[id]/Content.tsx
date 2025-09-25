@@ -8,7 +8,7 @@ import styles from "./detail.module.css";
 import Image from "next/image";
 
 export default function Content({ item }: { item: Chocolate }) {
-    const { likedItemList } = useGetLike();
+    const { likedItemList = [], isError, error } = useGetLike();
 
     useEffect(() => {
         sessionStorage?.removeItem("prevPath");
@@ -17,6 +17,11 @@ export default function Content({ item }: { item: Chocolate }) {
     const liked = likedItemList.includes(item.id);
 
     const price = item.price.toLocaleString();
+
+    if (isError) {
+        console.log("좋아요 조회 실패", error?.message);
+        alert("데이터 조회 중 문제가 발생했습니다. 다시 시도해주세요.");
+    }
 
     return (
         <section className={styles.detail_section}>

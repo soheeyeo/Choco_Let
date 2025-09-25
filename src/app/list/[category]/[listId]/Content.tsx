@@ -11,7 +11,7 @@ interface ContentProps {
 }
 
 export default function Content({ itemList, styles }: ContentProps) {
-    const { likedItemList } = useGetLike();
+    const { likedItemList = [], isError, error } = useGetLike();
     const [selected, setSelected] = useState<string>("추천순");
 
     useEffect(() => {
@@ -41,6 +41,11 @@ export default function Content({ itemList, styles }: ContentProps) {
 
         return sortedData;
     }, [selected]);
+
+    if (isError) {
+        console.log("좋아요 조회 실패", error?.message);
+        alert("데이터 조회 중 문제가 발생했습니다. 다시 시도해주세요.");
+    }
 
     return (
         <>

@@ -1,33 +1,36 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useSessionContext } from "@/app/AuthProvider";
 import { fetchData } from "@/data/fetchData";
 import { Like } from "@prisma/client";
-import useSession from "./useSession";
+import { useQuery } from "@tanstack/react-query";
+
+// 좋아요 데이터 조회
+const fetchLikes = async (): Promise<Like[]> => {
+    const res = await fetchData("GET", "like");
+    return res;
+};
 
 export default function useGetLike() {
-    const { session } = useSession();
-    const [likedItem, setLikedItem] = useState<Like[]>([]);
+    const session = useSessionContext();
+    const userId = session?.user?.id;
 
-    useEffect(() => {
-        if (session) {
-            const fetchLikes = async () => {
-                try {
-                    const result = await fetchData("GET", "like");
-                    setLikedItem(result);
-                } catch (error) {
-                    console.log(error);
-                }
-            };
+    // 좋아요 목록 조회 React Query 훅
+    // userId가 존재할 때만 API 호출 실행
+    const {
+        data: likedItem,
+        isError,
+        error,
+    } = useQuery<Like[]>({
+        queryKey: ["likes", userId],
+        queryFn: fetchLikes,
+        enabled: !!userId,
+    });
 
-            if (session) {
-                fetchLikes();
-            }
-        }
-    }, [session]);
-
-    const likedItemList = likedItem.map((chocolate) => chocolate.chocolateId);
+    const likedItemList = likedItem?.map((chocolate) => chocolate.chocolateId);
 
     return {
         likedItemList,
+        isError,
+        error,
     };
 }
