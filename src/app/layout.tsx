@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { getSession } from "@/data/authAction";
 import { AuthProvider } from "./AuthProvider";
 import Header from "@/components/common/Header";
+import { QueryProvider } from "./QueryProvider";
 
 export const metadata = {
     title: "ChocoLet",
@@ -52,10 +53,12 @@ export default async function RootLayout({
     return (
         <html lang="ko" className={NanumSquareRound.className}>
             <body>
-                <AuthProvider session={session}>
-                    <Header session={session} />
-                    {children}
-                </AuthProvider>
+                <QueryProvider>
+                    <AuthProvider session={session}>
+                        <Header />
+                        {children}
+                    </AuthProvider>
+                </QueryProvider>
             </body>
         </html>
     );
