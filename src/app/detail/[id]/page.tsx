@@ -1,5 +1,4 @@
 import { fetchData } from "@/data/fetchData";
-import { getSession } from "@/data/authAction";
 import { notFound } from "next/navigation";
 import Content from "./Content";
 
@@ -39,7 +38,6 @@ export default async function Detail({
 }: {
     params: Promise<DetailParams>;
 }) {
-    const session = await getSession();
     // 초콜릿 상세 정보 데이터 조회
     const { id } = await params;
     let item;

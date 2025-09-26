@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { Session } from "next-auth";
 import { categories } from "@/constants/constants";
 import Link from "next/link";
 import LogoutBtn from "../button/LogoutBtn";
 import Image from "next/image";
+import { useSessionContext } from "@/app/AuthProvider";
 
-export default function Header({ session }: { session: Session | null }) {
+export default function Header() {
+    const session = useSessionContext();
     const menuRef = useRef<HTMLUListElement | null>(null);
     const menuBtnRef = useRef<HTMLButtonElement | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
