@@ -102,10 +102,10 @@ NextAuth를 활용하여 Custom 로그인 및 소셜 로그인 기능을 구현�
 -   api/ : 서버 기능 관련 디렉토리
 -   components/ : 공통 컴포넌트 디렉토리
 -   constatns/ : 공통 사용 상수 값 관리
+-   data/ : 데이터 액세스 디렉토리
 -   hooks/ : Custom hook 디렉토리
--   lib/ : Prisma Client 관리
--   prisma/ : Prisma 관련 파일 디렉토리
--   public/ : 이미지, 폰트 디렉토리
+-   lib/ : 공용 유틸리티 관리
+-   types/ : 타입 정의
 -   util/ : 공통 데이터 관리
 
 ```
@@ -117,9 +117,6 @@ NextAuth를 활용하여 Custom 로그인 및 소셜 로그인 기능을 구현�
 ┃ ┃ ┣ 📂like
 ┃ ┃ ┣ 📂list
 ┃ ┃ ┗ 📂result
-┃ ┣ 📂components
-┃ ┃ ┣ 📂button
-┃ ┃ ┗ 📂common
 ┃ ┣ 📂detail
 ┃ ┃ ┗ 📂[id]
 ┃ ┣ 📂like
@@ -132,11 +129,14 @@ NextAuth를 활용하여 Custom 로그인 및 소셜 로그인 기능을 구현�
 ┃ ┃ ┣ 📂[id]
 ┃ ┃ ┗ 📂result
 ┃ ┃ ┃ ┗ 📂[type]
+┣ 📂components
+┃ ┃ ┣ 📂button
+┃ ┃ ┗ 📂common
 ┣ 📂constants
+┣ 📂data
 ┣ 📂hooks
 ┣ 📂lib
-┣ 📂prisma
-┣ 📂public
+┣ 📂types
 ┗ 📂util
 ```
 
@@ -153,11 +153,54 @@ https://github.com/soheeyeo/Choco_Let/blob/5b37e7130a8819c204bb1fbadd5e1c8077970
 
 https://github.com/soheeyeo/Choco_Let/blob/5b37e7130a8819c204bb1fbadd5e1c8077970fa9/app/like/page.js#L7-L20
 
+<br>
+
+## ♻️ 리팩토링
+### 인증 기능
+- 기존 <br>
+  API Routes(`/api/auth/signup`) + fetch 기반 클라이언트 처리
+  
+- 변경 <br>
+  Server Actions + useActionState + Zod 검증
+  
+(인증 기능에 한해 Server Actions로 리팩토링, 나머지는 API Routes 기능을 유지했습니다.)
+
+https://github.com/soheeyeo/Choco_Let/blob/86bf2692477b04486d9f9d1aaddf50069ed789af/src/data/authAction.ts#L9-L73
+
+
+### 유효성 검사
+- 기존 <br>
+  `useState`로 값 검증 및 에러 처리
+
+- 변경 <br>
+  Zod 활용하여 유효성 검증 및 에러 메세지 관리
+  
+https://github.com/soheeyeo/Choco_Let/blob/86bf2692477b04486d9f9d1aaddf50069ed789af/src/lib/validators.ts#L28-L33
+
+
+### 데이터 조회 로직
+- 기존 <br>
+  데이터 조회 조건(가격 범위 등)이 변경될 때마다 Prisma `findMany` 코드가 여러 곳에 중복되어 작성 <br>
+
+- 변경 <br>
+  반복되는 DB 조회 로직을 `getItems`라는 공통 함수로 모듈화, Next.js의 `cache` 함수를 적용하여 성능 최적화 <br>
+  
+https://github.com/soheeyeo/Choco_Let/blob/86bf2692477b04486d9f9d1aaddf50069ed789af/src/lib/getItems.ts#L5-L8
+
+### 좋아요 기능
+- 기존 <br>
+  `useState`와 `useEffect`로 좋아요 목록 조회 및 좋아요 상태 변경
+  
+- 변경 <br>
+  React Query의 `useQuery`와 `useMutation`을 활용하여 API 호출 최적화 및 데이터 자동 갱신
+  
+https://github.com/soheeyeo/Choco_Let/blob/86bf2692477b04486d9f9d1aaddf50069ed789af/src/app/like/page.tsx#L27-L50
+
 ## 💥 트러블 슈팅
 
 ### 1) GET 요청시 Query String의 특수문자 사라지는 이슈
 
-테스트 결과 페이지에서 데이터를 요청할 때 Query String으로 제품명을 넘기도록 구현하였습니다. 하지만 특수문자 `&`이나 `%`가 포함된 제품명을 넘겨받을 때 특수문자가 사라지는 현상이 발생하였습니다.
+테스트 결과 페이지에서 데이터를 요청할 때 Query String으로 제품명을 넘기도록 구현하였습니다. 하지만 특수문자 `&`이나 `%`가 포함된 제품명을 넘겨받을 때 특수문자가 사라지는 현상이 발생했습니다.
 
 -   원인 <br>
     `&`와 `+` 등 몇몇 특수문자들은 GET 방식일 때 웹에서 사용되는 지정된 문자이기 때문에 전송되지 않음.
@@ -165,16 +208,28 @@ https://github.com/soheeyeo/Choco_Let/blob/5b37e7130a8819c204bb1fbadd5e1c8077970
 -   해결 <br>
     POST 요청으로 변경하여 특수문자를 포함한 제품명 그대로 넘겨주었습니다.
 
-https://github.com/soheeyeo/Choco_Let/blob/5b37e7130a8819c204bb1fbadd5e1c8077970fa9/app/test/result/%5Btype%5D/page.js#L12-L19
+https://github.com/soheeyeo/Choco_Let/blob/86bf2692477b04486d9f9d1aaddf50069ed789af/src/app/test/result/%5Btype%5D/page.tsx#L38-L45
 
 ### 2) 로그인 오류 시 설정한 에러 핸들링이 출력되지 않는 이슈
 
-이메일이나 비밀번호 오류 시 nextauth 파일에 설정한 에러 핸들링이 작동하지 않는 현상이 발생하였습니다.
+이메일이나 비밀번호 오류 시 nextauth 파일에 설정한 에러 핸들링이 작동하지 않는 현상이 발생했습니다.
 
 -   원인 <br>
     `try ...catch`문을 사용하지 않고 예외 처리를 해준 것이 문제. await으로 비동기 작업 시 예외가 발생하면 코드가 그대로 중단됨.
 
 -   해결 <br>
-    `try ...catch`문을 사용하여 예외가 발생했을 때 `throw`문을 통해 에러 메세지를 전달하도록 수정하였습니다.
+    `try ...catch`문을 사용하여 예외가 발생했을 때 `throw`문을 통해 에러 메세지를 전달하도록 수정했습니다.
 
-https://github.com/soheeyeo/Choco_Let/blob/5b37e7130a8819c204bb1fbadd5e1c8077970fa9/app/api/auth/%5B...nextauth%5D/route.js#L25-L56
+https://github.com/soheeyeo/Choco_Let/blob/86bf2692477b04486d9f9d1aaddf50069ed789af/src/auth.config.ts#L17-L55
+
+### 3) 새로고침 시 인증 상태 UI가 깜빡이는 이슈
+
+로그인한 상태에서 페이지를 새로고침할 경우, 세션 유무에 따라 변경되는 Header 컴포넌트의 버튼이 일시적으로 '로그인' 상태로 보였다가 다시 '로그아웃' 상태로 변경되는 UI 깜빡임 현상이 발생했습니다.
+
+-   원인 <br>
+    클라이언트 컴포넌트에서 `useSession()`을 사용해 세션을 가져올 때, hydration 전에 기본값 `session = null`을 가짐. 새로고침 시 브라우저가 먼저 비로그인 상태로 렌더링한 뒤 세션 정보를 받아 UI를 업데이트함.
+
+-   해결 <br>
+    `useSession()` 대신 서버에서 세션 정보를 가져와 Context에 저장하고, Header 컴포넌트는 Context에서 세션 정보를 받아 UI를 렌더링하도록 수정했습니다.
+
+https://github.com/soheeyeo/Choco_Let/blob/86bf2692477b04486d9f9d1aaddf50069ed789af/src/app/AuthProvider.tsx#L5-L27
