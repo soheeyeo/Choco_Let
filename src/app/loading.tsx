@@ -12,10 +12,8 @@ export default function Loading({ style, result }: LoadingProps) {
                 <div className="loading_drop"></div>
             </div>
             <h2 className="loading_txt">Loading...</h2>
-            {result ? (
+            {result && (
                 <p className="loading_txt_result">초콜릿을 찾고 있어요🍫</p>
-            ) : (
-                ""
             )}
         </section>
     );

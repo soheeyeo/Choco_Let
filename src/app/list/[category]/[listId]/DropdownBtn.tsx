@@ -46,7 +46,11 @@ export default function DropdownBtn({
 
     return (
         <div className={styles.dropdown} ref={dropDownRef}>
-            <button className={styles.dropdown_btn} onClick={handleToggle}>
+            <button
+                type="button"
+                className={styles.dropdown_btn}
+                onClick={handleToggle}
+            >
                 {selected}
                 <span className={styles.icon}></span>
             </button>
@@ -59,6 +63,7 @@ export default function DropdownBtn({
                     return (
                         <li key={option}>
                             <button
+                                type="button"
                                 className={styles.dropdown_item}
                                 onClick={handleSelect}
                             >

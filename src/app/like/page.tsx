@@ -1,41 +1,67 @@
 "use client";
+import { fetchData } from "@/data/fetchData";
+import { Chocolate } from "@prisma/client";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useSessionContext } from "../AuthProvider";
+import Loading from "../loading";
 import styles from "./like.module.css";
 import LikeItemCard from "./LikeItemCard";
-import { useState, useEffect } from "react";
-import Loading from "../loading";
-import { Chocolate } from "@prisma/client";
-import { fetchData } from "@/data/fetchData";
+
+// 좋아요 목록 조회
+const fetchLikeList = async (): Promise<Chocolate[]> => {
+    const res = await fetchData("GET", "like/likeList");
+    return res;
+};
+
+// 좋아요 아이템 삭제
+const deleteLikeItem = async (id: number) => {
+    const res = await fetchData("DELETE", "like/likeList", id);
+    return res;
+};
 
 export default function Like() {
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [likeList, setLikedList] = useState<Chocolate[]>([]);
+    const queryClient = useQueryClient();
+    const session = useSessionContext();
+    const userId = session?.user.id;
 
-    useEffect(() => {
-        (async () => {
-            try {
-                // 관심목록 API 요청
-                const result = await fetchData("GET", "like/likeList");
-                setLikedList(result);
-                setIsLoading(false);
-            } catch (error) {
-                console.log(error);
-            }
-        })();
-    }, []);
+    // 좋아요 목록 조회 React Query 훅
+    // userId가 존재할 때만 API 호출 실행
+    const {
+        data: likeList = [],
+        isLoading,
+        isFetching,
+        isError,
+        error,
+    } = useQuery<Chocolate[]>({
+        queryKey: ["likes", userId],
+        queryFn: fetchLikeList,
+        enabled: !!userId,
+    });
+
+    // 좋아요 아이템 삭제 React Query mutation
+    const { mutate } = useMutation<Chocolate[], Error, number>({
+        mutationFn: (id: number) => deleteLikeItem(id),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["likes", userId] });
+        },
+        onError: (error) => {
+            console.log("좋아요 삭제 실패", error);
+        },
+    });
 
     // 삭제 버튼 클릭 핸들러
     const handleDeleteClick = async (id: number) => {
-        try {
-            await fetchData("DELETE", "like/likeList", id);
-            setLikedList((prev) => prev.filter((item) => item.id !== id));
-        } catch (error) {
-            console.log(error);
-        }
+        mutate(id);
     };
+
+    if (isError) {
+        console.log("좋아요 목록 조회 실패", error?.message);
+        alert("좋아요 목록 조회 중 문제가 발생했습니다. 다시 시도해주세요.");
+    }
 
     return (
         <main>
-            {!isLoading ? (
+            {!isFetching && !isLoading ? (
                 <section className={styles.like_section}>
                     <div className={styles.like_tit}>
                         <h1 className="h1_tit">관심 목록</h1>
@@ -51,7 +77,6 @@ export default function Like() {
                                         <LikeItemCard
                                             chocolate={chocolate}
                                             styles={styles}
-                                            id={chocolate.id}
                                             handleOnClick={handleDeleteClick}
                                         />
                                     </li>

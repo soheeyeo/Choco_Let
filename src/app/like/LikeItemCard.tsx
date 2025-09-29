@@ -1,33 +1,32 @@
-import { fetchData } from "@/data/fetchData";
 import { Chocolate } from "@prisma/client";
+import Image from "next/image";
 import Link from "next/link";
 import { HiXMark } from "react-icons/hi2";
 
 interface LikeItemCardProps {
     chocolate: Chocolate;
     styles: Record<string, string>;
-    id: number;
     handleOnClick: (id: number) => Promise<void>;
 }
 
 export default function LikeItemCard({
     chocolate,
     styles,
-    id,
     handleOnClick,
 }: LikeItemCardProps) {
     const formattedPrice = chocolate.price.toLocaleString();
 
     return (
         <>
-            <Link href={"/detail/" + chocolate.id}>
+            <Link prefetch={false} href={"/detail/" + chocolate.id}>
                 <div className={styles.item_card}>
-                    <div className={styles.img_wrapper}>
-                        <img
-                            className={styles.item_img}
-                            src={chocolate.image}
-                        />
-                    </div>
+                    <Image
+                        width={190}
+                        height={190}
+                        src={chocolate.image}
+                        className={styles.item_img}
+                        alt={`${chocolate.name} 이미지`}
+                    />
                     <div className={styles.info_container}>
                         <div className={styles.btn_container}>
                             <div className={styles.feature_box}>
@@ -57,8 +56,10 @@ export default function LikeItemCard({
             </Link>
 
             <button
-                onClick={() => handleOnClick(id)}
+                type="button"
+                onClick={() => handleOnClick(chocolate.id)}
                 className={styles.delete_btn}
+                aria-label="삭제 버튼"
             >
                 <HiXMark color="#EB7EA2" size="18px" />
             </button>

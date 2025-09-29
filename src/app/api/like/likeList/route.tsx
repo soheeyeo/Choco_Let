@@ -1,9 +1,9 @@
+import { getSession } from "@/data/authAction";
 import { prisma } from "@/lib/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../../auth/[...nextauth]/route";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: Request) {
-    const session = await getServerSession(authOptions);
+export async function GET(req: NextRequest) {
+    const session = await getSession();
 
     const likedItems = await prisma.like.findMany({
         where: {
@@ -21,10 +21,10 @@ export async function GET(req: Request) {
             id: { in: id },
         },
     });
-    return Response.json(likeList);
+    return NextResponse.json(likeList);
 }
 
-export async function DELETE(req: Request) {
+export async function DELETE(req: NextRequest) {
     const chocolateId = await req.json();
 
     let find = await prisma.like.findFirst({
@@ -39,5 +39,5 @@ export async function DELETE(req: Request) {
         },
     });
 
-    return Response.json(deleteItem);
+    return NextResponse.json(deleteItem);
 }

@@ -14,6 +14,7 @@ export default function Login() {
                 <LoginForm styles={styles} />
                 <div>
                     <button
+                        type="button"
                         className={styles.join_link_btn}
                         onClick={() => router.push("/signup")}
                     >
@@ -26,7 +27,7 @@ export default function Login() {
                             onClick={() => {
                                 signIn("kakao", {
                                     redirect: true,
-                                    callbackUrl:
+                                    redirectTo:
                                         sessionStorage.getItem("prevPath") ||
                                         "/",
                                 });
@@ -38,7 +39,7 @@ export default function Login() {
                             onClick={() => {
                                 signIn("naver", {
                                     redirect: true,
-                                    callbackUrl:
+                                    redirectTo:
                                         sessionStorage.getItem("prevPath") ||
                                         "/",
                                 });
@@ -51,7 +52,7 @@ export default function Login() {
                             onClick={() => {
                                 signIn("google", {
                                     redirect: true,
-                                    callbackUrl:
+                                    redirectTo:
                                         sessionStorage.getItem("prevPath") ||
                                         "/",
                                 });

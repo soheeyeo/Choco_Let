@@ -1,15 +1,20 @@
 "use client";
+import React, { useEffect } from "react";
 import styles from "../test.module.css";
 import testData from "@/util/testData.json";
 import useTestQna from "@/hooks/useTestQna";
 import { IoChevronBackOutline } from "react-icons/io5";
-import { useEffect } from "react";
 
 interface TestContentParams {
     id: string;
 }
 
-export default function TestContent({ params }: { params: TestContentParams }) {
+export default function TestContent({
+    params,
+}: {
+    params: Promise<TestContentParams>;
+}) {
+    const routeParams = React.use(params);
     const { qna, disabled, handleSaveType, handleBack } = useTestQna();
 
     useEffect(() => {
@@ -23,7 +28,7 @@ export default function TestContent({ params }: { params: TestContentParams }) {
 
     const giftQna = testData.QNA_G;
     const tasteQna = testData.QNA;
-    const findQna = (params.id === "1" ? giftQna : tasteQna).find(
+    const findQna = (routeParams.id === "1" ? giftQna : tasteQna).find(
         (data) => data.id === qna
     );
 
@@ -44,6 +49,7 @@ export default function TestContent({ params }: { params: TestContentParams }) {
                             <div className={styles.test_options}>
                                 {findQna.a.map((option, i) => (
                                     <button
+                                        type="button"
                                         className={styles.test_option}
                                         key={i}
                                         onClick={() =>
@@ -57,6 +63,7 @@ export default function TestContent({ params }: { params: TestContentParams }) {
                             {!disabled && (
                                 <div className={styles.btn_container}>
                                     <button
+                                        type="button"
                                         className={styles.test_back_btn}
                                         onClick={handleBack}
                                     >

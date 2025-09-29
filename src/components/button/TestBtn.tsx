@@ -1,6 +1,6 @@
 "use client";
-import styles from "@/app/page.module.css";
 import { useRouter } from "next/navigation";
+import styles from "@/app/page.module.css";
 
 export default function TestBtn() {
     const router = useRouter();
@@ -11,9 +11,9 @@ export default function TestBtn() {
 
     return (
         <button
+            type="button"
             className={styles.test_btn}
             onClick={handleOnClick}
-            aria-label="초콜릿 추천 테스트 바로가기"
         >
             초콜릿 추천 테스트 바로가기
         </button>

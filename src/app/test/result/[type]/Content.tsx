@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Loading from "@/app/loading";
 import { Chocolate } from "@prisma/client";
+import Image from "next/image";
 
 interface ContentProps {
     styles: Record<string, string>;
@@ -10,8 +11,6 @@ interface ContentProps {
 }
 
 export default function Content({ styles, item }: ContentProps) {
-    const data = item;
-
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -33,27 +32,29 @@ export default function Content({ styles, item }: ContentProps) {
                         제품을 클릭하면 상세 페이지로 이동합니다.
                     </p>
                     <div className={styles.result_item_container}>
-                        <Link href={"/detail/" + data.id}>
+                        <Link href={"/detail/" + item.id}>
                             <div className={styles.result_feature_container}>
                                 <div className={styles.result_feature_box}>
-                                    <p>{data.country}</p>
+                                    <p>{item.country}</p>
                                 </div>
                                 <div className={styles.result_feature_box}>
-                                    <p>{data.type}</p>
+                                    <p>{item.type}</p>
                                 </div>
                             </div>
                             <div className={styles.result_img_wrapper}>
-                                <img
-                                    className={styles.result_img}
-                                    src={data.image}
+                                <Image
+                                    width={320}
+                                    height={320}
+                                    src={item.image}
+                                    alt={`${item.name} 이미지`}
                                 />
                             </div>
                             <div className={styles.result_info_container}>
                                 <h4 className={styles.result_brand_name}>
-                                    {data.brand}
+                                    {item.brand}
                                 </h4>
                                 <p className={styles.result_item_name}>
-                                    {data.name}
+                                    {item.name}
                                 </p>
                             </div>
                         </Link>

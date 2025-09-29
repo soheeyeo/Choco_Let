@@ -1,14 +1,20 @@
 import { fetchData } from "@/data/fetchData";
+import { notFound } from "next/navigation";
 import Content from "./Content";
-import styles from "./detail.module.css";
 
 interface DetailParams {
     id: string | number;
 }
 
-export async function generateMetadata({ params }: { params: DetailParams }) {
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<DetailParams>;
+}) {
+    const { id } = await params;
+
     try {
-        const item = await fetchData("GET", `detail?id=${params.id}`);
+        const item = await fetchData("GET", `detail/${id}`);
 
         return {
             description: `${item.brand}-${item.name} 상세 정보`,
@@ -27,27 +33,29 @@ export async function generateMetadata({ params }: { params: DetailParams }) {
     }
 }
 
-export default async function Detail({ params }: { params: DetailParams }) {
+export default async function Detail({
+    params,
+}: {
+    params: Promise<DetailParams>;
+}) {
     // 초콜릿 상세 정보 데이터 조회
+    const { id } = await params;
     let item;
+
     try {
-        item = await fetchData("GET", `detail?id=${params.id}`);
+        item = await fetchData("GET", `detail/${id}`);
     } catch (error) {
         console.error("상세 데이터 요청 실패:", error);
         item = null;
     }
 
+    if (!item) {
+        notFound();
+    }
+
     return (
         <main>
-            {item ? (
-                <Content item={item} />
-            ) : (
-                <div className={styles.not_found_container}>
-                    <p className={styles.not_found_message}>
-                        해당 상품을 찾을 수 없습니다.
-                    </p>
-                </div>
-            )}
+            <Content item={item} />
         </main>
     );
 }

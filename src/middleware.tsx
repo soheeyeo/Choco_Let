@@ -1,19 +1,19 @@
-import { getToken } from "next-auth/jwt";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import authConfig from "./auth.config";
+import NextAuth from "next-auth";
 
-const secret = process.env.SECRET;
+const { auth } = NextAuth(authConfig);
 
-export async function middleware(req: NextRequest) {
-    const token = await getToken({ req, secret });
+export default auth(async function middleware(req) {
     const { pathname } = req.nextUrl;
 
     if (pathname.startsWith("/login") || pathname.startsWith("/signup")) {
-        if (token) {
+        if (req.auth?.user) {
             return NextResponse.redirect(new URL("/", req.url));
         }
     } else if (pathname.startsWith("/like")) {
-        if (!token) {
+        if (!req.auth?.user) {
             return NextResponse.redirect(new URL("/", req.url));
         }
     }
-}
+});

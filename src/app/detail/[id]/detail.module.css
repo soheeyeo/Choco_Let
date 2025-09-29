@@ -9,12 +9,9 @@
 }
 
 .img_wrapper {
+    position: relative;
     width: 500px;
     height: 500px;
-}
-
-.info_img {
-    width: 100%;
 }
 
 .feature_container {
@@ -121,7 +118,7 @@
 
     .img_wrapper {
         width: 60%;
-        height: 60%;
+        aspect-ratio: 1 / 1;
     }
 
     .feature_container {

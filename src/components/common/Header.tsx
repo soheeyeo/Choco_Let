@@ -1,15 +1,13 @@
 "use client";
-
-import { categories } from "@/constants/constants";
-import { useSession } from "next-auth/react";
-import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { categories } from "@/constants/constants";
+import Link from "next/link";
 import LogoutBtn from "../button/LogoutBtn";
-import Loading from "@/app/loading";
+import Image from "next/image";
+import { useSessionContext } from "@/app/AuthProvider";
 
 export default function Header() {
-    const { data: session, status } = useSession();
-    const isLoading = status === "loading";
+    const session = useSessionContext();
     const menuRef = useRef<HTMLUListElement | null>(null);
     const menuBtnRef = useRef<HTMLButtonElement | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -44,9 +42,10 @@ export default function Header() {
             <div className="navbar">
                 <h1 className="logo">
                     <Link href="/" className="logo_wrapper">
-                        <img
+                        <Image
+                            width={77}
+                            height={32}
                             src="/assets/logo.png"
-                            className="logo_img"
                             alt="로고"
                         />
                     </Link>
@@ -54,6 +53,7 @@ export default function Header() {
                 <ul
                     ref={menuRef}
                     className={`link_li ${isMenuOpen ? "active" : ""}`}
+                    id="menu"
                 >
                     {categories.map((category, i) => {
                         return (
@@ -73,34 +73,43 @@ export default function Header() {
                     </li>
                 </ul>
 
-                <div className="account_li">
-                    {!isLoading && (
+                <ul className="account_li">
+                    {session?.user ? (
                         <>
-                            {session ? (
-                                <>
-                                    <button
-                                        ref={menuBtnRef}
-                                        className="menu_btn"
-                                        onClick={handleClickMenu}
-                                    >
-                                        메뉴
-                                    </button>
-                                    <Link href="/like" className="like_btn">
-                                        관심 목록
-                                    </Link>
-                                    <LogoutBtn />
-                                </>
-                            ) : (
-                                <>
-                                    <Link href="/signup" className="signUp_btn">
-                                        회원가입
-                                    </Link>
-                                    <Link href="/login">로그인</Link>
-                                </>
-                            )}
+                            <li className="account_item">
+                                <button
+                                    type="button"
+                                    ref={menuBtnRef}
+                                    className="menu_btn"
+                                    onClick={handleClickMenu}
+                                    aria-controls="menu"
+                                    aria-expanded={isMenuOpen}
+                                >
+                                    메뉴
+                                </button>
+                            </li>
+                            <li className="account_item">
+                                <Link href="/like" className="like_btn">
+                                    관심 목록
+                                </Link>
+                            </li>
+                            <li className="account_item">
+                                <LogoutBtn />
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li className="account_item">
+                                <Link href="/signup" className="signUp_btn">
+                                    회원가입
+                                </Link>
+                            </li>
+                            <li className="account_item">
+                                <Link href="/login">로그인</Link>
+                            </li>
                         </>
                     )}
-                </div>
+                </ul>
             </div>
         </header>
     );

@@ -2,27 +2,34 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { categories } from "@/constants/constants";
 import TestBtn from "@/components/button/TestBtn";
+import Image from "next/image";
 
 export default function Home() {
     return (
         <main>
             <section className={styles.banner_section}>
                 <div className={styles.banner_wrapper}>
-                    <div className={styles.banner_img}>
-                        <div className={styles.txt_container}>
-                            <h1 className={styles.banner_txt}>
-                                Choco<span>Let</span>
-                            </h1>
-                            <p className={styles.banner_subtxt}>
-                                당신을 위한 특별한 초콜릿 추천
-                            </p>
-                            <p className={styles.banner_subtxt}>
-                                <span>초코</span>
-                                <span>렛</span>과 함께 새로운 맛의 발견을
-                                경험해보세요!
-                            </p>
-                            <TestBtn />
-                        </div>
+                    <Image
+                        src="/assets/banner.webp"
+                        fill
+                        priority
+                        fetchPriority="high"
+                        alt="배너 이미지"
+                        className={styles.banner_img}
+                    />
+                    <div className={styles.txt_container}>
+                        <h1 className={styles.banner_txt}>
+                            Choco<span>Let</span>
+                        </h1>
+                        <p className={styles.banner_subtxt}>
+                            당신을 위한 특별한 초콜릿 추천
+                        </p>
+                        <p className={styles.banner_subtxt}>
+                            <span>초코</span>
+                            <span>렛</span>과 함께 새로운 맛의 발견을
+                            경험해보세요!
+                        </p>
+                        <TestBtn />
                     </div>
                 </div>
             </section>
