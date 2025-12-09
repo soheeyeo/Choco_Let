@@ -42,7 +42,6 @@ const NanumSquareRound = localFont({
             style: "normal",
         },
     ],
-    preload: false,
 });
 
 export default async function RootLayout({
@@ -51,8 +50,8 @@ export default async function RootLayout({
     const session = await getSession();
 
     return (
-        <html lang="ko" className={NanumSquareRound.className}>
-            <body>
+        <html lang="ko">
+            <body className={NanumSquareRound.className}>
                 <QueryProvider>
                     <AuthProvider session={session}>
                         <Header />

@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef, useEffect, useCallback } from "react";
 
 interface ContentProps {
@@ -54,25 +55,23 @@ export default function DropdownBtn({
                 {selected}
                 <span className={styles.icon}></span>
             </button>
-            <ul
-                className={`${styles.dropdown_li} ${
-                    isOpen ? "" : styles.close
-                }`}
-            >
-                {sortOption.map((option) => {
-                    return (
-                        <li key={option}>
-                            <button
-                                type="button"
-                                className={styles.dropdown_item}
-                                onClick={handleSelect}
-                            >
-                                {option}
-                            </button>
-                        </li>
-                    );
-                })}
-            </ul>
+            {isOpen && (
+                <ul className={styles.dropdown_li}>
+                    {sortOption.map((option) => {
+                        return (
+                            <li key={option}>
+                                <button
+                                    type="button"
+                                    className={styles.dropdown_item}
+                                    onClick={handleSelect}
+                                >
+                                    {option}
+                                </button>
+                            </li>
+                        );
+                    })}
+                </ul>
+            )}
         </div>
     );
 }
