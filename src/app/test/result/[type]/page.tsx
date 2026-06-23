@@ -1,6 +1,6 @@
 import styles from "../../test.module.css";
 import testData from "@/util/testData.json";
-import { fetchData } from "@/data/fetchData";
+import { getItemByName } from "@/lib/getItems";
 import Content from "./Content";
 
 interface ResultProps {
@@ -35,12 +35,9 @@ export default async function Result({
         return null;
     }
 
-    // 테스트 결과 데이터 조회
-    let item;
-    try {
-        item = await fetchData("POST", "result", resultItem.name);
-    } catch (error) {
-        console.error("fetchData 요청 실패:", error);
+    const item = await getItemByName(resultItem.name);
+
+    if (!item) {
         return <p>결과 데이터를 불러오는 데 실패했습니다.</p>;
     }
 

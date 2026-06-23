@@ -1,5 +1,5 @@
 import styles from "./list.module.css";
-import { fetchData } from "@/data/fetchData";
+import { getListItems } from "@/lib/getListItems";
 import NavList from "./NavList";
 import Content from "./Content";
 import { notFound } from "next/navigation";
@@ -60,15 +60,7 @@ export default async function List({
     params: Promise<ListParams>;
 }) {
     const { category, listId } = await params;
-    // 초콜릿 데이터 조회
-    let itemList;
-
-    try {
-        itemList = await fetchData("GET", `list/${category}/${listId}`);
-    } catch (error) {
-        console.error("리스트 데이터 요청 실패:", error);
-        itemList = null;
-    }
+    const itemList = await getListItems(category, listId);
 
     if (!itemList) {
         notFound();

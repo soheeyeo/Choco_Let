@@ -1,10 +1,15 @@
-import { fetchData } from "@/data/fetchData";
+import { getItemById } from "@/lib/getItems";
 import { notFound } from "next/navigation";
 import Content from "./Content";
 
 interface DetailParams {
-    id: string | number;
+    id: string;
 }
+
+const parseId = (raw: string) => {
+    const n = Number(raw);
+    return Number.isInteger(n) ? n : null;
+};
 
 export async function generateMetadata({
     params,
@@ -12,25 +17,22 @@ export async function generateMetadata({
     params: Promise<DetailParams>;
 }) {
     const { id } = await params;
+    const parsed = parseId(id);
+    const item = parsed === null ? null : await getItemById(parsed);
 
-    try {
-        const item = await fetchData("GET", `detail/${id}`);
-
-        return {
-            description: `${item.brand}-${item.name} 상세 정보`,
-            openGraph: {
-                description: `${item.brand}-${item.name} 상세 정보`,
-            },
-        };
-    } catch (error) {
-        console.error("메타데이터 fetch 실패:", error);
+    if (!item) {
         return {
             description: "초콜릿 상세 정보",
-            openGraph: {
-                description: "초콜릿 상세 정보",
-            },
+            openGraph: { description: "초콜릿 상세 정보" },
         };
     }
+
+    return {
+        description: `${item.brand}-${item.name} 상세 정보`,
+        openGraph: {
+            description: `${item.brand}-${item.name} 상세 정보`,
+        },
+    };
 }
 
 export default async function Detail({
@@ -38,16 +40,9 @@ export default async function Detail({
 }: {
     params: Promise<DetailParams>;
 }) {
-    // 초콜릿 상세 정보 데이터 조회
     const { id } = await params;
-    let item;
-
-    try {
-        item = await fetchData("GET", `detail/${id}`);
-    } catch (error) {
-        console.error("상세 데이터 요청 실패:", error);
-        item = null;
-    }
+    const parsed = parseId(id);
+    const item = parsed === null ? null : await getItemById(parsed);
 
     if (!item) {
         notFound();
