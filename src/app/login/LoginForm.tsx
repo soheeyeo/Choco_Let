@@ -1,3 +1,4 @@
+"use client";
 import { useActionState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { signInWithCredentials } from "@/data/authAction";
