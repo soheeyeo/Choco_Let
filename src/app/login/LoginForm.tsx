@@ -6,13 +6,9 @@ export default function LoginForm({ styles }: StylesProps) {
     const searchParams = useSearchParams();
     const [state, action, pending] = useActionState(
         signInWithCredentials,
-        undefined
+        undefined,
     );
     const callbackUrl = searchParams.get("next") || "/";
-
-    // const handleTestLogin = () => {
-    //     handleLogin("test@test.com", "test1234");
-    // };
 
     useEffect(() => {
         if (state?.status === 400 || state?.status === 500) {
@@ -51,13 +47,6 @@ export default function LoginForm({ styles }: StylesProps) {
                 disabled={pending}
             >
                 로그인
-            </button>
-            <button
-                type="submit"
-                className={styles.test_login_btn}
-                // onClick={handleTestLogin}
-            >
-                테스트 계정으로 로그인
             </button>
         </form>
     );
